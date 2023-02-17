@@ -369,7 +369,10 @@ function MusicWheel(props) {
     }
 
     if (type == "Keys") {
-      alert("You need to purchase the membership");
+      // alert("You need to purchase the membership");
+      setImageTypeIndex(type);
+      toggleActiveStyle(ind);
+      await fetchSongsData(type);
     }
     if (type == "Letter") {
       setImageTypeIndex(type);
@@ -377,7 +380,10 @@ function MusicWheel(props) {
       await fetchSongsData(type);
     }
     if (type == "Staff") {
-      alert("You need to purchase the membership");
+      // alert("You need to purchase the membership");
+      setImageTypeIndex(type);
+      toggleActiveStyle(ind);
+      await fetchSongsData(type);
     }
     if (type == "Duration") {
       if (durationDataIndex == durationData.length - 1) {
@@ -602,7 +608,7 @@ function MusicWheel(props) {
                 btnHandler("Letter", e, 1);
               }}
               style={{
-                background: "#fff",
+                // background: "#fff",
                 padding: "8px",
                 borderRadius: "5px",
               }}
