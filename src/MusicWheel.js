@@ -97,6 +97,7 @@ function MusicWheel(props) {
   const [intensityIndex, setIntensityIndex] = useState(0);
   const [packageDataIndex, setPackageDataIndex] = useState(1);
   const [imageTypeIndex, setImageTypeIndex] = useState("");
+  // const [imageTypeActive, setImageTypeActive] = useState(1);
   const [imageTypeActive, setImageTypeActive] = useState(false);
   const [durationDataIndex, setDurationDataIndex] = useState(0);
   const [totalSongs, setTotalSongs] = useState(0);
@@ -109,7 +110,7 @@ function MusicWheel(props) {
   const [allPlaySongsDuration, setAllPlaySongsDuration] = useState(0);
   const tempoData = ["", "Calm", "Lively", "Mellow", "Moderate"];
   const intensityData = ["", "HI", "LI", "MI"];
-  const packageData = ["", "", "P", "F", "F"];
+  const packageData = ["", "F", "P", "", "F"];
   const packageName = ["", "Mix", "Premium", "Original"];
   const imageTypeData = ["", "Keys", "Letter", "Staff"];
   const durationData = [
@@ -338,9 +339,14 @@ function MusicWheel(props) {
     //}
   }
   async function btnHandler(type, e, ind) {
+    // if (imageTypeIndex == "") {
+    //      alert("Please seect any ImageType Key");
+    //    } else {
+setImageTypeActive(1)
     if (type == "Tempo") {
       if (tempoIndex == tempoData.length - 1) {
         setTempoIndex(0);
+        
       } else {
         setTempoIndex(tempoIndex + 1);
 
@@ -676,13 +682,13 @@ function MusicWheel(props) {
                 btnHandler("Package", e);
               }}
             >
-              {packageDataIndex == 0 ? (
+              {packageDataIndex == 1 ? (
                 <Image src={Mix} alt="..." />
-              ) : packageDataIndex == 1 ? (
-                <Image src={Mix1} alt="..." />
               ) : packageDataIndex == 2 ? (
-                <Image src={Mix2} alt="..." />
+                <Image src={Mix1} alt="..." />
               ) : packageDataIndex == 3 ? (
+                <Image src={Mix2} alt="..." />
+              ) : packageDataIndex == 4 ? (
                 <Image src={Mix3} alt="..." />
               ) : (
                 <Image src={Mix} alt="..." />
