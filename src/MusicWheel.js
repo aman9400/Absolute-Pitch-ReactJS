@@ -1,6 +1,7 @@
 import { Grid, Paper, Button } from "@mui/material";
 import React, { useState, useEffect, useRef } from "react";
 import useStyles from "../utils/styles.module";
+import Tooltip from "@material-ui/core/Tooltip";
 import styles from "./style.module.css";
 import Image from "next/image";
 import { getCookie, setCookie, deleteCookie } from "cookies-next";
@@ -51,13 +52,13 @@ const customStyles = {
     },
   },
   when: (row) => row.includes(p.mp4),
-    style: {
-      backgroundColor: 'green',
-      color: 'white',
-      '&:hover': {
-        cursor: 'pointer',
-      },
+  style: {
+    backgroundColor: "green",
+    color: "white",
+    "&:hover": {
+      cursor: "pointer",
     },
+  },
   cells: {
     style: {
       paddingLeft: "8px", // override the cell padding for data cells
@@ -69,14 +70,14 @@ const customStyles = {
 
 const conditionalRowStyles = [
   {
-    when: row => row.song_name.includes("_P."),
+    when: (row) => row.song_name.includes("_P."),
     style: {
-      backgroundColor: 'gray',
-      color: 'black',
-      '&$hover:hover': {
-        backgroundColor: 'green !important',
-        cursor: 'pointer',
-              },
+      backgroundColor: "gray",
+      color: "black",
+      "&$hover:hover": {
+        backgroundColor: "green !important",
+        cursor: "pointer",
+      },
     },
   },
   // You can also pass a callback to style for additional customization
@@ -246,14 +247,12 @@ function MusicWheel(props) {
     "https://mylatinhome.com/absolute/note-sound/Ab.wav",
   ];
 
-
   const getClassNamesFor = (id) => {
     if (!sortConfig) {
       return;
     }
     return sortConfig.key === id ? sortConfig.direction : undefined;
   };
-
 
   const requestSort = (key) => {
     console.log("*** requestSort", key, sortConfig);
@@ -268,9 +267,6 @@ function MusicWheel(props) {
     setSortConfig({ key, direction });
   };
 
-
-
-  
   // let lastInd = -1;
   const columns = [
     {
@@ -288,14 +284,18 @@ function MusicWheel(props) {
       sortable: true,
       width: "70px",
     },
-    { name: "Tempo", selector: (row) => row.tempo, sortable: true,width: "76px", },
+    {
+      name: "Tempo",
+      selector: (row) => row.tempo,
+      sortable: true,
+      width: "76px",
+    },
     {
       name: "Intensity",
       selector: (row) => row.intensity,
       sortable: true,
       width: "90px",
     },
-   
   ];
 
   function changeHandler(c, ind, event) {
@@ -587,7 +587,6 @@ function MusicWheel(props) {
     secondsToHms(totalduraion);
   }, 1000);
 
-
   // const TABLE_HEADERS = [
   //   { name: "ID Number", id: "userNumber" },
   //   { name: "User Type", id: "userType" },
@@ -598,8 +597,12 @@ function MusicWheel(props) {
   return (
     <div className={classes.circleCard}>
       <div className={classes.resetBtn}>
-      <Grid container spacing={1} style={{ marginTop:'15px' ,border:'none'}}>
-            <Grid item xs={3} md={4}>
+        <Grid
+          container
+          spacing={1}
+          style={{ marginTop: "15px", border: "none" }}
+        >
+          <Grid item xs={3} md={4}>
             <button
               className={`${
                 imageTypeActive == "1" ? classes.activeKey : classes.topButtons
@@ -626,11 +629,16 @@ function MusicWheel(props) {
               }}
               style={{
                 borderRadius: "5px",
-                width:'100%',
-                height:'30px',
+                width: "100%",
+                height: "30px",
               }}
             >
-              <Image src={staff} alt="alt"  height='24px' style={{marginTop:'-2px'}} />
+              <Image
+                src={staff}
+                alt="alt"
+                height="24px"
+                style={{ marginTop: "-2px" }}
+              />
             </button>
           </Grid>
           <Grid item xs={4} md={4}>
@@ -643,15 +651,15 @@ function MusicWheel(props) {
               }}
               style={{
                 borderRadius: "5px",
-                width:'100%',
-                height:'30px',
+                width: "100%",
+                height: "30px",
               }}
             >
               <Image
                 src={keys}
                 alt="alt"
-                height='40px' 
-                style={{ maxWidth: "100%",}}
+                height="40px"
+                style={{ maxWidth: "100%" }}
               />
             </button>
           </Grid>
@@ -831,8 +839,8 @@ function MusicWheel(props) {
           </Grid>
         </Grid>
         <div className={classes.resetBtn}>
-          <Grid container spacing={1}>
-            <Grid item xs={3} md={4} style={{ padding: "2px" }}>
+          <Grid container spacing={1} style={{ padding: "2px" ,}}>
+            <Grid item xs={3} md={4} style={{ padding: "2px",marginLeft:'30px' }}>
               {/* <div className={classes.imageCount}> */}
 
               <p
@@ -855,7 +863,7 @@ function MusicWheel(props) {
               </p>
               {/* </div> */}
             </Grid>
-            <Grid item xs={3} md={4} style={{ padding: "2px" }}>
+            {/* <Grid item xs={3} md={4} style={{ padding: "2px" }}>
               <p
                 style={{
                   background: "#E90D0D",
@@ -864,28 +872,57 @@ function MusicWheel(props) {
                 }}
               >
                 {" "}
-                <button
-                  style={{
-                    background: "#E90D0D",
-                    color: "#FFFFFF",
-                    width: "100%",
-                    border: "none",
-                    cursor: "pointer",
-                  }}
-                  onClick={() => {
-                    ResetCounter();
-                  }}
-                >
-                  Reset
-                </button>{" "}
+                <Tooltip title="Click for Reset Image Counter" placement="top">
+                  <button
+                    style={{
+                      background: "#E90D0D",
+                      color: "#FFFFFF",
+                      width: "100%",
+                      border: "none",
+                      cursor: "pointer",
+                    }}
+                    onClick={() => {
+                      ResetCounter();
+                    }}
+                  >
+                    Reset
+                  </button>
+                </Tooltip>{" "}
               </p>
-            </Grid>
-            <Grid item xs={3} md={4} style={{ padding: "2px" }}>
+            </Grid> */}
+            <Grid item xs={3} md={5} style={{ padding: "2px",display:'flex', }}>
+              <p
+                style={{
+                  background: "#E90D0D",
+                  padding: "2px",
+                  borderRadius: "5px 0px 0px 5px",
+                  width: "40%",
+                }}
+              >
+                <Tooltip title="Click for Reset Image Counter" placement="top">
+                  <button
+                    style={{
+                      background: "#E90D0D",
+                      color: "#FFFFFF",
+                      width: "100%",
+                      border: "none",
+                      cursor: "pointer",
+                    }}
+                    onClick={() => {
+                      ResetCounter();
+                    }}
+                  >
+                    Reset
+                  </button>
+                </Tooltip>
+              </p>
               <p
                 style={{
                   background: "#fff",
                   padding: "2px",
                   borderRadius: "5px",
+                  width: "60%",
+                  borderRadius: "0px 5px 5px 0px",
                 }}
               >
                 {" "}
