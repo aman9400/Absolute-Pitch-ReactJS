@@ -71,6 +71,7 @@ function LandingPage() {
   const [imageCount, setImageCount] = useState(0);
   const [duration, setDuration] = useState(0);
   const [durationLast, setDurationLast] = useState(0);
+  const [remainingTime, setRemainingTime] = useState(0);
   const [imageCountLast, setImageCountLast] = useState(0);
   const [playSongposition, setPlaySongposition] = useState(0);
 
@@ -86,27 +87,42 @@ function LandingPage() {
     setImageCount(songsData[ind].no_of_images);
     setPlaySongposition(++ind);
     secondsToHms(songsData[ind].duration)
-    // const getNextSong = document.getElementById("childid").children[ind];
-    //  getNextSong.scrollIntoView(); 
+    const getNextSong = document.getElementById("childid").children[ind];
+     getNextSong.scrollIntoView(); 
      
   }
+  
   function secondsToHms(Seconds) {
     let d = Number(Seconds);
     var m = Math.floor((d % 3600) / 60);
     var s = Math.floor((d % 3600) % 60);
-
     var mDisplay = m > 0 ? m : "00";
     var sDisplay = s > 0 ? s : "00";
     let time = m + ":" + s;
+
     setDuration(time)
   }
+   function remainingTimes(totalSecond){
+    let rem = Number(totalSecond);
+    alert(rem);
+    alert(durationLast);
+    var minuts = Math.floor((rem % 3600) / 60);
+    var sec = Math.floor((rem % 3600) % 60);
+    var mimutsDisplay = minuts > 0 ? minuts : "00";
+    var secDisplay = sec > 0 ? sec : "00";
+    let remtime = minuts + ":" + sec;
+    alert(remtime);
+    setRemainingTime(remtime);
+consolelog(remtime,'rem.....hI')
+   }
   function totleTimeAndImage(data,index)
   {
     setImageCountLast(data[index].no_of_images);
     setAllImageCount(parseInt(imageCountLast) + parseInt(data[index].no_of_images));
     setDurationLast(data[index].duration);
-    setTotalSeconds(parseInt(durationLast) + parseInt(data[index].duration));
-    
+    // setTotalSeconds(parseInt(durationLast) + parseInt(data[index].duration));
+    console.log(totalSeconds,'total duration in seconds');
+    remainingTimes(totalSeconds);
   }
 
   const classes = useStyles();
@@ -124,10 +140,12 @@ function LandingPage() {
           songNote={songNote}
           allImageCount={allImageCount}
           duration={duration}
-          totalSeconds={totalSeconds}
+          durationLast={durationLast}
           imageCount={imageCount}
           playSongposition={playSongposition}
           setAllImageCount={setAllImageCount}
+          setTotalSeconds={setTotalSeconds}
+          remainingTime={remainingTime}
         />
       </Grid>
       <Grid item xs={12} md={6}>
@@ -136,6 +154,7 @@ function LandingPage() {
           musicData={data}
           musicIndex={index}
           totleTimeAndImage={totleTimeAndImage}
+         
         />
       </Grid>
     </Grid>

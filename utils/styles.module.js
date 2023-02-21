@@ -654,7 +654,7 @@ const useStyles = makeStyles({
   tableStyle: {
     //  border :'1px solid black',
     width: "100%",
-    padding: "5px",
+    // padding: "5px",
     textAlign: "center",
     height:'98%'
   },
@@ -680,7 +680,7 @@ const useStyles = makeStyles({
     lineHeight: "30px",
     marginLeft: "2px",
     height: "190px",
-    // overflow: "scroll",
+    overflow: "scroll",
     "@media (min-width: 600px) and (max-width:768px)": {
       marginTop: "10px",
       width: "92%",

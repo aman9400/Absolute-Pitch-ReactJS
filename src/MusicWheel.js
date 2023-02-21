@@ -85,6 +85,7 @@ const conditionalRowStyles = [
 function MusicWheel(props) {
   const classes = useStyles();
   var totalduraion = 0;
+  
   const [nord, setNord] = useState({ c1: [], c2: [], c3: [] });
   const [highlightedNord, setHighlightedNord] = useState({
     c1: [],
@@ -104,9 +105,6 @@ function MusicWheel(props) {
   const [allsongTime, setAllsongTime] = useState(0);
   const [deg, setDeg] = useState(45);
   const [nordIndex111, setNordIndex111] = useState(0);
-  const [remainingTime, setRemainingTime] = useState(0);
-  const [minutes, setMinutes] = useState(0);
-  const [seconds, setSeconds] = useState(0);
   const [allPlaySongsDuration, setAllPlaySongsDuration] = useState(0);
   const tempoData = ["", "Calm", "Lively", "Mellow", "Moderate"];
   const intensityData = ["", "HI", "LI", "MI"];
@@ -428,6 +426,7 @@ setImageTypeActive(1)
   }
 
   function secondsToHms(Seconds) {
+    
     let d = Number(Seconds);
     console.log(Seconds, "...Secondss");
     var m = Math.floor((d % 3600) / 60);
@@ -516,13 +515,9 @@ setImageTypeActive(1)
   // }
 
   function ResetCounter() {
-    secondsToHms(totalduraion);
+    // secondsToHms(totalduraion);
     props.setAllImageCount(0);
 
-    // var countDown = document.getElementById("duration");
-
-    countDown.innerHTML = "00:00";
-    // window.location.reload(false);
   }
   function rowClick() {
     let node = document.getElementsByTagName(DataTable);
@@ -589,8 +584,12 @@ setImageTypeActive(1)
         }
       });
   }
+  
   setTimeout(() => {
+    totalduraion = Number(totalduraion) - Number(props.durationLast)
+    props.setTotalSeconds(totalduraion);
     secondsToHms(totalduraion);
+
   }, 1000);
 
   // const TABLE_HEADERS = [
@@ -850,14 +849,15 @@ setImageTypeActive(1)
               {/* <div className={classes.imageCount}> */}
 
               <p
-                id="duration"
+                // id="duration"
                 style={{
                   background: "#fff",
                   padding: "2px",
                   borderRadius: "5px",
                 }}
               >
-                {" "}
+                
+                {props.remainingTime ? props.remainingTime : allPlaySongsDuration}
                 {songsData && songsData.length > 0
                   ? songsData.map((val, ind) =>
                       console.log(
@@ -1031,10 +1031,11 @@ setImageTypeActive(1)
           {/* </div> */}
           {/* <hr /> */}
           {/* <div> */}
-          {/* <table className={classes.tableStyle} id={props.id}>
+          <table className={classes.tableStyle} id={props.id}>
               <tr className={classes.trStyle}>
                 <th className={classes.thStyle}>Title</th>
                 <th className={classes.thStyle}>Composer</th>
+                <th className={classes.thStyle}>Note</th>
                 <th className={classes.thStyle}>Tempo</th>
                 <th
                   className={classes.thStyle}
@@ -1046,7 +1047,7 @@ setImageTypeActive(1)
                 >
                   Intensity
                 </th>
-                <th className={classes.thStyle}>Note</th>
+                
               </tr>
               {songsData && songsData.length > 0
                 ? songsData.map((val, ind) =>
@@ -1061,9 +1062,10 @@ setImageTypeActive(1)
                       >
                         <td>{val["song_title"]}</td>
                         <td>{val["composer"]}</td>
+                        <td>{val["note_or_cord"]}</td>
                         <td>{val["tempo"]}</td>
                         <td>{val["intensity"]}</td>
-                        <td>{val["note_or_cord"]}</td>
+                       
                       </tr>
                     ) : (
                       <tr
@@ -1073,16 +1075,17 @@ setImageTypeActive(1)
                       >
                         <td>{val["song_title"]}</td>
                         <td>{val["composer"]}</td>
+                        <td>{val["note_or_cord"]}</td>
                         <td>{val["tempo"]}</td>
                         <td>{val["intensity"]}</td>
-                        <td>{val["note_or_cord"]}</td>
+                        
                       </tr>
                     )
                   )
                 : "No Songs Found"}
-            </table> */}
+            </table>
 
-          {songsData && songsData.length > 0 ? (
+          {/* {songsData && songsData.length > 0 ? (
             <DataTable
               id="data"
               columns={columns}
@@ -1095,7 +1098,7 @@ setImageTypeActive(1)
             />
           ) : (
             "No Songs Found"
-          )}
+          )} */}
           {/* </div> */}
         </Paper>
       </div>
