@@ -476,6 +476,11 @@ const useStyles = makeStyles({
     "&:hover": {
       // background: "radial-gradient(blue 40%, #000)",
     },
+    "@media (min-width: 1280px) and (max-width:1680px)": {
+      height: "110px",
+    width: "110px",
+    right: "12%",
+    },
   },
 
   tempoNewBtnBottom: {
@@ -497,7 +502,9 @@ const useStyles = makeStyles({
     // background: "radial-gradient(#FFF 40%, #000)",
     cursor: "pointer",
     "@media (min-width: 1280px) and (max-width:1680px)": {
-      top: "82%",
+      height: "150px",
+      width: "150px",
+      top: "76%",
     },
     // background: "radial-gradient(#FFF 40%, #000)",
     // transform: "rotate(-25.33deg)",
@@ -633,7 +640,7 @@ const useStyles = makeStyles({
   },
   songScrolling: {
     width: "92%",
-    padding: "5px 10px 5px 10px",
+    padding: "0px 10px 0px 10px",
     marginLeft: "14px",
     background: "#fff",
     fontSize: "14px",

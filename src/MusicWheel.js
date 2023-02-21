@@ -22,9 +22,9 @@ import Intencity from "../public/assets/images/Intencity1st.png";
 import Intencity2 from "../public/assets/images/Intencity2.png";
 import Intencity3 from "../public/assets/images/Intencity3rd.png";
 import Intencity4 from "../public/assets/images/Intencity4th.png";
-import Duration1 from "../public/assets/images/GroupDuration1.png";
-import Duration2 from "../public/assets/images/GroupDuration2.png";
-import Duration3 from "../public/assets/images/GroupDuration3.png";
+import Duration1 from "../public/assets/images/Duration 1st.png";
+import Duration2 from "../public/assets/images/Duration 2nd.png";
+import Duration3 from "../public/assets/images/Duration 3rd.png";
 import DataTable from "react-data-table-component";
 import nl2br from "react-nl2br";
 import LabelIcon from "@mui/icons-material/Label";
@@ -437,34 +437,34 @@ setImageTypeActive(1)
     let time = m + ":" + s;
 
     setAllPlaySongsDuration(time);
-    countdown(mDisplay, sDisplay);
+    // countdown(mDisplay, sDisplay);
   }
 
-  function countdown(minutes, seconds) {
-    var mins = minutes;
-    seconds++;
-    function tick() {
-      var counter = document.getElementById("duration");
-      var current_minutes = mins;
-      seconds--;
-      counter.innerHTML =
-        current_minutes.toString() +
-        ":" +
-        (seconds < 10 ? "0" : "") +
-        String(seconds);
+  // function countdown(minutes, seconds) {
+  //   var mins = minutes;
+  //   seconds++;
+  //   function tick() {
+  //     var counter = document.getElementById("duration");
+  //     var current_minutes = mins;
+  //     seconds--;
+  //     counter.innerHTML =
+  //       current_minutes.toString() +
+  //       ":" +
+  //       (seconds < 10 ? "0" : "") +
+  //       String(seconds);
 
-      if (seconds > 0) {
-        let timeoutHandle = setTimeout(tick, 1000);
-      } else {
-        if (mins > 1) {
-          setTimeout(function() {
-            countdown(mins - 1, 59);
-          }, 1000);
-        }
-      }
-    }
-    tick();
-  }
+  //     if (seconds > 0) {
+  //       let timeoutHandle = setTimeout(tick, 1000);
+  //     } else {
+  //       if (mins > 1) {
+  //         setTimeout(function() {
+  //           countdown(mins - 1, 59);
+  //         }, 1000);
+  //       }
+  //     }
+  //   }
+  //   tick();
+  // }
 
   function highlightNord(songsData, ind) {
     const current_song = songsData[ind];
@@ -584,9 +584,9 @@ setImageTypeActive(1)
         }
       });
   }
-  
+  totalduraion = Number(totalduraion) - Number(props.durationLast)
+
   setTimeout(() => {
-    totalduraion = Number(totalduraion) - Number(props.durationLast)
     props.setTotalSeconds(totalduraion);
     secondsToHms(totalduraion);
 
@@ -602,6 +602,67 @@ setImageTypeActive(1)
   return (
     <div className={classes.circleCard}>
       <div className={classes.resetBtn}>
+        
+        <Grid
+          container
+          spacing={1}
+          style={{ marginTop: "5px", border: "none" }}
+        >
+          <Grid item xs={3} md={4}>
+            <button
+              className={`${
+                imageTypeActive == "1" ? classes.activeKey : classes.topButtons
+              }`}
+              onClick={(e) => {
+                alert("Free Clicked");
+              }}
+              style={{
+                // background: "#fff",
+                padding: "4px",
+                borderRadius: "5px",
+              }}
+            >
+             Free
+            </button>
+          </Grid>
+          <Grid item xs={4} md={4}>
+            <button
+              className={`${
+                imageTypeActive == "2" ? classes.activeKey : classes.topButtons
+              }`}
+              onClick={(e) => {
+                alert("Basic Clicked");
+              }}
+              style={{
+                // background: "#fff",
+                padding: "4px",
+                borderRadius: "5px",
+              }}
+            >
+             Basic
+            </button>
+          </Grid>
+          <Grid item xs={4} md={4}>
+            <button
+              className={`${
+                imageTypeActive == "3" ? classes.activeKey : classes.topButtons
+              }`}
+              onClick={(e) => {
+                alert("Premium Clicked");
+              }}
+              style={{
+                // background: "#fff",
+                padding: "4px",
+                borderRadius: "5px",
+              }}
+            >
+           Premium
+            </button>
+          </Grid>
+        </Grid>
+      </div>
+      <div className={classes.resetBtn}>
+        
         <Grid
           container
           spacing={1}
@@ -707,7 +768,7 @@ setImageTypeActive(1)
                   <Image src={Duration1} alt="..." />
                 ) : durationData[durationDataIndex] <= 240 &&
                   durationData[durationDataIndex] >= 121 ? (
-                  <Image src={Duration2} alt="..." />
+                  <Image src={Duration2} alt="..." width='200px' height='200px'/>
                 ) : (
                   <Image src={Duration3} alt="..." />
                 )
@@ -845,7 +906,7 @@ setImageTypeActive(1)
         </Grid>
         <div className={classes.resetBtn}>
           <Grid container spacing={1} style={{ padding: "2px" ,}}>
-            <Grid item xs={3} md={4} style={{ padding: "2px",marginLeft:'30px' }}>
+            <Grid item xs={3} md={3} style={{ padding: "2px",marginLeft:'30px' }}>
               {/* <div className={classes.imageCount}> */}
 
               <p
@@ -869,7 +930,7 @@ setImageTypeActive(1)
               </p>
               {/* </div> */}
             </Grid>
-            {/* <Grid item xs={3} md={4} style={{ padding: "2px" }}>
+            <Grid item xs={3} md={3} style={{ padding: "2px" }}>
               <p
                 style={{
                   background: "#E90D0D",
@@ -878,7 +939,7 @@ setImageTypeActive(1)
                 }}
               >
                 {" "}
-                <Tooltip title="Click for Reset Image Counter" placement="top">
+                <Tooltip title="Click for Reset" placement="top">
                   <button
                     style={{
                       background: "#E90D0D",
@@ -888,15 +949,15 @@ setImageTypeActive(1)
                       cursor: "pointer",
                     }}
                     onClick={() => {
-                      ResetCounter();
+                      setPackageDataIndex(0);fetchSongsData();
                     }}
                   >
                     Reset
                   </button>
                 </Tooltip>{" "}
               </p>
-            </Grid> */}
-            <Grid item xs={3} md={5} style={{ padding: "2px",display:'flex', }}>
+            </Grid>
+            <Grid item xs={3} md={4} style={{ padding: "2px",display:'flex', }}>
               <p
                 style={{
                   background: "#E90D0D",
@@ -940,8 +1001,8 @@ setImageTypeActive(1)
       </div>
 
       <div className={classes.songScrolling}>
-        <Grid container spacing={2} className={classes.bottomBoxContainer}>
-          <Grid item xs={2} md={1}>
+        <Grid container spacing={2} className={classes.bottomBoxContainer} style={{padding:'0px'}}>
+          <Grid item xs={2} md={1} style={{padding:'0px'}}>
             <p
               className={`${classes.bottomBox}`}
               style={{
@@ -954,7 +1015,7 @@ setImageTypeActive(1)
               {props.playSongposition}/{totalSongs}
             </p>
           </Grid>
-          <Grid item xs={10} md={11}>
+          <Grid item xs={10} md={11} style={{padding:'0px'}}>
             <p
               style={{
                 width: "100%",
