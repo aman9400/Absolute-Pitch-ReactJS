@@ -189,8 +189,8 @@ const useStyles = makeStyles({
     borderRadius: "10px",
 
     height: "90vh",
-    "@media (min-width: 1280px) and (max-width:1480px)": { height: "130vh" },
-    "@media (min-width: 1481px) and (max-width:1920px)": { height: "105vh" },
+    "@media (min-width: 1280px) and (max-width:1480px)": { height: "135vh" },
+    "@media (min-width: 1481px) and (max-width:1920px)": { height: "110vh" },
     "@media (min-width: 600px) and (max-width:768px)": {
       margin: "25px 15px 15px 25px !important",
     },
@@ -432,8 +432,8 @@ const useStyles = makeStyles({
   },
   tempoBtnTop: {
     position: "absolute",
-    height: "120px",
-    width: "120px",
+    height: "150px",
+    width: "150px",
     border: "2px solid #0058ab !important",
     background: "#333333",
     display: "flex",
@@ -455,42 +455,14 @@ const useStyles = makeStyles({
       // background: "radial-gradient(blue 40%, #000)",
     },
   },
-  tempoBtnNew: {
-    position: "absolute",
-    // left: " -50%",
-    right: "10%",
-    top: "1.25%",
-    bottom: "-72.49%",
-    height: "120px",
-    width: "120px",
-    border: 'none',
-    background: "#333333",
-    display: "flex",
-    alignItems: "center",
-    // background: "radial-gradient(#FFF 40%, #000)",
-    textAlign: "center",
-    cursor: "pointer",
-    borderRadius: "50%",
-    // background: "radial-gradient(#FFF 40%, #000)",
-    transform: "rotate(0.33deg)",
-    "&:hover": {
-      // background: "radial-gradient(blue 40%, #000)",
-    },
-    "@media (min-width: 1280px) and (max-width:1680px)": {
-      height: "110px",
-    width: "110px",
-    right: "12%",
-    },
-  },
-
   tempoNewBtnBottom: {
     position: "absolute",
     left: " 10%",
     right: "16.31%",
     top: "70%",
     bottom: "-72.49%",
-    height: "120px",
-    width: "120px",
+    height: "150px",
+    width: "150px",
     // border: "2px solid #0058ab !important",
     background: "#333333",
     display: "flex",
@@ -530,7 +502,9 @@ const useStyles = makeStyles({
     cursor: "pointer",
     borderRadius: "50%",
     "@media screen and (min-width: 1280px) and (max-width:1680px)": {
-      top: "82%",
+      height: "150px",
+      width: "150px",
+      top: "76%",
     },
     // background: "radial-gradient(#FFF 40%, #000)",
     // transform: "rotate(208.33deg)",
@@ -540,6 +514,35 @@ const useStyles = makeStyles({
     },
     
   },
+  tempoBtnNew: {
+    position: "absolute",
+    // left: " -50%",
+    right: "10%",
+    top: "1.25%",
+    bottom: "-72.49%",
+    height: "120px",
+    width: "120px",
+    border: 'none',
+    background: "#333333",
+    display: "flex",
+    alignItems: "center",
+    // background: "radial-gradient(#FFF 40%, #000)",
+    textAlign: "center",
+    cursor: "pointer",
+    borderRadius: "50%",
+    // background: "radial-gradient(#FFF 40%, #000)",
+    transform: "rotate(0.33deg)",
+    "&:hover": {
+      // background: "radial-gradient(blue 40%, #000)",
+    },
+    "@media (min-width: 1280px) and (max-width:1680px)": {
+      height: "150px",
+    width: "150px",
+    right: "12%",
+    },
+  },
+
+  
   IntensityBtnNewActive: {
     position: "absolute",
     left: " -40%",
@@ -641,7 +644,7 @@ const useStyles = makeStyles({
   songScrolling: {
     width: "92%",
     padding: "0px 10px 0px 10px",
-    marginLeft: "14px",
+    marginLeft: "18px",
     background: "#fff",
     fontSize: "14px",
     color: "#000",
@@ -672,6 +675,7 @@ const useStyles = makeStyles({
   },
   trStyle: {
     background: "black",
+    height: '30px',
     // border:'2px solid black',
   },
   thStyle: {
