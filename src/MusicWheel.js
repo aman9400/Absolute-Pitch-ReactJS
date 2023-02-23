@@ -18,7 +18,7 @@ import Tempo1 from "../public/assets/images/Tempo 1st.png";
 import Tempo2 from "../public/assets/images/Tempo 2nd.png";
 import Tempo3 from "../public/assets/images/Tempo 3rd.png";
 import Tempo4 from "../public/assets/images/Tempo 4th.png";
-import Intencity from "../public/assets/images/Intencity1st.png";
+import Intencity from "../public/assets/images/Intencity.png";
 import Intencity2 from "../public/assets/images/Intencity2.png";
 import Intencity3 from "../public/assets/images/Intencity3rd.png";
 import Intencity4 from "../public/assets/images/Intencity4th.png";
@@ -99,6 +99,7 @@ function MusicWheel(props) {
   const [packageDataIndex, setPackageDataIndex] = useState(1);
   const [imageTypeIndex, setImageTypeIndex] = useState("");
   const [groups, setGroups] = useState("");
+  const [packageActive, setPackageActive] = useState("F");
   // const [imageTypeActive, setImageTypeActive] = useState(1);
   const [imageTypeActive, setImageTypeActive] = useState(false);
   const [durationDataIndex, setDurationDataIndex] = useState(0);
@@ -107,9 +108,9 @@ function MusicWheel(props) {
   const [deg, setDeg] = useState(45);
   const [nordIndex111, setNordIndex111] = useState(0);
   const [allPlaySongsDuration, setAllPlaySongsDuration] = useState(0);
-  const tempoData = ["", "Calm", "Lively", "Mellow", "Moderate"];
-  const intensityData = ["", "HI", "LI", "MI"];
-  const packageData = ["", "F", "P", "", "F"];
+  const tempoData = ["", "Calm","Mellow","Moderate","Lively"];
+  const intensityData = ["","LI", "MI","HI",];
+  const packageData = ["", "F", "P", "P", "F"];
   const packageName = ["", "Mix", "Premium", "Original"];
   const imageTypeData = ["", "Keys", "Letter", "Staff"];
   const durationData = [
@@ -351,13 +352,15 @@ function MusicWheel(props) {
     if (type == "Letter") {
       setSubscriptionActivePlan(2)
       setGroups("G1,G2,G3,G4");
-      setPackageDataIndex(0);
+      // setPackageDataIndex(0);
+      setPackageActive('');
       setImageTypeIndex("Letter");
       
     }
     if (type == "Premium") {
         setSubscriptionActivePlan(3)
-        setPackageDataIndex(2);
+        // setPackageDataIndex(2);
+        setPackageActive('P');
         setGroups("");
         setImageTypeIndex("Letter,Staff,Keys");
     }
@@ -382,11 +385,36 @@ function MusicWheel(props) {
     if (type == "Package") {
       if (packageDataIndex == packageData.length - 1) {
         setPackageDataIndex(0);
+        // setPackageActive('');
       } else {
         setPackageDataIndex(packageDataIndex + 1);
+        if(packageDataIndex=='1'){
+          
+          setImageTypeIndex("Letter");
+          setGroups("G1,G2,G3,G4");
+          setSubscriptionActivePlan(2)
+          setPackageActive('');
+        }
+        if(packageDataIndex=='2'){
+          setGroups("");
+          // setImageTypeIndex("");
+          setPackageActive('P');
+          setSubscriptionActivePlan(0)
+        }
+        if(packageDataIndex=='3'){
+          setImageTypeIndex("Letter,Staff,Keys");
+          // setGroups("G1,G2,G3,G4");
+          setPackageActive('P');
+        }
+
         setNord({ c1: [], c2: [], c3: [] });
         setNordData([]);
       }
+      if(packageDataIndex == '4'){
+        setPackageActive('F');
+        setPackageDataIndex(1);
+      }
+     
     }
     if (type == "Intensity") {
       if (intensityIndex == intensityData.length - 1) {
@@ -577,8 +605,8 @@ function MusicWheel(props) {
     urlencoded.append("intensity", intensityData[intensityIndex]);
     urlencoded.append("tempo", tempoData[tempoIndex]);
     urlencoded.append("image_type", imageTypeIndex);
-    urlencoded.append("package", packageData[packageDataIndex]);
-
+    urlencoded.append("package",packageActive);
+console.log(packageActive,'packageActive....');
     var requestOptions = {
       method: "POST",
       headers: myHeaders,

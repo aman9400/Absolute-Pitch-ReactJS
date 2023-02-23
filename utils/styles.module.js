@@ -536,8 +536,8 @@ const useStyles = makeStyles({
       // background: "radial-gradient(blue 40%, #000)",
     },
     "@media (min-width: 1280px) and (max-width:1680px)": {
-      height: "150px",
-    width: "150px",
+      height: "130px",
+    width: "130px",
     right: "12%",
     },
   },
