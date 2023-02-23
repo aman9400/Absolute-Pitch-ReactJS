@@ -448,6 +448,9 @@ function MusicWheel(props) {
         setDurationDataIndex(0);
       } else {
         setDurationDataIndex(durationDataIndex + 1);
+        setPackageActive('');
+        setImageTypeIndex("Letter,Staff,Keys");
+        console.log(durationData[durationDataIndex],'duration ...aly')
         setNord({ c1: [], c2: [], c3: [] });
         setNordData([]);
       }
