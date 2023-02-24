@@ -753,13 +753,14 @@ console.log(packageActive,'packageActive....');
               }`}
               onClick={(e) => {
                 btnHandler("Staff", e, 2);
-                disabled={disable}
+                
               }}
               style={{
                 borderRadius: "5px",
                 width: "100%",
                 height: "28px",
               }}
+              disabled={`disable`}
             >
               <Image
                 src={staff}
@@ -782,6 +783,7 @@ console.log(packageActive,'packageActive....');
                 width: "100%",
                 height: "30px",
               }}
+              disabled={`disable`}
             >
               <Image
                 src={keys}
