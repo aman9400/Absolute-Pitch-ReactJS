@@ -239,6 +239,22 @@ const useStyles = makeStyles({
       boxShadow: "-5px 5px 5px gray",
     },
   },
+  topButtonsDisable: {
+    fontSize: "13px",
+    fontWeight: "500",
+    width: "100%",
+    cursor: "pointer",
+    border:'none',
+    justifyContent: "center",
+    alignContent: "center",
+    display: "flex",
+    background: "#fff",
+    "&:hover": {
+      disabled:true,
+      
+      cursor:'none',
+    },
+  },
   activeKey: {
     fontSize: "13px",
     fontWeight: "500",

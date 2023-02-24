@@ -19,9 +19,10 @@ import Tempo2 from "../public/assets/images/Tempo 2nd.png";
 import Tempo3 from "../public/assets/images/Tempo 3rd.png";
 import Tempo4 from "../public/assets/images/Tempo 4th.png";
 import Intencity from "../public/assets/images/Intencity.png";
-import Intencity2 from "../public/assets/images/Intencity2.png";
-import Intencity3 from "../public/assets/images/Intencity3rd.png";
-import Intencity4 from "../public/assets/images/Intencity4th.png";
+import Intencity2 from "../public/assets/images/Intencity1st.png";
+import Intencity3 from "../public/assets/images/Intencity2nd.png";
+import Intencity4 from "../public/assets/images/Intencity3rd.png";
+import DurationDefault from "../public/assets/images/Duration.png";
 import Duration1 from "../public/assets/images/GroupDuration1.png";
 import Duration2 from "../public/assets/images/GroupDuration2.png";
 import Duration3 from "../public/assets/images/GroupDuration3.png";
@@ -103,6 +104,8 @@ function MusicWheel(props) {
   // const [imageTypeActive, setImageTypeActive] = useState(1);
   const [imageTypeActive, setImageTypeActive] = useState(false);
   const [durationDataIndex, setDurationDataIndex] = useState(0);
+  const [disable, setDisable] = useState(false);
+  
   const [totalSongs, setTotalSongs] = useState(0);
   const [subscriptionActivePlan, setSubscriptionActivePlan] = useState(0);
   const [deg, setDeg] = useState(45);
@@ -355,6 +358,7 @@ function MusicWheel(props) {
       // setPackageDataIndex(0);
       setPackageActive('');
       setImageTypeIndex("Letter");
+      setDisable(true);
       
     }
     if (type == "Premium") {
@@ -398,13 +402,14 @@ function MusicWheel(props) {
         if(packageDataIndex=='2'){
           setGroups("");
           // setImageTypeIndex("");
+          setImageTypeIndex("Letter,Staff,Keys");
           setPackageActive('P');
           setSubscriptionActivePlan(0)
         }
         if(packageDataIndex=='3'){
           setImageTypeIndex("Letter,Staff,Keys");
-          // setGroups("G1,G2,G3,G4");
-          setPackageActive('P');
+          setGroups("G1,G2,G3,G4");
+          setPackageActive('');
         }
 
         setNord({ c1: [], c2: [], c3: [] });
@@ -748,6 +753,7 @@ console.log(packageActive,'packageActive....');
               }`}
               onClick={(e) => {
                 btnHandler("Staff", e, 2);
+                disabled={disable}
               }}
               style={{
                 borderRadius: "5px",
@@ -823,19 +829,8 @@ console.log(packageActive,'packageActive....');
                 durationData[durationDataIndex] <= 120 ? (
                   <Image src={Duration1} alt="..." />
                 ) : durationData[durationDataIndex] <= 240 &&
-                  durationData[durationDataIndex] >= 121 ? (
-                  <Image
-                    src={Duration2}
-                    alt="..."
-                    width="200px"
-                    height="200px"
-                  />
-                ) : (
-                  <Image src={Duration3} alt="..." />
-                )
-              ) : (
-                <Image src={Duration1} alt="..." />
-              )}{" "}
+                  durationData[durationDataIndex] >= 121 ? ( <Image src={Duration2} alt="..." width="200px" height="200px" /> ) : durationData[durationDataIndex] > 240 ? ( <Image src={Duration3} alt="..." width="200px" height="200px" /> ): ( <Image src={DurationDefault} alt="..." />)
+              ) : ( <Image src={DurationDefault} alt="..." />)}{" "}
             </button>
           </Grid>
           <Grid item xs={8} md={8} className={classes.wheelContianer}>
