@@ -104,16 +104,13 @@ function LandingPage() {
   }
    function remainingTimes(totalSecond){
     let rem = Number(totalSecond);
-    alert(rem);
-    alert(durationLast);
     var minuts = Math.floor((rem % 3600) / 60);
     var sec = Math.floor((rem % 3600) % 60);
     var mimutsDisplay = minuts > 0 ? minuts : "00";
     var secDisplay = sec > 0 ? sec : "00";
     let remtime = minuts + ":" + sec;
-    alert(remtime);
     setRemainingTime(remtime);
-consolelog(remtime,'rem.....hI')
+     consolelog(remtime,'rem.....hI')
    }
   function totleTimeAndImage(data,index)
   {

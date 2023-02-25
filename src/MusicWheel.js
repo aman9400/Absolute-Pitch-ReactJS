@@ -1014,6 +1014,16 @@ console.log(packageActive,'packageActive....');
                     }}
                     onClick={() => {
                       setPackageDataIndex(0);
+                      setNord({
+                        c1: [],
+                        c2: [],
+                        c3: [],
+                      });
+                      setHighlightedNord({
+                        c1: [],
+                        c2: [],
+                        c3: [],
+                      });
                       fetchSongsData();
                     }}
                   >
