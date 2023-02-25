@@ -128,7 +128,7 @@ consolelog(remtime,'rem.....hI')
   const classes = useStyles();
   return (
     <Grid container spacing={4} className={classes.containerBox}>
-      <Grid item xs={12} md={6}>
+      <Grid item xs={12} md={6} sm={12} sx={12}>
         <MusicWheel
           handleSong={handleSong}
           musicData={data}
@@ -148,7 +148,7 @@ consolelog(remtime,'rem.....hI')
           remainingTime={remainingTime}
         />
       </Grid>
-      <Grid item xs={12} md={6}>
+      <Grid item xs={12} md={6} sm={12}>
         <VideoPlayer
           handleSong={handleSong}
           musicData={data}

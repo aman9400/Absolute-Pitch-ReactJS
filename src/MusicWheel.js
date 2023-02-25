@@ -795,8 +795,8 @@ console.log(packageActive,'packageActive....');
           </Grid>
         </Grid>
       </div>
-      <div style={{ marginTop: "2%", marginBottom: "5%" }}>
-        <Grid container spacing={1}>
+      <div style={{ marginTop: "2%", marginBottom: "5%",}}>
+        <Grid container spacing={1} >
           <Grid item xs={2} md={2} className={classes.tempoBtnContainer}>
             <button 
               className={`${classes.tempoBtnTop} ${
@@ -835,7 +835,7 @@ console.log(packageActive,'packageActive....');
               ) : ( <Image src={DurationDefault} alt="..." />)}{" "}
             </button>
           </Grid>
-          <Grid item xs={8} md={8} className={classes.wheelContianer}>
+          <Grid item xs={8} md={8} className={classes.wheelContianer} >
             <div className={classes.mainCircle}>
               <ul className="circle">
                 {data["c1"].map((val, ind) => (

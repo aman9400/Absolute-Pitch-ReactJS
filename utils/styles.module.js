@@ -14,8 +14,7 @@ const useStyles = makeStyles({
     marginBottom: "2%",
     "@media (max-width:700px)": {
       marginTop: "3%",
-      
-    }
+    },
   },
 
   mainCircle: {
@@ -187,8 +186,7 @@ const useStyles = makeStyles({
   circleCard: {
     background: "#333 !important",
     borderRadius: "10px",
-
-    height: "90vh",
+    height: "120vh",
     "@media (min-width: 1280px) and (max-width:1480px)": { height: "135vh" },
     "@media (min-width: 1481px) and (max-width:1920px)": { height: "110vh" },
     "@media (min-width: 600px) and (max-width:768px)": {
@@ -228,7 +226,7 @@ const useStyles = makeStyles({
     fontWeight: "500",
     width: "100%",
     cursor: "pointer",
-    border:'none',
+    border: "none",
     justifyContent: "center",
     alignContent: "center",
     display: "flex",
@@ -244,15 +242,15 @@ const useStyles = makeStyles({
     fontWeight: "500",
     width: "100%",
     cursor: "pointer",
-    border:'none',
+    border: "none",
     justifyContent: "center",
     alignContent: "center",
     display: "flex",
     background: "#fff",
     "&:hover": {
-      disabled:true,
-      
-      cursor:'none',
+      disabled: true,
+
+      cursor: "none",
     },
   },
   activeKey: {
@@ -260,7 +258,7 @@ const useStyles = makeStyles({
     fontWeight: "500",
     width: "100%",
     cursor: "pointer",
-    border:'none',
+    border: "none",
     justifyContent: "center",
     alignContent: "center",
     display: "flex",
@@ -291,7 +289,7 @@ const useStyles = makeStyles({
       boxShadow: "-10px 10px 10px gray",
     },
   },
-  
+
   bottomBox: {
     fontSize: "12px",
     // fontWeight: "500",
@@ -448,37 +446,41 @@ const useStyles = makeStyles({
   },
   tempoBtnTop: {
     position: "absolute",
-    height: "150px",
-    width: "150px",
+    height: "175px",
+    width: "175px",
     border: "2px solid #0058ab !important",
     background: "#333333",
     display: "flex",
     alignItems: "center",
     textAlign: "center",
-    // background: "white",
     cursor: "pointer",
     borderRadius: "50%",
-    // borderRadius: "50%",
     left: " 10%",
     right: "27.31%",
     top: "1.25%",
-    // background: "#333333",
-    // background: "radial-gradient(#FFF 40%, #000)",
     fontSize: "12px",
     cursor: "pointer",
     border: "none",
     "&:hover": {
       // background: "radial-gradient(blue 40%, #000)",
     },
+    "@media (min-width: 1280px) and (max-width:1680px)": {
+      height: "150px",
+      width: "150px",
+    },
+    "@media (min-width: 720px) and (max-width:1024px)": {
+      height: "150px",
+      width: "150px",
+    },
   },
   tempoNewBtnBottom: {
     position: "absolute",
     left: " 10%",
     right: "16.31%",
-    top: "70%",
+    top: "65%",
     bottom: "-72.49%",
-    height: "150px",
-    width: "150px",
+    height: "175px",
+    width: "175px",
     // border: "2px solid #0058ab !important",
     background: "#333333",
     display: "flex",
@@ -492,7 +494,7 @@ const useStyles = makeStyles({
     "@media (min-width: 1280px) and (max-width:1680px)": {
       height: "150px",
       width: "150px",
-      top: "76%",
+      top: "60%",
     },
     // background: "radial-gradient(#FFF 40%, #000)",
     // transform: "rotate(-25.33deg)",
@@ -500,15 +502,19 @@ const useStyles = makeStyles({
     "&:hover": {
       // background: "radial-gradient(blue 40%, #000)",
     },
+    "@media (min-width: 720px) and (max-width:1024px)": {
+      height: "120px",
+      width: "120px",
+      top: "70%",
+    },
   },
   IntensityBtnNew: {
     position: "absolute",
-    // left: " -40%",
     right: "10%",
-    top: "70%",
+    top: "65%",
     bottom: "-72.49%",
-    height: "120px",
-    width: "120px",
+    height: "175px",
+    width: "175px",
     display: "flex",
     alignItems: "center",
     textAlign: "center",
@@ -517,18 +523,26 @@ const useStyles = makeStyles({
     color: "blue",
     cursor: "pointer",
     borderRadius: "50%",
-    "@media screen and (min-width: 1280px) and (max-width:1680px)": {
+    "@media (min-width: 1280px) and (max-width:1680px)": {
       height: "150px",
       width: "150px",
-      top: "76%",
+      top: "60%",
     },
     // background: "radial-gradient(#FFF 40%, #000)",
-    // transform: "rotate(208.33deg)",
+    // transform: "rotate(-25.33deg)",
     border: "none",
     "&:hover": {
       // background: "radial-gradient(blue 40%, #000)",
     },
-    
+    "@media (min-width: 720px) and (max-width:1024px)": {
+      height: "120px",
+      width: "120px",
+      top: "70%",
+    },
+    border: "none",
+    "&:hover": {
+      // background: "radial-gradient(blue 40%, #000)",
+    },
   },
   tempoBtnNew: {
     position: "absolute",
@@ -536,9 +550,10 @@ const useStyles = makeStyles({
     right: "10%",
     top: "1.25%",
     bottom: "-72.49%",
-    height: "120px",
-    width: "120px",
-    border: 'none',
+    height: "150px",
+    marginTop: "15px",
+    width: "150px",
+    border: "none",
     background: "#333333",
     display: "flex",
     alignItems: "center",
@@ -553,12 +568,25 @@ const useStyles = makeStyles({
     },
     "@media (min-width: 1280px) and (max-width:1680px)": {
       height: "130px",
-    width: "130px",
-    right: "12%",
+      width: "130px",
+      right: "12%",
     },
+    "@media (min-width: 720px) and (max-width:1024px)": {
+      height: "120px",
+      width: "120px",
+      right: "20%",
+    },
+    //  "@media (min-width: 600px) and (max-width:768px)": {
+    //   margin: "25px 15px 15px 25px !important",
+    // },
+    // "@media (min-width: 380px) and (max-width:425px)": {
+    //   margin: "25px 15px 15px 25px !important",
+    // },
+    // "@media (max-width:375px)": {
+    //   margin: "25px 15px 15px 25px !important",
+    // },
   },
 
-  
   IntensityBtnNewActive: {
     position: "absolute",
     left: " -40%",
@@ -574,14 +602,13 @@ const useStyles = makeStyles({
     // transform: "rotate(208.33deg)",
     border: "none",
   },
-  resetCounterBtn:{
-    marginTop: "-5%"
-    ,alignItems:'center',
-    textAlign:'center',
-    display:'flex' ,
-    justifyContent: 'center',
-    border:'2px solid red'
-
+  resetCounterBtn: {
+    marginTop: "-5%",
+    alignItems: "center",
+    textAlign: "center",
+    display: "flex",
+    justifyContent: "center",
+    border: "2px solid red",
   },
   packageBtnActive: {
     position: "absolute",
@@ -682,16 +709,16 @@ const useStyles = makeStyles({
     width: "100%",
     // padding: "5px",
     textAlign: "center",
-    height:'98%'
+    height: "98%",
   },
   tableStyleNew: {
     width: "100%",
     textAlign: "center",
-    height:'98%'
+    height: "98%",
   },
   trStyle: {
     background: "black",
-    height: '30px',
+    height: "30px",
     // border:'2px solid black',
   },
   thStyle: {
@@ -706,7 +733,7 @@ const useStyles = makeStyles({
     padding: "5px 10px 0px 10px",
     lineHeight: "30px",
     marginLeft: "2px",
-    height: "190px",
+    height: "300px",
     overflow: "scroll",
     "@media (min-width: 600px) and (max-width:768px)": {
       marginTop: "10px",
@@ -726,6 +753,15 @@ const useStyles = makeStyles({
       height: "240px",
       // overflow: "scroll",
     },
+    "@media (min-width: 1201px) and (max-width:1680px)": {
+      marginTop: "10px",
+      width: "92%",
+      padding: "5px 10px 0px 10px",
+      lineHeight: "30px",
+      marginLeft: "8px",
+      height: "190px",
+      // overflow: "scroll",
+    },
   },
   playerBtn: {
     cursor: "pointer",
@@ -740,13 +776,13 @@ const useStyles = makeStyles({
       color: "blue",
     },
   },
-  homeImage:{
+  homeImage: {
     backgroundImage: "url('/background.png')",
     backgroundSize: "cover",
-    width:'104%',
-    height:'600px',
-    marginTop:'-24px',
-    marginLeft:'-25px',
+    width: "104%",
+    height: "600px",
+    marginTop: "-24px",
+    marginLeft: "-25px",
   },
   btnPiano: {
     cursor: "pointer",
@@ -760,8 +796,8 @@ const useStyles = makeStyles({
     textAlign: "center",
     display: "flex",
     justifyContent: "center",
-    width:'54%',
-    marginLeft:'23%',
+    width: "54%",
+    marginLeft: "23%",
   },
   premiumList: { pointerEvents: "none", opacity: "0.6", background: "gray" },
 
