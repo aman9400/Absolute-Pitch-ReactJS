@@ -204,7 +204,11 @@ const useStyles = makeStyles({
     background: "#0082cf",
     color: "white",
   },
-
+premiumActive:{
+  background: "blue",
+  border:'none',
+ 
+},
   topButtonContainer1: {
     marginTop: "10px",
     marginBottom: "10px",

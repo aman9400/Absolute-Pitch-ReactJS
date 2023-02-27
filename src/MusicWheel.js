@@ -105,7 +105,7 @@ function MusicWheel(props) {
   const [imageTypeActive, setImageTypeActive] = useState(false);
   const [durationDataIndex, setDurationDataIndex] = useState(0);
   const [disable, setDisable] = useState(false);
-  
+  const [premiumfirst, setPremiumfirst] = useState(0);
   const [totalSongs, setTotalSongs] = useState(0);
   const [subscriptionActivePlan, setSubscriptionActivePlan] = useState(0);
   const [deg, setDeg] = useState(45);
@@ -396,7 +396,7 @@ function MusicWheel(props) {
           
           setImageTypeIndex("Letter");
           setGroups("G1,G2,G3,G4");
-          setSubscriptionActivePlan(2)
+          setSubscriptionActivePlan(2);
           setPackageActive('');
         }
         if(packageDataIndex=='2'){
@@ -405,11 +405,17 @@ function MusicWheel(props) {
           setImageTypeIndex("Letter,Staff,Keys");
           setPackageActive('P');
           setSubscriptionActivePlan(0)
+          setSubscriptionActivePlan(3)
+          setPremiumfirst(1);
+          
         }
         if(packageDataIndex=='3'){
           setImageTypeIndex("Letter,Staff,Keys");
           setGroups("G1,G2,G3,G4");
+          setSubscriptionActivePlan(3)
+          setPremiumfirst(1);
           setPackageActive('');
+          
         }
 
         setNord({ c1: [], c2: [], c3: [] });
@@ -710,6 +716,7 @@ console.log(packageActive,'packageActive....');
                 subscriptionActivePlan == "3" ? classes.activeKey : classes.topButtons
               }`}
               onClick={(e) => {
+                setImageTypeActive(0);
                 subscriptionPlan("Premium", e);
               }}
               style={{
@@ -749,7 +756,7 @@ console.log(packageActive,'packageActive....');
           <Grid item xs={4} md={4}>
             <button
               className={`${
-                imageTypeActive == "2" ? classes.activeKey : classes.topButtons
+                imageTypeActive == "2" ? classes.activeKey : premiumfirst =='1' ? classes.premiumActive: classes.topButtons
               }`}
               onClick={(e) => {
                 btnHandler("Staff", e, 2);
@@ -760,7 +767,7 @@ console.log(packageActive,'packageActive....');
                 width: "100%",
                 height: "28px",
               }}
-              disabled={`disable`}
+              // disabled={`disable`}
             >
               <Image
                 src={staff}
@@ -773,7 +780,7 @@ console.log(packageActive,'packageActive....');
           <Grid item xs={4} md={4}>
             <button
               className={`${
-                imageTypeActive == "3" ? classes.activeKey : classes.topButtons
+                imageTypeActive == "3" ? classes.activeKey : premiumfirst =='1' ? classes.premiumActive : classes.topButtons
               }`}
               onClick={(e) => {
                 btnHandler("Keys", e, 3);
@@ -783,7 +790,7 @@ console.log(packageActive,'packageActive....');
                 width: "100%",
                 height: "30px",
               }}
-              disabled={`disable`}
+              // disabled={`disable`}
             >
               <Image
                 src={keys}
