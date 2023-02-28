@@ -366,7 +366,7 @@ function MusicWheel(props) {
         // setPackageDataIndex(2);
         setPackageActive('P');
         setGroups("");
-        setImageTypeIndex("Letter,Staff,Keys");
+        // setImageTypeIndex("Letter,Staff,Keys");
     }
   }
 
@@ -374,7 +374,7 @@ function MusicWheel(props) {
     // if (imageTypeIndex == "") {
     //      alert("Please seect any ImageType Key");
     //    } else {
-    setImageTypeActive(1);
+    // setImageTypeActive(1);
     if (type == "Tempo") {
       if (tempoIndex == tempoData.length - 1) {
         setTempoIndex(0);
@@ -393,27 +393,26 @@ function MusicWheel(props) {
       } else {
         setPackageDataIndex(packageDataIndex + 1);
         if(packageDataIndex=='1'){
-          
+          setImageTypeActive(1)
           setImageTypeIndex("Letter");
           setGroups("G1,G2,G3,G4");
           setSubscriptionActivePlan(2);
           setPackageActive('');
         }
         if(packageDataIndex=='2'){
-          setGroups("");
-          // setImageTypeIndex("");
-          setImageTypeIndex("Letter,Staff,Keys");
+          setImageTypeActive(0)
+          setGroups("o1,o2,o3");
           setPackageActive('P');
-          setSubscriptionActivePlan(0)
           setSubscriptionActivePlan(3)
-          setPremiumfirst(1);
+          // setPremiumfirst(1);
+          setImageTypeIndex("");
           
         }
         if(packageDataIndex=='3'){
-          setImageTypeIndex("Letter,Staff,Keys");
-          setGroups("G1,G2,G3,G4");
+          // setImageTypeIndex("Letter,Staff,Keys");
+          // setGroups("G1,G2,G3,G4");
           setSubscriptionActivePlan(3)
-          setPremiumfirst(1);
+          // setPremiumfirst(1);
           setPackageActive('');
           
         }
@@ -780,7 +779,8 @@ console.log(packageActive,'packageActive....');
           <Grid item xs={4} md={4}>
             <button
               className={`${
-                imageTypeActive == "3" ? classes.activeKey : premiumfirst =='1' ? classes.premiumActive : classes.topButtons
+                imageTypeActive == "3" ? classes.activeKey : classes.topButtons
+                // imageTypeActive == "3" ? classes.activeKey : premiumfirst =='1' ? classes.premiumActive : classes.topButtons
               }`}
               onClick={(e) => {
                 btnHandler("Keys", e, 3);
@@ -1189,6 +1189,7 @@ console.log(packageActive,'packageActive....');
               <th className={classes.thStyle}>Composer</th>
               <th className={classes.thStyle}>Note</th>
               <th className={classes.thStyle}>Tempo</th>
+              <th className={classes.thStyle}>Img</th>
               <th
                 className={classes.thStyle}
                 style={{ cursor: "pointer" }}
@@ -1215,7 +1216,8 @@ console.log(packageActive,'packageActive....');
                       <td>{val["composer"]}</td>
                       <td>{val["note_or_cord"]}</td>
                       <td>{val["tempo"]}</td>
-                      <td>{val["intensity"]}</td>
+                      <td>{val["image_type"]}</td>
+                       <td>{val["intensity"]}</td>
                     </tr>
                   ) : (
                     <tr
@@ -1227,6 +1229,7 @@ console.log(packageActive,'packageActive....');
                       <td>{val["composer"]}</td>
                       <td>{val["note_or_cord"]}</td>
                       <td>{val["tempo"]}</td>
+                      <td>{val["image_type"]}</td>
                       <td>{val["intensity"]}</td>
                     </tr>
                   )
