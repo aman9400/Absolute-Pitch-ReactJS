@@ -348,14 +348,15 @@ function MusicWheel(props) {
         setPackageDataIndex(0);
       } else {
         setPackageDataIndex(packageDataIndex);
-        setNord({ c1: [], c2: [], c3: [] });
-        setNordData([]);
+        // setNord({ c1: [], c2: [], c3: [] });
+        // setNordData([]);
       }
     }
     if (type == "Letter") {
       setSubscriptionActivePlan(2)
       setGroups("G1,G2,G3,G4");
       // setPackageDataIndex(0);
+      setImageTypeActive(1)
       setPackageActive('');
       setImageTypeIndex("Letter");
       setDisable(true);
@@ -400,19 +401,22 @@ function MusicWheel(props) {
           setPackageActive('');
         }
         if(packageDataIndex=='2'){
-          setImageTypeActive(0)
+          // setImageTypeActive(0)
           setGroups("o1,o2,o3");
           setPackageActive('P');
           setSubscriptionActivePlan(3)
           // setPremiumfirst(1);
-          setImageTypeIndex("");
+          
+          // setImageTypeIndex("Letter");
           
         }
         if(packageDataIndex=='3'){
           // setImageTypeIndex("Letter,Staff,Keys");
-          // setGroups("G1,G2,G3,G4");
+          setGroups("G1,G2,G3,G4,o1,o2,o3");
           setSubscriptionActivePlan(3)
           // setPremiumfirst(1);
+          setImageTypeIndex('')
+          setImageTypeActive('')
           setPackageActive('');
           
         }
@@ -697,7 +701,7 @@ console.log(packageActive,'packageActive....');
               className={`${
                 subscriptionActivePlan == "2" ? classes.activeKey : classes.topButtons
               }`}
-              onClick={(e) => {
+              onClick={(e) => {setPackageDataIndex(2);
                 subscriptionPlan("Letter", e);
               }}
               style={{
@@ -755,7 +759,7 @@ console.log(packageActive,'packageActive....');
           <Grid item xs={4} md={4}>
             <button
               className={`${
-                imageTypeActive == "2" ? classes.activeKey : premiumfirst =='1' ? classes.premiumActive: classes.topButtons
+                imageTypeActive == "2" ? classes.activeKey : disable ? classes.topButtonsDisable: classes.topButtons
               }`}
               onClick={(e) => {
                 btnHandler("Staff", e, 2);
@@ -779,7 +783,7 @@ console.log(packageActive,'packageActive....');
           <Grid item xs={4} md={4}>
             <button
               className={`${
-                imageTypeActive == "3" ? classes.activeKey : classes.topButtons
+                imageTypeActive == "3" ? classes.activeKey :disable ? classes.topButtonsDisable: classes.topButtons
                 // imageTypeActive == "3" ? classes.activeKey : premiumfirst =='1' ? classes.premiumActive : classes.topButtons
               }`}
               onClick={(e) => {

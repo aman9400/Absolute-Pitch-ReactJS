@@ -253,8 +253,11 @@ premiumActive:{
     background: "#fff",
     "&:hover": {
       disabled: true,
-
-      cursor: "none",
+      content: '',
+      // background:'gray',
+      pointerEvents:'none',
+      cursor:'none',
+      zIndex: 60,
     },
   },
   activeKey: {
