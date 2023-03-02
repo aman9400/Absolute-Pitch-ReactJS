@@ -1218,7 +1218,9 @@ console.log(packageActive,'packageActive....');
                         alert("You need to purchase the membership")
                       }
                       id={ind}
-                      className={`${styles.listStyleDisable} ${styles.liststyle}`}
+                      className={`
+                      // ${styles.listStyleDisable} ${styles.liststyle}`
+                    }
                     >
                       <td>{val["song_title"]}</td>
                       <td>{val["composer"]}</td>
