@@ -348,6 +348,7 @@ function MusicWheel(props) {
         setPackageDataIndex(0);
       } else {
         setPackageDataIndex(packageDataIndex);
+        setDisable(true);
         // setNord({ c1: [], c2: [], c3: [] });
         // setNordData([]);
       }
@@ -365,8 +366,9 @@ function MusicWheel(props) {
     if (type == "Premium") {
         setSubscriptionActivePlan(3)
         // setPackageDataIndex(2);
-        setPackageActive('P');
-        setGroups("");
+        // setPackageActive('P');
+        // setGroups("");
+        setDisable(false);
         // setImageTypeIndex("Letter,Staff,Keys");
     }
   }
@@ -403,21 +405,23 @@ function MusicWheel(props) {
         if(packageDataIndex=='2'){
           // setImageTypeActive(0)
           setGroups("o1,o2,o3");
-          setPackageActive('P');
+          // setPackageActive('P');
           setSubscriptionActivePlan(3)
           // setPremiumfirst(1);
-          
-          // setImageTypeIndex("Letter");
+          setImageTypeActive(1)
+          setImageTypeIndex("Letter");
           
         }
         if(packageDataIndex=='3'){
           // setImageTypeIndex("Letter,Staff,Keys");
           setGroups("G1,G2,G3,G4,o1,o2,o3");
           setSubscriptionActivePlan(3)
+          setImageTypeIndex("Letter");
           // setPremiumfirst(1);
-          setImageTypeIndex('')
-          setImageTypeActive('')
-          setPackageActive('');
+          setImageTypeActive(1)
+        
+          // setImageTypeActive('')
+          // setPackageActive('');
           
         }
 
@@ -719,7 +723,7 @@ console.log(packageActive,'packageActive....');
                 subscriptionActivePlan == "3" ? classes.activeKey : classes.topButtons
               }`}
               onClick={(e) => {
-                setImageTypeActive(0);
+                // setImageTypeActive(0);
                 subscriptionPlan("Premium", e);
               }}
               style={{
@@ -742,7 +746,7 @@ console.log(packageActive,'packageActive....');
           <Grid item xs={3} md={4}>
             <button
               className={`${
-                imageTypeActive == "1" ? classes.activeKey : classes.topButtons
+                imageTypeActive == "1" ? classes.activeKey : disable ? classes.topButtonsDisable: classes.topButtons
               }`}
               onClick={(e) => {
                 btnHandler("Letter", e, 1);

@@ -66,7 +66,7 @@ function VideoPlayer(prop) {
               controls
               url={music}
               width="100%"
-              height="95%"
+              height="100%"
               playing={true}
               onEnded={playNextSong}
             />
