@@ -104,124 +104,136 @@ function MusicWheel(props) {
   // const [imageTypeActive, setImageTypeActive] = useState(1);
   const [imageTypeActive, setImageTypeActive] = useState(false);
   const [durationDataIndex, setDurationDataIndex] = useState(0);
+  const [durationValue, setDurationValue] = useState('');
   const [disable, setDisable] = useState(false);
-  const [premiumfirst, setPremiumfirst] = useState(0);
+  const [freeActive, setFreeActive] = useState(false);
+  const [disableIntensity, setDisableIntensity] = useState(false);
   const [totalSongs, setTotalSongs] = useState(0);
   const [subscriptionActivePlan, setSubscriptionActivePlan] = useState(0);
   const [deg, setDeg] = useState(45);
   const [nordIndex111, setNordIndex111] = useState(0);
   const [allPlaySongsDuration, setAllPlaySongsDuration] = useState(0);
-  const tempoData = ["", "Calm","Mellow","Moderate","Lively"];
-  const intensityData = ["","LI", "MI","HI",];
+  const tempoData = ["", "Calm", "Mellow", "Moderate", "Lively"];
+  const intensityData = ["", "LI", "MI", "HI"];
   const packageData = ["", "F", "P", "P", "F"];
   const packageName = ["", "Mix", "Premium", "Original"];
   const imageTypeData = ["", "Keys", "Letter", "Staff"];
-  const durationData = [
-    "",
-    "104",
-    "105",
-    "106",
-    "107",
-    "108",
-    "109",
-    "120",
-    "121",
-    "125",
-    "126",
-    "127",
-    "128",
-    "129",
-    "135",
-    "139",
-    "141",
-    "145",
-    "147",
-    "150",
-    "151",
-    "155",
-    "156",
-    "160",
-    "167",
-    "169",
-    "170",
-    "173",
-    "177",
-    "178",
-    "178",
-    "178",
-    "178",
-    "179",
-    "181",
-    "182",
-    "183",
-    "184",
-    "178",
-    "184",
-    "185",
-    "191",
-    "192",
-    "193",
-    "194",
-    "195",
-    "196",
-    "198",
-    "199",
-    "200",
-    "202",
-    "203",
-    "204",
-    "206",
-    "207",
-    "208",
-    "209",
-    "210",
-    "211",
-    "212",
-    "213",
-    "213",
-    "214",
-    "215",
-    "216",
-    "217",
-    "218",
-    "220",
-    "222",
-    "223",
-    "225",
-    "226",
-    "231",
-    "233",
-    "234",
-    "235",
-    "236",
-    "237",
-    "238",
-    "240",
-    "241",
-    "242",
-    "243",
-    "244",
-    "245",
-    "246",
-    "247",
-    "248",
-    "249",
-    "250",
-    "251",
-    "252",
-    "253",
-    "254",
-    "256",
-    "259",
-    "261",
-    "263",
-    "265",
-    "278",
-    "280",
-    "285",
-    "288",
-    "300",
-  ];
+  const durationData = {minute1:[104,
+  105,
+  106,
+  107,
+  108,
+  109,
+  120,
+  121,
+  125,
+  126,
+  127,
+  128,
+  129,
+  135,
+  139,
+  141,
+  145,
+  147,
+  150,
+  151,
+  155,
+  156,
+  160,
+  167,
+  169,
+  170,
+  173,
+  177,
+  178,
+  178,
+  178,
+  178,179,],
+ 
+minute2:[ 181,
+  182,
+  183,
+  184,
+  178,
+  184,
+  185,
+  191,
+  192,
+  193,
+  194,
+  195,
+  196,
+  198,
+  199,
+  200,
+  202,
+  203,
+  204,
+  206,
+  207,
+  208,
+  209,
+  210,
+  211,
+  212,
+  213,
+  213,
+  214,
+  215,
+  216,
+  217,
+  218,
+  220,
+  222,
+  223,
+  225,
+  226,
+  231,
+  233,
+  234,
+  235,
+  236,
+  237,
+  238,
+  240,],  
+  minute3:[
+  241,
+    242,
+    243,
+    244,
+    245,
+    246,
+    247,
+    248,
+    249,
+    250,
+    251,
+    252,
+    253,
+    254,
+    256,
+    259,
+    261,
+    263,
+    265,
+    278,
+    280,
+    285,
+    288,
+    300,
+    301,
+    320,
+    333,
+    340,
+    350,
+    356,
+    360,
+    402,
+    437,
+    533
+  ],
+  };
   let nordArray = [];
   const arryOne = ["c3", "c2", "c1"];
   const data = {
@@ -341,36 +353,43 @@ function MusicWheel(props) {
     }
     //}
   }
-   function subscriptionPlan(type) {
+  function subscriptionPlan(type) {
     if (type == "Free") {
-      setSubscriptionActivePlan(1)
+      setSubscriptionActivePlan(1);
       if (packageDataIndex == packageData.length - 1) {
         setPackageDataIndex(0);
       } else {
         setPackageDataIndex(packageDataIndex);
-        setDisable(true);
-        // setNord({ c1: [], c2: [], c3: [] });
-        // setNordData([]);
+        setFreeActive(true);
+        setDisableIntensity(true);
+        setGroups("f1,f2");
+        setNord({ c1: [], c2: [], c3: [] });
+        setNordData([]);
       }
     }
     if (type == "Letter") {
-      setSubscriptionActivePlan(2)
+      setSubscriptionActivePlan(2);
       setGroups("G1,G2,G3,G4");
       // setPackageDataIndex(0);
-      setImageTypeActive(1)
-      setPackageActive('');
+      setImageTypeActive(1);
+      setPackageActive("");
       setImageTypeIndex("Letter");
       setDisable(true);
-      
+      setFreeActive(true);
+      setDisableIntensity(false);
     }
     if (type == "Premium") {
-        setSubscriptionActivePlan(3)
-        // setPackageDataIndex(2);
-        // setPackageActive('P');
-        // setGroups("");
-        setDisable(false);
-        // setImageTypeIndex("Letter,Staff,Keys");
+      setSubscriptionActivePlan(3);
+      setGroups("O1,O2,O3");
+      setImageTypeActive(1);
+      setImageTypeIndex("Letter");
+      setPackageDataIndex(3);
+      setPackageActive("");
+      setDisable(false);
+      setFreeActive(false);
+      // setImageTypeIndex("Letter,Staff,Keys");
     }
+    
   }
 
   async function btnHandler(type, e, ind) {
@@ -395,44 +414,35 @@ function MusicWheel(props) {
         // setPackageActive('');
       } else {
         setPackageDataIndex(packageDataIndex + 1);
-        if(packageDataIndex=='1'){
-          setImageTypeActive(1)
+        if (packageDataIndex == "1") {
+          setImageTypeActive(1);
           setImageTypeIndex("Letter");
           setGroups("G1,G2,G3,G4");
           setSubscriptionActivePlan(2);
-          setPackageActive('');
+          setPackageActive("");
         }
-        if(packageDataIndex=='2'){
-          // setImageTypeActive(0)
+        if (packageDataIndex == "2") {
           setGroups("o1,o2,o3");
-          // setPackageActive('P');
-          setSubscriptionActivePlan(3)
-          // setPremiumfirst(1);
-          setImageTypeActive(1)
+          setSubscriptionActivePlan(3);
+          setImageTypeActive(1);
           setImageTypeIndex("Letter");
-          
         }
-        if(packageDataIndex=='3'){
-          // setImageTypeIndex("Letter,Staff,Keys");
+        if (packageDataIndex == "3") {
+         
           setGroups("G1,G2,G3,G4,o1,o2,o3");
-          setSubscriptionActivePlan(3)
+          setSubscriptionActivePlan(3);
           setImageTypeIndex("Letter");
-          // setPremiumfirst(1);
-          setImageTypeActive(1)
-        
-          // setImageTypeActive('')
-          // setPackageActive('');
+          setImageTypeActive(1);
           
         }
 
         setNord({ c1: [], c2: [], c3: [] });
         setNordData([]);
       }
-      if(packageDataIndex == '4'){
-        setPackageActive('F');
+      if (packageDataIndex == "4") {
+        setPackageActive("F");
         setPackageDataIndex(1);
       }
-     
     }
     if (type == "Intensity") {
       if (intensityIndex == intensityData.length - 1) {
@@ -464,11 +474,29 @@ function MusicWheel(props) {
     if (type == "Duration") {
       if (durationDataIndex == durationData.length - 1) {
         setDurationDataIndex(0);
+        // setDurationValue(durationData["minute1"]);
       } else {
         setDurationDataIndex(durationDataIndex + 1);
-        setPackageActive('');
-        setImageTypeIndex("Letter,Staff,Keys");
-        console.log(durationData[durationDataIndex],'duration ...aly')
+       
+        if(durationDataIndex==1)
+        {
+          setDurationValue(durationData["minute1"])
+        }
+       
+        if(durationDataIndex==2)
+        {
+          setDurationValue(durationData["minute2"])
+        }
+        if(durationDataIndex==3)
+        {
+          setDurationValue(durationData["minute3"])
+        }
+        if(durationDataIndex==4)
+        {
+          setDurationDataIndex(1);
+          setDurationValue('')
+        }
+       
         setNord({ c1: [], c2: [], c3: [] });
         setNordData([]);
       }
@@ -622,12 +650,12 @@ function MusicWheel(props) {
     urlencoded.append("song_title", "");
     urlencoded.append("groups", groups);
     urlencoded.append("no_of_images", "");
-    urlencoded.append("duration", durationData[durationDataIndex]);
+    urlencoded.append("duration", durationValue);
     urlencoded.append("intensity", intensityData[intensityIndex]);
     urlencoded.append("tempo", tempoData[tempoIndex]);
     urlencoded.append("image_type", imageTypeIndex);
-    urlencoded.append("package",packageActive);
-console.log(packageActive,'packageActive....');
+    urlencoded.append("package", packageActive);
+    console.log(packageActive, "packageActive....");
     var requestOptions = {
       method: "POST",
       headers: myHeaders,
@@ -641,7 +669,7 @@ console.log(packageActive,'packageActive....');
     )
       .then((response) => response.json())
       .then((responseJson) => {
-        console.log(responseJson.data,'responseJson.data...')
+        console.log(responseJson.data, "responseJson.data...");
         setTotalSongs(responseJson.data.length);
         if (responseJson != "") {
           setSongsData(responseJson.data);
@@ -683,7 +711,9 @@ console.log(packageActive,'packageActive....');
           <Grid item xs={3} md={4}>
             <button
               className={`${
-                subscriptionActivePlan == "1" ? classes.activeKey : classes.topButtons
+                subscriptionActivePlan == "1"
+                  ? classes.activeKey
+                  : classes.topButtons
               }`}
               // onClick={(e) => {
               //   alert("Free Clicked");
@@ -703,9 +733,12 @@ console.log(packageActive,'packageActive....');
           <Grid item xs={4} md={4}>
             <button
               className={`${
-                subscriptionActivePlan == "2" ? classes.activeKey : classes.topButtons
+                subscriptionActivePlan == "2"
+                  ? classes.activeKey
+                  : classes.topButtons
               }`}
-              onClick={(e) => {setPackageDataIndex(2);
+              onClick={(e) => {
+                setPackageDataIndex(2);
                 subscriptionPlan("Letter", e);
               }}
               style={{
@@ -720,10 +753,11 @@ console.log(packageActive,'packageActive....');
           <Grid item xs={4} md={4}>
             <button
               className={`${
-                subscriptionActivePlan == "3" ? classes.activeKey : classes.topButtons
+                subscriptionActivePlan == "3"
+                  ? classes.activeKey
+                  : classes.topButtons
               }`}
               onClick={(e) => {
-                // setImageTypeActive(0);
                 subscriptionPlan("Premium", e);
               }}
               style={{
@@ -746,7 +780,11 @@ console.log(packageActive,'packageActive....');
           <Grid item xs={3} md={4}>
             <button
               className={`${
-                imageTypeActive == "1" ? classes.activeKey : disable ? classes.topButtonsDisable: classes.topButtons
+                imageTypeActive == "1"
+                  ? classes.activeKey
+                  : disable
+                  ? classes.topButtonsDisable
+                  : classes.topButtons
               }`}
               onClick={(e) => {
                 btnHandler("Letter", e, 1);
@@ -763,11 +801,14 @@ console.log(packageActive,'packageActive....');
           <Grid item xs={4} md={4}>
             <button
               className={`${
-                imageTypeActive == "2" ? classes.activeKey : disable ? classes.topButtonsDisable: classes.topButtons
+                imageTypeActive == "2"
+                  ? classes.activeKey
+                  : disable
+                  ? classes.topButtonsDisable
+                  : classes.topButtons
               }`}
               onClick={(e) => {
                 btnHandler("Staff", e, 2);
-                
               }}
               style={{
                 borderRadius: "5px",
@@ -787,7 +828,11 @@ console.log(packageActive,'packageActive....');
           <Grid item xs={4} md={4}>
             <button
               className={`${
-                imageTypeActive == "3" ? classes.activeKey :disable ? classes.topButtonsDisable: classes.topButtons
+                imageTypeActive == "3"
+                  ? classes.activeKey
+                  : disable
+                  ? classes.topButtonsDisable
+                  : classes.topButtons
                 // imageTypeActive == "3" ? classes.activeKey : premiumfirst =='1' ? classes.premiumActive : classes.topButtons
               }`}
               onClick={(e) => {
@@ -810,12 +855,12 @@ console.log(packageActive,'packageActive....');
           </Grid>
         </Grid>
       </div>
-      <div style={{ marginTop: "2%", marginBottom: "5%",}}>
-        <Grid container spacing={1} >
+      <div style={{ marginTop: "2%", marginBottom: "5%" }}>
+        <Grid container spacing={1}>
           <Grid item xs={2} md={2} className={classes.tempoBtnContainer}>
-            <button 
+            <button
               className={`${classes.tempoBtnTop} ${
-                packageDataIndex > 0 ? "" : ""
+                freeActive ? classes.disableBtn : ""
               }`}
               onClick={(e) => {
                 btnHandler("Package", e);
@@ -834,7 +879,7 @@ console.log(packageActive,'packageActive....');
               )}
             </button>
 
-            <button 
+            <button
               className={`${classes.tempoNewBtnBottom} ${
                 durationDataIndex > 0 ? "" : ""
               }`}
@@ -842,15 +887,29 @@ console.log(packageActive,'packageActive....');
                 btnHandler("Duration", e);
               }}
             >
-              {durationData[durationDataIndex] ? (
-                durationData[durationDataIndex] <= 120 ? (
+              {durationDataIndex == 1 ? (
                   <Image src={Duration1} alt="..." />
-                ) : durationData[durationDataIndex] <= 240 &&
-                  durationData[durationDataIndex] >= 121 ? ( <Image src={Duration2} alt="..." width="200px" height="200px" /> ) : durationData[durationDataIndex] > 240 ? ( <Image src={Duration3} alt="..." width="200px" height="200px" /> ): ( <Image src={DurationDefault} alt="..." />)
-              ) : ( <Image src={DurationDefault} alt="..." />)}{" "}
+                ) : durationDataIndex == 2 ?
+                  <Image
+                    src={Duration2}
+                    alt="..."
+                    width="200px"
+                    height="200px"
+                  />
+                 : durationDataIndex == 3 ? (
+                  <Image
+                    src={Duration3}
+                    alt="..."
+                    width="200px"
+                    height="200px"
+                  />
+                ) : (
+                  <Image src={DurationDefault} alt="..." />
+                )
+             }{" "}
             </button>
           </Grid>
-          <Grid item xs={8} md={8} className={classes.wheelContianer} >
+          <Grid item xs={8} md={8} className={classes.wheelContianer}>
             <div className={classes.mainCircle}>
               <ul className="circle">
                 {data["c1"].map((val, ind) => (
@@ -933,7 +992,7 @@ console.log(packageActive,'packageActive....');
           </Grid>
 
           <Grid item xs={2} md={2} className={classes.tempoBtnContainer}>
-            <button 
+            <button
               id="TempoBtn"
               className={`${classes.tempoBtnNew} ${tempoIndex > 0 ? "" : ""}`}
               onClick={(e) => {
@@ -955,9 +1014,9 @@ console.log(packageActive,'packageActive....');
               )}
             </button>
 
-            <button 
+            <button
               className={`${classes.IntensityBtnNew} ${
-                intensityIndex > 0 ? "classes.IntensityBtnNewActive" : ""
+                disableIntensity ? classes.disableBtn : ""
               }`}
               onClick={(e) => {
                 btnHandler("Intensity", e);
@@ -1009,7 +1068,7 @@ console.log(packageActive,'packageActive....');
               </p>
               {/* </div> */}
             </Grid>
-            <Grid item xs={3} md={3} style={{ padding: "2px",}}>
+            <Grid item xs={3} md={3} style={{ padding: "2px" }}>
               <p
                 style={{
                   background: "#E90D0D",
@@ -1018,39 +1077,38 @@ console.log(packageActive,'packageActive....');
                 }}
               >
                 {" "}
-               
-                  <button
-                    style={{
-                      background: "#E90D0D",
-                      color: "#FFFFFF",
-                      width: "100%",
-                      border: "none",
-                      cursor: "pointer",
-                    }}
-                    onClick={() => {
-                      setPackageDataIndex(0);
-                      setNord({
-                        c1: [],
-                        c2: [],
-                        c3: [],
-                      });
-                      setHighlightedNord({
-                        c1: [],
-                        c2: [],
-                        c3: [],
-                      });
-                      fetchSongsData();
-                    }}
-                  >
-                    Reset
-                  </button>
+                <button
+                  style={{
+                    background: "#E90D0D",
+                    color: "#FFFFFF",
+                    width: "100%",
+                    border: "none",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => {
+                    setPackageDataIndex(0);
+                    setNord({
+                      c1: [],
+                      c2: [],
+                      c3: [],
+                    });
+                    setHighlightedNord({
+                      c1: [],
+                      c2: [],
+                      c3: [],
+                    });
+                    fetchSongsData();
+                  }}
+                >
+                  Reset
+                </button>
               </p>
             </Grid>
             <Grid
               item
               xs={3}
               md={3}
-              style={{ padding: "2px", display: "flex",}}
+              style={{ padding: "2px", display: "flex" }}
             >
               <p
                 style={{
@@ -1211,25 +1269,24 @@ console.log(packageActive,'packageActive....');
             </tr>
             {songsData && songsData.length > 0
               ? songsData.map((val, ind) =>
-                  val["song_name"].includes("_P.") ? (
-                    <tr
-                      key={"songs" + ind}
-                      onClick={() =>
-                        alert("You need to purchase the membership")
-                      }
-                      id={ind}
-                      className={`
-                      // ${styles.listStyleDisable} ${styles.liststyle}`
-                    }
-                    >
-                      <td>{val["song_title"]}</td>
-                      <td>{val["composer"]}</td>
-                      <td>{val["note_or_cord"]}</td>
-                      <td>{val["tempo"]}</td>
-                      <td>{val["image_type"]}</td>
-                       <td>{val["intensity"]}</td>
-                    </tr>
-                  ) : (
+                  // val["song_name"].includes("_P.") ? (
+                  //   <tr
+                  //     key={"songs" + ind}
+                  //     onClick={() =>
+                  //       alert("You need to purchase the membership")
+                  //     }
+                  //     id={ind}
+                  //     className={`
+                  //      ${styles.listStyleDisable} ${styles.liststyle}`}
+                  //   >
+                  //     <td>{val["song_title"]}</td>
+                  //     <td>{val["composer"]}</td>
+                  //     <td>{val["note_or_cord"]}</td>
+                  //     <td>{val["tempo"]}</td>
+                  //     <td>{val["image_type"]}</td>
+                  //     <td>{val["intensity"]}</td>
+                  //   </tr>
+                  // ) : (
                     <tr
                       key={"songs" + ind}
                       onClick={() => handleClickSong(songsData, ind)}
@@ -1243,7 +1300,7 @@ console.log(packageActive,'packageActive....');
                       <td>{val["intensity"]}</td>
                     </tr>
                   )
-                )
+                // )
               : "No Songs Found"}
           </table>
 

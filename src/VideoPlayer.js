@@ -69,6 +69,7 @@ function VideoPlayer(prop) {
               height="100%"
               playing={true}
               onEnded={playNextSong}
+              style={{marginTop:'-50px'}}
             />
 
           ) : (
