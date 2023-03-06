@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { setCookie } from 'cookies-next';
+import { setCookie } from "cookies-next";
 import { Grid } from "@mui/material";
 import { makeStyles } from "@material-ui/core";
 import ReactPlayer from "react-player";
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 // import 'shaka-player/dist/controls.css';
 // const ShakaPlayer = dynamic(() => import('shaka-player-react'), { ssr: false });
 
@@ -19,11 +19,10 @@ const useStyles = makeStyles({
     borderRadius: "10px",
     padding: "20px",
     height: "90vh",
-    marginTop:'8px',
-    "@media (min-width: 1280px) and (max-width:1480px)": { height: "130vh",},
-    "@media (min-width: 1481px) and (max-width:1920px)": { height: "110vh",},
+    marginTop: "8px",
+    "@media (min-width: 1280px) and (max-width:1480px)": { height: "130vh" },
+    "@media (min-width: 1481px) and (max-width:1920px)": { height: "110vh" },
     "@media (min-width: 770px) and (max-width:1024px)": {
-      
       margin: "15px 15px 15px 35px !important",
     },
     "@media (min-width: 600px) and (max-width:768px)": {
@@ -43,18 +42,19 @@ const useStyles = makeStyles({
 function VideoPlayer(prop) {
   const [song, setSong] = useState();
   const [totalSeconds, setTotalSeconds] = useState(0);
-  const music = prop.musicData ? prop.musicData[prop.musicIndex]["song_url"] : "";
-  
-  function playNextSong(){
-    for (let i=prop.musicIndex+1;i<prop.musicData.length;i++){
+  const music = prop.musicData
+    ? prop.musicData[prop.musicIndex]["song_url"]
+    : "";
+
+  function playNextSong() {
+    for (let i = prop.musicIndex + 1; i < prop.musicData.length; i++) {
       // if(!(prop.musicData[i]["song_url"].includes("_P."))){
-        prop.handleSong(prop.musicData, i)
-        prop.totleTimeAndImage(prop.musicData,prop.musicIndex);
+      prop.handleSong(prop.musicData, i);
+      prop.totleTimeAndImage(prop.musicData, prop.musicIndex);
       //     break;
       // }
-      
-     }
-  } 
+    }
+  }
 
   const classes = useStyles();
   return (
@@ -68,14 +68,16 @@ function VideoPlayer(prop) {
               width="100%"
               height="100%"
               playing={true}
+              fluid={true}
               onEnded={playNextSong}
-              style={{marginTop:'-50px'}}
+              style={{ marginTop: "-50px" }}
+              config={{ file: { attributes: { controlsList: 'nodownload' } } }}
+              volume={volume}
             />
-
           ) : (
             <ReactPlayer
               controls
-              url = "https://www.youtube.com/watch?v=GBYs4y1BtGg"
+              url="https://www.youtube.com/watch?v=GBYs4y1BtGg"
               width="100%"
               height="95%"
               playing={true}
