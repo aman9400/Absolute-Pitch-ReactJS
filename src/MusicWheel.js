@@ -361,7 +361,11 @@ minute2:[ 181,
       } else {
         setPackageDataIndex(packageDataIndex);
         setFreeActive(true);
+        setDisable(true);
+        setImageTypeActive('');
         setDisableIntensity(true);
+        setImageTypeIndex("");
+        setPackageDataIndex('')
         setGroups("f1,f2");
         setNord({ c1: [], c2: [], c3: [] });
         setNordData([]);
@@ -391,6 +395,17 @@ minute2:[ 181,
     }
     
   }
+  // function intensitySort(){
+  //   setIntensityIndex(1+intensityIndex);
+
+  //   if(intensityIndex == '1')
+  //   {
+      
+  //     fetchSongsData()
+  //   }
+  //   setNord({ c1: [], c2: [], c3: [] });
+  //   setNordData([]);
+  // }
 
   async function btnHandler(type, e, ind) {
     // if (imageTypeIndex == "") {
@@ -1260,7 +1275,7 @@ minute2:[ 181,
                 className={classes.thStyle}
                 style={{ cursor: "pointer" }}
                 onClick={(e) => {
-                  btnHandler("Intensity", e);
+                  btnHandler(type, e, ind)
                   fetchSongsData();
                 }}
               >
