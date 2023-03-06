@@ -72,7 +72,7 @@ function VideoPlayer(prop) {
               onEnded={playNextSong}
               style={{ marginTop: "-50px" }}
               config={{ file: { attributes: { controlsList: 'nodownload' } } }}
-              volume={volume}
+             
             />
           ) : (
             <ReactPlayer
