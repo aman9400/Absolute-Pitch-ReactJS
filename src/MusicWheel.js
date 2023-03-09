@@ -384,7 +384,13 @@ minute2:[ 181,
     }
     if (type == "Premium") {
       setSubscriptionActivePlan(3);
-      setGroups("O1,O2,O3");
+      if(packageDataIndex >2){
+        setGroups("O1,O2,O3");
+      }
+      else{
+        setGroups("G1,G2,G3,G4");
+      }
+     
       setImageTypeActive(1);
       setImageTypeIndex("Letter");
       // setPackageDataIndex(1);
