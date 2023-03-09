@@ -387,7 +387,7 @@ minute2:[ 181,
       setGroups("O1,O2,O3");
       setImageTypeActive(1);
       setImageTypeIndex("Letter");
-      setPackageDataIndex(3);
+      // setPackageDataIndex(1);
       setPackageActive("");
       setDisable(false);
       setFreeActive(false);
@@ -773,6 +773,7 @@ minute2:[ 181,
                   : classes.topButtons
               }`}
               onClick={(e) => {
+                setPackageDataIndex(2);
                 subscriptionPlan("Premium", e);
               }}
               style={{
