@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    background: "#333 !important",
+    background: "black !important",
     borderRadius: "10px",
     padding: "20px",
     height: "90vh",
@@ -51,6 +51,15 @@ const useStyles = makeStyles({
     },
     "@media (min-width: 720px) and (max-width:1024px)": {
       marginTop: "-400px",
+    },
+  },
+  imgContainer:{
+    position:'absolute',bottom:'0',height:'350px',overflow:'hidden',
+    "@media (min-width: 1280px) and (max-width:1680px)": {
+      height:'200px',
+    },
+    "@media (min-width: 720px) and (max-width:1024px)": {
+      height:'300px',
     },
   },
 });
@@ -101,7 +110,7 @@ function VideoPlayer(prop) {
               loop={true}
             />
           )}
-          {/* <div style={{position:'absolute',bottom:'0',height:'300px',}}><Image src={Guitar} alt="..."/></div> */}
+          <div className={classes.imgContainer}><Image src={Guitar} alt="..."  /></div>
         </Grid>
         
       </Grid>
