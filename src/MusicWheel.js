@@ -721,7 +721,7 @@ function MusicWheel(props) {
       } else {
         setGroups("G1,G2,G3,G4");
       }
-      setDisableIntensity(false);
+setDisableIntensity(false);
       setImageTypeActive(1);
       setImageTypeIndex("Letter");
       // setPackageDataIndex(1);
@@ -1025,11 +1025,10 @@ function MusicWheel(props) {
           console.log(songsData, "songdata.....");
          props.handleSong;
           for (let i = 0; i <= responseJson.data.length; i++) {
-            
-           // if (!responseJson.data[i].song_name.includes("_P.")) {
+            // if (responseJson.data[i].song_name.includes("_P.")) {
               handleClickSong(responseJson.data, i);
-             
-              //break;
+              // setDuration(responseJson.data[i].duration);
+              // break;
             //}
           }
         } else {

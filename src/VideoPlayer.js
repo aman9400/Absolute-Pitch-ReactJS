@@ -76,7 +76,7 @@ function VideoPlayer(prop) {
       // if(!(prop.musicData[i]["song_url"].includes("_P."))){
       prop.handleSong(prop.musicData, i);
       prop.totleTimeAndImage(prop.musicData, prop.musicIndex);
-      //     break;
+           break;
       // }
     }
   }
