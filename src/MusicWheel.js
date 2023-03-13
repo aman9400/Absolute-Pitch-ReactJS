@@ -691,6 +691,7 @@ function MusicWheel(props) {
         setPackageDataIndex(0);
       } else {
         setPackageDataIndex(packageDataIndex);
+        setIntensityIndex(0)
         setFreeActive(true);
         setDisable(true);
         setImageTypeActive("");
@@ -720,7 +721,7 @@ function MusicWheel(props) {
       } else {
         setGroups("G1,G2,G3,G4");
       }
-
+      setDisableIntensity(false);
       setImageTypeActive(1);
       setImageTypeIndex("Letter");
       // setPackageDataIndex(1);
@@ -1022,12 +1023,14 @@ function MusicWheel(props) {
         if (responseJson != "") {
           setSongsData(responseJson.data);
           console.log(songsData, "songdata.....");
+         props.handleSong;
           for (let i = 0; i <= responseJson.data.length; i++) {
-            if (!responseJson.data[i].song_name.includes("_P.")) {
+            
+           // if (!responseJson.data[i].song_name.includes("_P.")) {
               handleClickSong(responseJson.data, i);
-              // setDuration(responseJson.data[i].duration);
-              break;
-            }
+             
+              //break;
+            //}
           }
         } else {
           alert("error in response");
@@ -1531,18 +1534,7 @@ function MusicWheel(props) {
             </p>
           </Grid>
         </Grid>
-        {/* <marquee width="90%" direction="left" height="30%">
-          {" Title_" +
-            props.songTitle +
-            " Note_" +
-            props.songNote +
-            " Composer_" +
-            props.composer +
-            " Duration_" +
-            props.duration +
-            " Image Count_" +
-            props.imageCount}
-        </marquee> */}
+       
       </div>
       <div style={{ marginBottom: "30px" }}>
         {/* <Grid container spacing={2} className={classes.bottomBoxContainer}>
@@ -1565,28 +1557,7 @@ function MusicWheel(props) {
       </div>
       <div className={styles.songsWrapper}>
         <Paper elevation={3} className={classes.paperStyle}>
-          {/* <div
-            style={{
-              height: "30px",
-              borderRadius: "5%",
-              alignItems: "center",
-              display: "flex",
-            }}
-          > */}
-          {/* <p
-              style={{
-                color: "#fff",
-                width: "70px",
-                background: "#333333",
-                textAlign: "center",
-              }}
-            >
-              {props.playSongposition}/{totalSongs}
-            </p>
-            <p>Number Of Cue</p> */}
-          {/* </div> */}
-          {/* <hr /> */}
-          {/* <div> */}
+          
           <table className={classes.tableStyle} id={props.id}>
             <tr className={classes.trStyle}>
               <th className={classes.thStyle}>Title</th>

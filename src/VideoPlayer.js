@@ -23,7 +23,7 @@ const useStyles = makeStyles({
     height: "90vh",
     marginTop: "8px",
     position:'relative',
-    "@media (min-width: 1280px) and (max-width:1480px)": { height: "130vh" },
+    "@media (min-width: 1280px) and (max-width:1480px)": { height: "135vh" },
     "@media (min-width: 1481px) and (max-width:1920px)": { height: "110vh" },
     "@media (min-width: 770px) and (max-width:1024px)": {
       margin: "15px 15px 15px 35px !important",
@@ -57,6 +57,7 @@ const useStyles = makeStyles({
     position:'absolute',bottom:'0',height:'350px',overflow:'hidden',
     "@media (min-width: 1280px) and (max-width:1680px)": {
       height:'200px',
+      borderRadius:'0px 0px 20px 20px',
     },
     "@media (min-width: 720px) and (max-width:1024px)": {
       height:'300px',

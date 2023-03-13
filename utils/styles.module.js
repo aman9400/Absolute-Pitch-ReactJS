@@ -505,6 +505,7 @@ premiumActive:{
       pointerEvents:'none',
       cursor:'none',
       zIndex: 60,
+      display:'none',
     },
     "@media (min-width: 1280px) and (max-width:1680px)": {
       height: "150px",
@@ -533,7 +534,12 @@ premiumActive:{
     borderRadius: "50%",
     // background: "radial-gradient(#FFF 40%, #000)",
     cursor: "pointer",
-    "@media (min-width: 1280px) and (max-width:1680px)": {
+    "@media (min-width: 1280px) and (max-width:1480px)": {
+      height: "150px",
+      width: "150px",
+      top: "80%",
+    },
+    "@media (min-width: 1481px) and (max-width:1680px)": {
       height: "150px",
       width: "150px",
       top: "60%",
@@ -547,7 +553,7 @@ premiumActive:{
     "@media (min-width: 720px) and (max-width:1024px)": {
       height: "120px",
       width: "120px",
-      top: "70%",
+      top: "75%",
     },
   },
   IntensityBtnNew: {
@@ -565,7 +571,12 @@ premiumActive:{
     color: "blue",
     cursor: "pointer",
     borderRadius: "50%",
-    "@media (min-width: 1280px) and (max-width:1680px)": {
+    "@media (min-width: 1280px) and (max-width:1480px)": {
+      height: "150px",
+      width: "150px",
+      top: "80%",
+    },
+    "@media (min-width: 1481px) and (max-width:1680px)": {
       height: "150px",
       width: "150px",
       top: "60%",
