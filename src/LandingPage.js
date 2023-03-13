@@ -143,6 +143,7 @@ function LandingPage() {
           setAllImageCount={setAllImageCount}
           setTotalSeconds={setTotalSeconds}
           remainingTime={remainingTime}
+          setPlaySongposition={setPlaySongposition}
         />
       </Grid>
       <Grid item xs={12} md={6} sm={12}>

@@ -1426,17 +1426,37 @@ setDisableIntensity(false);
                     cursor: "pointer",
                   }}
                   onClick={() => {
+                    
                     setPackageDataIndex(0);
+                    setIntensityIndex(0);
+                    setTempoIndex(0)
+                    setPackageDataIndex(1);
+                    setPackageActive("F");
+                    setDurationDataIndex(0);
+                   
+                    setDurationValue("");
+                    setDisable(false);
+                    setFreeActive(false)
+                    setDisableIntensity(false)
+                    setTotalSongs(0)
+                    setSubscriptionActivePlan(0)
+                    setNordIndex111(0);
+                    setAllPlaySongsDuration("00:00");
+                    setSongsData([""]);
+                    props.setPlaySongposition(0);
+                    setImageTypeActive(0)
+                    
                     setNord({
-                      c1: [],
-                      c2: [],
-                      c3: [],
+                      c1: [''],
+                      c2: [''],
+                      c3: [''],
                     });
                     setHighlightedNord({
-                      c1: [],
-                      c2: [],
-                      c3: [],
+                      c1: [''],
+                      c2: [''],
+                      c3: [''],
                     });
+                    highlightNord(songsData, ind);
                     fetchSongsData();
                   }}
                 >
