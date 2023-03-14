@@ -12,8 +12,18 @@ const useStyles = makeStyles({
     minHeight: "85vh",
     marginTop: "2%",
     marginBottom: "2%",
+    Padding:'0px',
+    width:'1900px !important',
+    "@media (min-width: 1280px) and (max-width:1680px)": {
+      width:'1700px',
+    },
+    "@media (min-width: 600px) and (max-width:768px)": {
+      // marginLeft: "30%",
+      // marginTop: "100px",
+    },
     "@media (max-width:700px)": {
       marginTop: "3%",
+      width:'1900px !important',
     },
   },
 

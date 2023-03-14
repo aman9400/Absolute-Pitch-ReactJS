@@ -6,11 +6,16 @@ import { makeStyles } from "@material-ui/core";
 const useStyles = makeStyles({
   root: {
     position: "relative",
+    maxWidth:'100%',
   },
   containerBox: {
     // marginTop: '1px',
     padding: "10px",
     height: "auto",
+    // border:'2px solid red',
+    width:'100wv !important',
+    paddingLeft:'0px',
+    // marginLeft:'-330px',
     background: "#808d8dcf !important",
     "@media (min-width: 770px) and (max-width:1024px)": {
       height: "90vh",
