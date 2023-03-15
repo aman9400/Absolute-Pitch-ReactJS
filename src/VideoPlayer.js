@@ -19,38 +19,39 @@ const useStyles = makeStyles({
     justifyContent: "center",
     background: "black !important",
     borderRadius: "10px",
-    padding: "20px",
+    // padding: "20px",
     height: "90vh",
     marginTop: "8px",
     position:'relative',
     "@media (min-width: 1280px) and (max-width:1480px)": { height: "135vh" },
     "@media (min-width: 1481px) and (max-width:1920px)": { height: "110vh" },
     "@media (min-width: 770px) and (max-width:1024px)": {
-      margin: "15px 15px 15px 35px !important",
+      // margin: "15px 15px 15px 35px !important",
     },
     "@media (min-width: 600px) and (max-width:768px)": {
-      margin: "15px 15px 15px 28px !important",
+      // margin: "15px 15px 15px 28px !important",
       height: "40vh",
     },
     "@media (min-width: 380px) and (max-width:425px)": {
-      margin: "15px 15px 15px 28px !important",
+      // margin: "15px 15px 15px 28px !important",
       height: "40vh",
     },
     "@media (max-width:700px)": {
-      margin: "10px 15px 15px 28px !important",
+      // margin: "10px 15px 15px 28px !important",
       height: "25vh",
     },
   },
   playerDisplay:{
     objectFit: "cover",
     backgroundSize: "cover",
-    marginTop: "-400px",
+
+    marginTop: "-4%",
     // "@media (min-width: 1280px) and (max-width:1480px)": {  marginTop: "-300px", },
     "@media (min-width: 1280px) and (max-width:1680px)": {
-      marginTop: "-180px",
+      // marginTop: "-180px",
     },
     "@media (min-width: 720px) and (max-width:1024px)": {
-      marginTop: "-400px",
+      // marginTop: "-400px",
     },
   },
   imgContainer:{
@@ -91,7 +92,7 @@ function VideoPlayer(prop) {
               controls
               url={music}
               width="100vw"
-              height="80vh"
+              height="110vh"
              className={classes.playerDisplay}
               playing={true}
               fluid={true}
@@ -111,7 +112,7 @@ function VideoPlayer(prop) {
               loop={true}
             />
           )}
-          <div className={classes.imgContainer}><Image src={Guitar} alt="..."  /></div>
+          {/* <div className={classes.imgContainer}><Image src={Guitar} alt="..."  /></div> */}
         </Grid>
         
       </Grid>

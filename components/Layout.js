@@ -14,7 +14,7 @@ export default function Layout({ children }) {
           <Typography>Absolute Pitch</Typography>
         </Toolbar>
       </AppBar>
-      <Container className={classes.main}>{children}</Container>
+      <div className={classes.main}>{children}</div>
       <footer className={classes.footer}>
         <Typography>All right reserved. Absolute Pitch</Typography>
       </footer>

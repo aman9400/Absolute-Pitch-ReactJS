@@ -12,19 +12,25 @@ const useStyles = makeStyles({
     minHeight: "85vh",
     marginTop: "2%",
     marginBottom: "2%",
-    Padding:'0px',
-    width:'1900px !important',
+    Padding:'10px 0px 0px 200px',
+    // width:'1900px !important',
+    width:'100%',
     "@media (min-width: 1280px) and (max-width:1680px)": {
-      width:'1700px',
+      // width:'1700px',
+      width:'100%',
     },
     "@media (min-width: 600px) and (max-width:768px)": {
       // marginLeft: "30%",
       // marginTop: "100px",
+      width:'100%',
     },
     "@media (max-width:700px)": {
       marginTop: "3%",
       width:'1900px !important',
     },
+    "@media  screen and (max-width: 1920px)": {
+      Padding:'10px 0px 0px 200px',
+  }
   },
 
   mainCircle: {
@@ -781,7 +787,7 @@ premiumActive:{
   songScrolling: {
     width: "92%",
     padding: "0px 10px 0px 10px",
-    marginLeft: "18px",
+    marginLeft: "3%",
     background: "#fff",
     fontSize: "14px",
     color: "#000",

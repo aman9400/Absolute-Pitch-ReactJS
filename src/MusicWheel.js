@@ -1171,7 +1171,7 @@ setDisableIntensity(false);
               <Image
                 src={staff}
                 alt="alt"
-                height="20px"
+                height="25px"
                 style={{ marginTop: "-2px" }}
               />
             </button>
@@ -1199,8 +1199,8 @@ setDisableIntensity(false);
               <Image
                 src={keys}
                 alt="alt"
-                height="40px"
-                style={{ maxWidth: "100%" }}
+                height="28px"
+                style={{ maxWidth: "100%",}}
               />
             </button>
           </Grid>

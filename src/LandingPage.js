@@ -13,7 +13,7 @@ const useStyles = makeStyles({
     padding: "10px",
     height: "auto",
     // border:'2px solid red',
-    width:'100wv !important',
+    // width:'100wv !important',
     paddingLeft:'0px',
     // marginLeft:'-330px',
     background: "#808d8dcf !important",
@@ -29,6 +29,10 @@ const useStyles = makeStyles({
     "@media (max-width:700px)": {
       height: "128vh",
     },
+    "@media  screen and (max-width: 1920px)" :{
+      width:'97vw',
+      marginLeft:'1% !important',
+  }
   },
   leftSection: {
     // background: 'rgb(63, 70, 82)',
@@ -161,6 +165,7 @@ function LandingPage() {
         />
       </Grid>
     </Grid>
+
   );
 }
 
