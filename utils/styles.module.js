@@ -202,7 +202,7 @@ const useStyles = makeStyles({
   circleCard: {
     background: "#333 !important",
     borderRadius: "10px",
-    height: "120vh",
+    height: "100vh",
     "@media (min-width: 1280px) and (max-width:1480px)": { height: "135vh" },
     "@media (min-width: 1481px) and (max-width:1920px)": { height: "110vh" },
     "@media (min-width: 600px) and (max-width:768px)": {

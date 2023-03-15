@@ -20,32 +20,26 @@ const useStyles = makeStyles({
     background: "black !important",
     borderRadius: "10px",
     // padding: "20px",
-    height: "90vh",
+    height: "100vh",
     marginTop: "8px",
     position:'relative',
     "@media (min-width: 1280px) and (max-width:1480px)": { height: "135vh" },
     "@media (min-width: 1481px) and (max-width:1920px)": { height: "110vh" },
-    "@media (min-width: 770px) and (max-width:1024px)": {
-      // margin: "15px 15px 15px 35px !important",
-    },
     "@media (min-width: 600px) and (max-width:768px)": {
-      // margin: "15px 15px 15px 28px !important",
-      height: "40vh",
+      margin: "25px 15px 15px 25px !important",
     },
     "@media (min-width: 380px) and (max-width:425px)": {
-      // margin: "15px 15px 15px 28px !important",
-      height: "40vh",
+      margin: "25px 15px 15px 25px !important",
     },
-    "@media (max-width:700px)": {
-      // margin: "10px 15px 15px 28px !important",
-      height: "25vh",
+    "@media (max-width:375px)": {
+      margin: "25px 15px 15px 25px !important",
     },
   },
   playerDisplay:{
     objectFit: "cover",
     backgroundSize: "cover",
 
-    marginTop: "-4%",
+    // marginTop: "-4%",
     // "@media (min-width: 1280px) and (max-width:1480px)": {  marginTop: "-300px", },
     "@media (min-width: 1280px) and (max-width:1680px)": {
       // marginTop: "-180px",
