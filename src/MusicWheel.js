@@ -1400,8 +1400,10 @@ setDisableIntensity(false);
                 {songsData && songsData.length > 0
                   ? songsData.map((val, ind) =>
                      
-                        console.log((totalduraion =
-                          parseInt(totalduraion) + parseInt(val["duration"])))
+                        console.log(
+                          (totalduraion =
+                          parseInt(totalduraion) + parseInt(val["duration"]))
+                          )
                       
                     )
                   : ""}

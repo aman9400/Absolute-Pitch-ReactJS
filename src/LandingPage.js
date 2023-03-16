@@ -78,13 +78,14 @@ function LandingPage() {
   const [songNote, setSongNote] = useState("Note");
   const [totalSeconds, setTotalSeconds] = useState(0);
   const [allImageCount, setAllImageCount] = useState(0);
+  const [allImageArray, setAllImageArray] = useState([]);
   const [imageCount, setImageCount] = useState(0);
   const [duration, setDuration] = useState(0);
   const [durationLast, setDurationLast] = useState(0);
   const [remainingTime, setRemainingTime] = useState(0);
   const [imageCountLast, setImageCountLast] = useState(0);
   const [playSongposition, setPlaySongposition] = useState(0);
-
+ let sumOfImages = [];
   function handleSong(songsData, ind) {
 
     setData(songsData);
@@ -122,15 +123,26 @@ function LandingPage() {
     setRemainingTime(remtime);
      consolelog(remtime,'rem.....hI')
    }
+  
   function totleTimeAndImage(data,index)
   {
     setImageCountLast(data[index].no_of_images);
-    setAllImageCount(parseInt(imageCountLast) + parseInt(data[index].no_of_images));
-    allImageCount > 1000 ? setAllImageCount(0) : '';
-    setDurationLast(data[index].duration);
+    // setAllImageCount((parseInt(imageCountLast)) + parseInt(data[index].no_of_images));
+    
+    setAllImageArray((prevVals) => [...prevVals, parseInt(data[index].no_of_images)]);
+    setAllImageCount(allImageArray.reduce((a, b) => a + b, 0));
+    
+    allImageCount > 1000 ? setAllImageArray([]) : '';
+
+    setDurationLast(data[i].duration);
+    console.log(imageCountLast,'imageCountLast....')
+    console.log(data[index].no_of_images,'pppp....')
+    console.log(tImage,'tImage...');
+    
     // setTotalSeconds(parseInt(durationLast) + parseInt(data[index].duration));
-    console.log(totalSeconds,'total duration in seconds');
+    // console.log(totalSeconds,'total duration in seconds');
     remainingTimes(totalSeconds);
+    
   }
 
   const classes = useStyles();
