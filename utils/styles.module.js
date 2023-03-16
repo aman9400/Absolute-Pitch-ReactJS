@@ -16,8 +16,9 @@ const useStyles = makeStyles({
     // width:'1900px !important',
     width:'100%',
     "@media (min-width: 1280px) and (max-width:1680px)": {
+      marginLeft: "1.5%",
       // width:'1700px',
-      width:'100%',
+      width:'97%',
     },
     "@media (min-width: 600px) and (max-width:768px)": {
       // marginLeft: "30%",
@@ -26,10 +27,12 @@ const useStyles = makeStyles({
     },
     "@media (max-width:700px)": {
       marginTop: "3%",
-      width:'1900px !important',
     },
-    "@media  screen and (max-width: 1920px)": {
-      Padding:'10px 0px 0px 200px',
+    "@media (min-width: 1600px) and (max-width: 1920px)": {
+      width:'90%',
+      // Padding:'10px 0px 0px 200px',
+      minHeight: "85vh",
+      
   }
   },
 
@@ -57,6 +60,11 @@ const useStyles = makeStyles({
       // marginLeft: "3%",
       // marginTop: "20%",
     },
+    "@media (min-width: 1600px) and (max-width: 1920px)": {
+      width: "400px",
+      height: "400px",
+      // border:'2px solid red'
+    }
   },
   layertwo: {
     // padding: 10,
@@ -66,6 +74,7 @@ const useStyles = makeStyles({
     height: 200,
     marginTop: "5%",
     marginLeft: "5%",
+    "@media (min-width: 1600px) and (max-width: 1920px)": {}
   },
   circle: {
     position: "relative",
@@ -77,6 +86,7 @@ const useStyles = makeStyles({
     listStyle: "none",
     overflow: "hidden",
     zIndex: "99",
+    "@media (min-width: 1600px) and (max-width: 1920px)": {}
   },
 
   circle2: {
@@ -92,6 +102,7 @@ const useStyles = makeStyles({
     zIndex: "2",
     marginBottom: "50px",
     // transform: 'rotate(.0.1deg)'
+    "@media (min-width: 1600px) and (max-width: 1920px)": {}
   },
 
   circle3: {
@@ -109,6 +120,7 @@ const useStyles = makeStyles({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    "@media (min-width: 1600px) and (max-width: 1920px)": {}
   },
 
   circle4: {
@@ -128,6 +140,7 @@ const useStyles = makeStyles({
     justifyContent: "center",
     textAlign: "center",
     // background: "#00BF55 !important",
+    "@media (min-width: 1600px) and (max-width: 1920px)": {}
   },
 
   circle5: {
@@ -143,6 +156,7 @@ const useStyles = makeStyles({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    "@media (min-width: 1600px) and (max-width: 1920px)": {}
   },
 
   circle6: {
@@ -161,6 +175,7 @@ const useStyles = makeStyles({
     /* margin-left: 10%; */
     borderRadius: "50%",
     justifyContent: "center !important",
+    "@media (min-width: 1600px) and (max-width: 1920px)": {}
   },
   accidental: {
     verticalAlign: "super",
@@ -198,6 +213,7 @@ const useStyles = makeStyles({
     width: 40,
     height: 40,
     marginLeft: "40%",
+    "@media (min-width: 1600px) and (max-width: 1920px)": {}
   },
   circleCard: {
     background: "#333 !important",
@@ -214,6 +230,9 @@ const useStyles = makeStyles({
     "@media (max-width:375px)": {
       margin: "25px 15px 15px 25px !important",
     },
+    "@media (min-width: 1600px) and (max-width: 1920px)": {
+      height: "100vh"
+    }
   },
 
   select: {
@@ -233,6 +252,7 @@ premiumActive:{
     display: "flex",
     textAlign: "center",
     padding: "0px 10px",
+    "@media (min-width: 1600px) and (max-width: 1920px)": {}
   },
   topButtonContainer2: {
     marginTop: "10px",
@@ -240,6 +260,7 @@ premiumActive:{
     justifyContent: "right",
     alignItems: "right",
     display: "flex",
+    "@media (min-width: 1600px) and (max-width: 1920px)": {}
   },
   topButtons: {
     fontSize: "13px",
@@ -256,6 +277,7 @@ premiumActive:{
       transform: `rotate(-30deg) skew(25deg) tanslate(20px,-15px)`,
       boxShadow: "-5px 5px 5px gray",
     },
+    "@media (min-width: 1600px) and (max-width: 1920px)": {}
   },
   topButtonsDisable: {
     fontSize: "13px",
@@ -275,6 +297,7 @@ premiumActive:{
       cursor:'none',
       zIndex: 60,
     },
+    "@media (min-width: 1600px) and (max-width: 1920px)": {}
   },
   activeKey: {
     fontSize: "13px",
@@ -293,6 +316,7 @@ premiumActive:{
       transform: `rotate(-30deg) skew(25deg) tanslate(20px,-15px)`,
       boxShadow: "-10px 10px 10px gray",
     },
+    "@media (min-width: 1600px) and (max-width: 1920px)": {}
   },
   resetButtons: {
     fontSize: "16px",
@@ -311,6 +335,7 @@ premiumActive:{
       transform: `rotate(-30deg) skew(25deg) tanslate(20px,-15px)`,
       boxShadow: "-10px 10px 10px gray",
     },
+    "@media (min-width: 1600px) and (max-width: 1920px)": {}
   },
 
   bottomBox: {
@@ -328,6 +353,7 @@ premiumActive:{
     verticalAlign: "middle",
     color: "#000",
     // transform: "rotate(-30deg) skew(25deg) tanslate(20px,-15px)",
+    "@media (min-width: 1600px) and (max-width: 1920px)": {}
   },
   tempoBtnContainer: {
     position: "relative",
@@ -336,11 +362,13 @@ premiumActive:{
     height: "50vh",
     alignItems: "center",
     display: "flex",
+    "@media (min-width: 1600px) and (max-width: 1920px)": {}
   },
   wheelContianer: {
     alignItems: "center",
     display: "flex",
     justifyContent: "center",
+    "@media (min-width: 1600px) and (max-width: 1920px)": {}
   },
   topButtonContainer: {
     display: "flex",
@@ -354,6 +382,7 @@ premiumActive:{
     "@media (min-width: 1280px) and (max-width:1680px)": {
       marginBottom: "3%",
     },
+    "@media (min-width: 1600px) and (max-width: 1920px)": {}
   },
   bottomBoxContainer: {
     display: "flex",
@@ -369,6 +398,7 @@ premiumActive:{
       width: "98%",
       marginLeft: "6px",
     },
+    "@media (min-width: 1600px) and (max-width: 1920px)": {}
   },
 
   iconDesign: {
@@ -496,42 +526,14 @@ premiumActive:{
       height: "150px",
       width: "150px",
     },
+    "@media (min-width: 1600px) and (max-width: 1920px)": {
+      height: "200px",
+      width: "200px",
+      left: " 25%",
+      // border:'2px solid red'
+    }
   },
-  disableBtn: {
-    position: "absolute",
-    // height: "175px",
-    // width: "175px",
-    border: "2px solid #0058ab !important",
-    background: "#333333",
-    display: "flex",
-    alignItems: "center",
-    textAlign: "center",
-    cursor: "pointer",
-    borderRadius: "50%",
-    // left: " 10%",
-    // right: "27.31%",
-    // top: "1.25%",
-    fontSize: "12px",
-    cursor: "pointer",
-    border: "none",
-    "&:hover": {
-      disabled: true,
-      content: '',
-      // background:'gray',
-      pointerEvents:'none',
-      cursor:'none',
-      zIndex: 60,
-      display:'none',
-    },
-    "@media (min-width: 1280px) and (max-width:1680px)": {
-      height: "150px",
-      width: "150px",
-    },
-    "@media (min-width: 720px) and (max-width:1024px)": {
-      height: "150px",
-      width: "150px",
-    },
-  },
+
   tempoNewBtnBottom: {
     position: "absolute",
     left: " 10%",
@@ -571,14 +573,57 @@ premiumActive:{
       width: "120px",
       top: "75%",
     },
+    "@media (min-width: 1600px) and (max-width: 1920px)": {
+      height: "200px",
+      width: "200px",
+      // border:'2px solid red',
+      left: " 25%",
+    }
   },
+  disableBtn: {
+    position: "absolute",
+    // height: "175px",
+    // width: "175px",
+    border: "2px solid #0058ab !important",
+    background: "#333333",
+    display: "flex",
+    alignItems: "center",
+    textAlign: "center",
+    cursor: "pointer",
+    borderRadius: "50%",
+    // left: " 10%",
+    // right: "27.31%",
+    // top: "1.25%",
+    fontSize: "12px",
+    cursor: "pointer",
+    border: "none",
+    "&:hover": {
+      disabled: true,
+      content: '',
+      // background:'gray',
+      pointerEvents:'none',
+      cursor:'none',
+      zIndex: 60,
+      display:'none',
+    },
+    "@media (min-width: 1280px) and (max-width:1680px)": {
+      height: "150px",
+      width: "150px",
+    },
+    "@media (min-width: 720px) and (max-width:1024px)": {
+      height: "150px",
+      width: "150px",
+    },
+    "@media (min-width: 1600px) and (max-width: 1920px)": {}
+  },
+  
   IntensityBtnNew: {
     position: "absolute",
     right: "10%",
+     height: "175px",
+    width: "175px",
     top: "65%",
     bottom: "-72.49%",
-    height: "175px",
-    width: "175px",
     display: "flex",
     alignItems: "center",
     textAlign: "center",
@@ -617,6 +662,12 @@ premiumActive:{
     "&:hover": {
       // background: "radial-gradient(blue 40%, #000)",
     },
+    "@media (min-width: 1600px) and (max-width: 1920px)": {
+      right: "20%",
+      height: "200px",
+     width: "200px",
+    //  border:'2px solid red'
+    }
   },
   IntensityActive: {
     position: "absolute",
@@ -658,6 +709,7 @@ premiumActive:{
     "&:hover": {
       // background: "radial-gradient(blue 40%, #000)",
     },
+    "@media (min-width: 1600px) and (max-width: 1920px)": {}
   },
   tempoBtnNew: {
     position: "absolute",
@@ -691,15 +743,13 @@ premiumActive:{
       width: "120px",
       right: "20%",
     },
-    //  "@media (min-width: 600px) and (max-width:768px)": {
-    //   margin: "25px 15px 15px 25px !important",
-    // },
-    // "@media (min-width: 380px) and (max-width:425px)": {
-    //   margin: "25px 15px 15px 25px !important",
-    // },
-    // "@media (max-width:375px)": {
-    //   margin: "25px 15px 15px 25px !important",
-    // },
+    "@media (min-width: 1600px) and (max-width: 1920px)": {
+
+      right: "20%",
+        height: "200px",
+        width: "200px",
+    
+    }
   },
 
    resetCounterBtn: {
@@ -803,6 +853,7 @@ premiumActive:{
       fontSize: "14px",
       padding: "5px",
     },
+    "@media (min-width: 1600px) and (max-width: 1920px)": {}
   },
   tableStyle: {
     //  border :'1px solid black',
@@ -810,6 +861,9 @@ premiumActive:{
     // padding: "5px",
     textAlign: "center",
     height: "98%",
+    "@media (min-width: 1600px) and (max-width: 1920px)": {
+      height: "95%",
+    }
   },
   tableStyleNew: {
     width: "100%",
@@ -841,7 +895,7 @@ premiumActive:{
       padding: "5px 10px 0px 10px",
       lineHeight: "30px",
       marginLeft: "8px",
-      height: "180px",
+      height: "150px",
       // overflow: "scroll",
     },
     "@media (min-width: 780px) and (max-width:1200px)": {
@@ -850,7 +904,7 @@ premiumActive:{
       padding: "5px 10px 0px 10px",
       lineHeight: "30px",
       marginLeft: "8px",
-      height: "240px",
+      height: "150px",
       // overflow: "scroll",
     },
     "@media (min-width: 1201px) and (max-width:1680px)": {
@@ -859,9 +913,12 @@ premiumActive:{
       padding: "5px 10px 0px 10px",
       lineHeight: "30px",
       marginLeft: "8px",
-      height: "190px",
+      height: "180px",
       // overflow: "scroll",
     },
+    "@media (min-width: 1800px) and (max-width: 1920px)": {
+      height: '280px',
+    }
   },
   playerBtn: {
     cursor: "pointer",
@@ -898,6 +955,11 @@ premiumActive:{
     justifyContent: "center",
     width: "54%",
     marginLeft: "23%",
+    "@media  (min-width: 1600px) and (max-width: 1920px)": {
+      // height: '280px',
+       width: "60%",
+    marginLeft: "25%",
+    }
   },
   premiumList: { pointerEvents: "none", opacity: "0.6", background: "gray" },
 

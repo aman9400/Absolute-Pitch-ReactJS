@@ -10,7 +10,7 @@ const useStyles = makeStyles({
   },
   containerBox: {
     // marginTop: '1px',
-    padding: "10px",
+    padding: "0px 5px 0px 0px",
     height: "auto",
     // border:'2px solid red',
     // width:'100wv !important',
@@ -29,9 +29,10 @@ const useStyles = makeStyles({
     "@media (max-width:700px)": {
       height: "128vh",
     },
-    "@media  screen and (max-width: 1920px)" :{
+    "@media  (min-width: 1600px)and (max-width: 1920px)" :{
       width:'97vw',
       marginLeft:'1% !important',
+      height:'105vh',
   }
   },
   leftSection: {
@@ -125,6 +126,7 @@ function LandingPage() {
   {
     setImageCountLast(data[index].no_of_images);
     setAllImageCount(parseInt(imageCountLast) + parseInt(data[index].no_of_images));
+    allImageCount > 1000 ? setAllImageCount(0) : '';
     setDurationLast(data[index].duration);
     // setTotalSeconds(parseInt(durationLast) + parseInt(data[index].duration));
     console.log(totalSeconds,'total duration in seconds');
