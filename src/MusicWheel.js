@@ -1576,7 +1576,7 @@ setDisableIntensity(false);
           </Grid>
         </Grid> */}
       </div>
-      <div className={styles.songsWrapper}>
+      <div className={styles.songsWrapper} >
         <Paper elevation={3} className={classes.paperStyle}>
           
           <table className={classes.tableStyle} id={props.id}>

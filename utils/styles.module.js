@@ -10,8 +10,8 @@ const useStyles = makeStyles({
   },
   main: {
     minHeight: "85vh",
-    marginTop: "2%",
-    marginBottom: "2%",
+    marginTop: "10px",
+    // marginBottom: "2%",
     Padding:'10px 0px 0px 200px',
     // width:'1900px !important',
     width:'100%',
@@ -31,7 +31,7 @@ const useStyles = makeStyles({
     "@media (min-width: 1600px) and (max-width: 1920px)": {
       width:'90%',
       // Padding:'10px 0px 0px 200px',
-      minHeight: "85vh",
+      height: "100vh",
       
   }
   },
@@ -230,8 +230,8 @@ const useStyles = makeStyles({
     "@media (max-width:375px)": {
       margin: "25px 15px 15px 25px !important",
     },
-    "@media (min-width: 1600px) and (max-width: 1920px)": {
-      height: "100vh"
+    "@media (min-width: 1600px)and (max-width: 1920px)": {
+      height: "97vh"
     }
   },
 
@@ -855,6 +855,8 @@ premiumActive:{
     },
     "@media (min-width: 1600px) and (max-width: 1920px)": {}
   },
+
+  
   tableStyle: {
     //  border :'1px solid black',
     width: "100%",
@@ -887,15 +889,17 @@ premiumActive:{
     padding: "5px 10px 0px 10px",
     lineHeight: "30px",
     marginLeft: "2px",
-    height: "300px",
+    // height: "300px",
     overflow: "scroll",
+    height:' -webkit-fill-available',
     "@media (min-width: 600px) and (max-width:768px)": {
       marginTop: "10px",
       width: "92%",
       padding: "5px 10px 0px 10px",
       lineHeight: "30px",
       marginLeft: "8px",
-      height: "150px",
+      // height: "150px",
+      height:' -webkit-fill-available',
       // overflow: "scroll",
     },
     "@media (min-width: 780px) and (max-width:1200px)": {
@@ -904,7 +908,8 @@ premiumActive:{
       padding: "5px 10px 0px 10px",
       lineHeight: "30px",
       marginLeft: "8px",
-      height: "150px",
+      // height: "150px",
+      height:' -webkit-fill-available',
       // overflow: "scroll",
     },
     "@media (min-width: 1201px) and (max-width:1680px)": {
@@ -917,7 +922,8 @@ premiumActive:{
       // overflow: "scroll",
     },
     "@media (min-width: 1800px) and (max-width: 1920px)": {
-      height: '280px',
+      // height: '250px',
+      height:' -webkit-fill-available',
     }
   },
   playerBtn: {

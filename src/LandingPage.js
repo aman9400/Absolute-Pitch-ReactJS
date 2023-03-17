@@ -23,16 +23,16 @@ const useStyles = makeStyles({
     "@media (min-width: 600px) and (max-width:768px)": {
       height: "125vh",
     },
-    "@media (min-width: 380px) and (max-width:425px)": {
-      height: "125vh",
-    },
-    "@media (max-width:700px)": {
-      height: "128vh",
-    },
+    // "@media (min-width: 380px) and (max-width:425px)": {
+    //   height: "125vh",
+    // },
+    // "@media (max-width:700px)": {
+    //   height: "128vh",
+    // },
     "@media  (min-width: 1600px)and (max-width: 1920px)" :{
-      width:'97vw',
+      width:'98vw',
       marginLeft:'1% !important',
-      height:'105vh',
+      height:'100vh',
   }
   },
   leftSection: {
@@ -97,6 +97,7 @@ function LandingPage() {
     setSongName(songsData[ind].song_name);
     setImageCount(songsData[ind].no_of_images);
     setPlaySongposition(++ind);
+    
     secondsToHms(songsData[ind].duration)
     const getNextSong = document.getElementById("childid").children[ind];
      getNextSong.scrollIntoView(); 
@@ -121,26 +122,18 @@ function LandingPage() {
     var secDisplay = sec > 0 ? sec : "00";
     let remtime = minuts + ":" + sec;
     setRemainingTime(remtime);
-     consolelog(remtime,'rem.....hI')
    }
   
   function totleTimeAndImage(data,index)
   {
     setImageCountLast(data[index].no_of_images);
     // setAllImageCount((parseInt(imageCountLast)) + parseInt(data[index].no_of_images));
-    
-    setAllImageArray((prevVals) => [...prevVals, parseInt(data[index].no_of_images)]);
+   
     setAllImageCount(allImageArray.reduce((a, b) => a + b, 0));
-    
+    setAllImageArray((prevVals) => [...prevVals, parseInt(data[index].no_of_images)]);
     allImageCount > 1000 ? setAllImageArray([]) : '';
-
+   
     setDurationLast(data[i].duration);
-    console.log(imageCountLast,'imageCountLast....')
-    console.log(data[index].no_of_images,'pppp....')
-    console.log(tImage,'tImage...');
-    
-    // setTotalSeconds(parseInt(durationLast) + parseInt(data[index].duration));
-    // console.log(totalSeconds,'total duration in seconds');
     remainingTimes(totalSeconds);
     
   }

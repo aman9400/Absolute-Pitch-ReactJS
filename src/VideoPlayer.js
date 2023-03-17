@@ -35,7 +35,7 @@ const useStyles = makeStyles({
       margin: "25px 15px 15px 25px !important",
     },
     "@media (min-width: 1600px)and (max-width: 1920px)": {
-      height: "100vh"
+      height: "97vh"
     }
   },
   playerDisplay:{
@@ -89,7 +89,7 @@ function VideoPlayer(prop) {
               controls
               url={music}
               width="100vw"
-              height="110vh"
+              height="96vh"
              className={classes.playerDisplay}
               playing={true}
               fluid={true}

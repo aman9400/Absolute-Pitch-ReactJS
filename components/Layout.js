@@ -9,15 +9,15 @@ export default function Layout({ children }) {
       <Head>
         <title>Absolute Pitch</title>
       </Head>
-      <AppBar position="static" className={classes.navbar}>
+      {/* <AppBar position="static" className={classes.navbar}>
         <Toolbar>
           <Typography>Absolute Pitch</Typography>
         </Toolbar>
-      </AppBar>
+      </AppBar> */}
       <div className={classes.main}>{children}</div>
-      <footer className={classes.footer}>
+      {/* <footer className={classes.footer}>
         <Typography>All right reserved. Absolute Pitch</Typography>
-      </footer>
+      </footer> */}
     </div>
   );
 }
