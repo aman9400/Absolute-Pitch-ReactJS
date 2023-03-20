@@ -1206,16 +1206,17 @@ setDisableIntensity(false);
           </Grid>
         </Grid>
       </div>
-      <div style={{ marginTop: "2%", marginBottom: "5%" }}>
+      <div style={{ marginTop: "2%", marginBottom: "2%"}}>
         <Grid container spacing={1}>
           <Grid item xs={2} md={2} className={classes.tempoBtnContainer}>
             <button
-              className={`${classes.tempoBtnTop} ${
+              className={`${classes.packageBtn} ${
                 freeActive ? classes.disableBtn : ""
               }`}
               onClick={(e) => {
                 btnHandler("Package", e);
               }}
+             
             >
               {packageDataIndex == 1 ? (
                 <Image src={Mix} alt="..." />
@@ -1231,7 +1232,7 @@ setDisableIntensity(false);
             </button>
 
             <button
-              className={`${classes.tempoNewBtnBottom} ${
+              className={`${classes.durationBtn} ${
                 durationDataIndex > 0 ? "" : ""
               }`}
               onClick={(e) => {
@@ -1390,8 +1391,9 @@ setDisableIntensity(false);
                 // id="duration"
                 style={{
                   background: "#fff",
-                  padding: "3px",
+                  padding: "4px",
                   borderRadius: "5px",
+                  
                 }}
               >
                 {props.remainingTime
@@ -1401,8 +1403,8 @@ setDisableIntensity(false);
                   ? songsData.map((val, ind) =>
                      
                         console.log(
-                          // (totalduraion =
-                          // parseInt(totalduraion) + parseInt(val["duration"]))
+                           (totalduraion =
+                           parseInt(totalduraion) + parseInt(val["duration"]))
                           )
                       
                     )
@@ -1558,23 +1560,6 @@ setDisableIntensity(false);
        
       </div>
       <div style={{ marginBottom: "30px" }}>
-        {/* <Grid container spacing={2} className={classes.bottomBoxContainer}>
-          <Grid item xs={3} md={3}>
-            <p className={`${classes.bottomBox}`}>{props.songNote}</p>
-          </Grid> */}
-        {/* <Grid item xs={3} md={3}>
-          <p className={`${classes.bottomBox}`}>{props.songTitle}</p>
-        </Grid> */}
-        {/* <Grid item xs={3} md={3}>
-            <p className={`${classes.bottomBox}`}>{props.composer}</p>
-          </Grid>
-          <Grid item xs={3} md={3}>
-            <p className={`${classes.bottomBox}`}>{props.duration}</p>
-          </Grid>
-          <Grid item xs={3} md={3}>
-            <p className={`${classes.bottomBox}`}>{props.imageCount}</p>
-          </Grid>
-        </Grid> */}
       </div>
       <div className={styles.songsWrapper} >
         <Paper elevation={3} className={classes.paperStyle}>

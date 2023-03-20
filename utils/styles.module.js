@@ -498,19 +498,21 @@ premiumActive:{
     // transform: 'rotate(-60.33deg)',
   },
 
-  tempoBtnTop: {
+  packageBtn: {
     position: "absolute",
     height: "175px",
     width: "175px",
-    border: "2px solid #0058ab !important",
+    // border: "2px solid #0058ab !important",
     background: "#333333",
     display: "flex",
     alignItems: "center",
+    // border:'2px solid red',
     textAlign: "center",
     cursor: "pointer",
     borderRadius: "50%",
     left: " 10%",
     right: "27.31%",
+    // border:'2px solid red',
     top: "1.25%",
     fontSize: "12px",
     cursor: "pointer",
@@ -534,11 +536,11 @@ premiumActive:{
     }
   },
 
-  tempoNewBtnBottom: {
+  durationBtn: {
     position: "absolute",
     left: " 10%",
     right: "16.31%",
-    top: "65%",
+    top: "60%",
     bottom: "-72.49%",
     height: "175px",
     width: "175px",
@@ -600,11 +602,11 @@ premiumActive:{
     "&:hover": {
       disabled: true,
       content: '',
-      // background:'gray',
+       background:'gray',
       pointerEvents:'none',
       cursor:'none',
       zIndex: 60,
-      display:'none',
+      //display:'none',
     },
     "@media (min-width: 1280px) and (max-width:1680px)": {
       height: "150px",
@@ -622,11 +624,12 @@ premiumActive:{
     right: "10%",
      height: "175px",
     width: "175px",
-    top: "65%",
+    top: "60%",
     bottom: "-72.49%",
     display: "flex",
     alignItems: "center",
     textAlign: "center",
+    
     background: "#333333",
     // background: "radial-gradient(#FFF 40%, #000)",
     color: "blue",
@@ -669,58 +672,18 @@ premiumActive:{
     //  border:'2px solid red'
     }
   },
-  IntensityActive: {
-    position: "absolute",
-    right: "10%",
-    top: "65%",
-    bottom: "-72.49%",
-    height: "175px",
-    width: "175px",
-    display: "flex",
-    alignItems: "center",
-    textAlign: "center",
-    background: "#333333",
-    // background: "radial-gradient(#FFF 40%, #000)",
-    color: "blue",
-    cursor: "pointer",
-    borderRadius: "50%",
-    "@media (min-width: 1280px) and (max-width:1680px)": {
-      height: "150px",
-      width: "150px",
-      top: "60%",
-    },
-    // background: "radial-gradient(#FFF 40%, #000)",
-    // transform: "rotate(-25.33deg)",
-    border: "none",
-    "&:hover": {
-      disabled: true,
-      content: '',
-      // background:'gray',
-      pointerEvents:'none',
-      cursor:'none',
-      zIndex: 60,
-    },
-    "@media (min-width: 720px) and (max-width:1024px)": {
-      height: "120px",
-      width: "120px",
-      top: "70%",
-    },
-    border: "none",
-    "&:hover": {
-      // background: "radial-gradient(blue 40%, #000)",
-    },
-    "@media (min-width: 1600px) and (max-width: 1920px)": {}
-  },
+  
   tempoBtnNew: {
     position: "absolute",
     // left: " -50%",
     right: "10%",
-    top: "1.25%",
+    top: "1%",
     bottom: "-72.49%",
     height: "150px",
-    marginTop: "15px",
+    marginTop: "2px",
     width: "150px",
     border: "none",
+    // border:'2px solid red',
     background: "#333333",
     display: "flex",
     alignItems: "center",
@@ -862,6 +825,7 @@ premiumActive:{
     width: "100%",
     // padding: "5px",
     textAlign: "center",
+    // marginTop:'-15px',
     height: "98%",
     "@media (min-width: 1600px) and (max-width: 1920px)": {
       height: "95%",
@@ -873,20 +837,25 @@ premiumActive:{
     height: "98%",
   },
   trStyle: {
+    marginTop:'-15px',
     background: "black",
     height: "30px",
-    // border:'2px solid black',
+    marginTop:'0px',
+    
   },
   thStyle: {
+    top: 0,
+    marginTop:'-10px',
+   position: 'sticky',
     //  borderRight:'2px solid black',
     background: "#5D432C",
     color: "white !important",
   },
 
   paperStyle: {
-    marginTop: "10px",
+    // marginTop: "10px",
     width: "92%",
-    padding: "5px 10px 0px 10px",
+    padding: "0px 10px 0px 10px",
     lineHeight: "30px",
     marginLeft: "2px",
     // height: "300px",
@@ -960,11 +929,11 @@ premiumActive:{
     display: "flex",
     justifyContent: "center",
     width: "54%",
-    marginLeft: "23%",
+    marginLeft: "20%",
     "@media  (min-width: 1600px) and (max-width: 1920px)": {
       // height: '280px',
        width: "60%",
-    marginLeft: "25%",
+    marginLeft: "20%",
     }
   },
   premiumList: { pointerEvents: "none", opacity: "0.6", background: "gray" },
