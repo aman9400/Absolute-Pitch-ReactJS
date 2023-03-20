@@ -85,6 +85,12 @@ function LandingPage() {
   const [remainingTime, setRemainingTime] = useState(0);
   const [imageCountLast, setImageCountLast] = useState(0);
   const [playSongposition, setPlaySongposition] = useState(0);
+
+  const [totalCount, setTotalCount]= useState(0)
+
+//when new value received 
+
+
  let sumOfImages = [];
   function handleSong(songsData, ind) {
 
@@ -124,18 +130,51 @@ function LandingPage() {
     setRemainingTime(remtime);
    }
   
+  
+
+   
   function totleTimeAndImage(data,index)
   {
+    
     setImageCountLast(data[index].no_of_images);
-    // setAllImageCount((parseInt(imageCountLast)) + parseInt(data[index].no_of_images));
+
+
    
-    setAllImageCount(allImageArray.reduce((a, b) => a + b, 0));
-    setAllImageArray((prevVals) => [...prevVals, parseInt(data[index].no_of_images)]);
+
+    // setTotalCount((totalCount)+parseInt(data[index].no_of_images))
+
+
+    setTimeout(() => {
+      setTotalCount((totalCount) => totalCount + parseInt(data[index].no_of_images));
+    }, 1000);
+
+    
+    
+    setAllImageCount(totalCount);
+
+    console.log (totalCount,'totalCount');
+
+    console.log (data[index].no_of_images,'newCount');
+
+    
+
+  
+  
+
+    // sumOfImages.splice(ind, 0, parseInt(data[index].no_of_images));
+   
+    
+    // setAllImageCount(allImageArray.reduce((a, b) => a + b, 0));
+    
+    
+    console.log(allImageCount,'allImageCount..')
     allImageCount > 1000 ? setAllImageArray([]) : '';
    
-    setDurationLast(data[i].duration);
+
+   
+
     remainingTimes(totalSeconds);
-    
+  
   }
 
   const classes = useStyles();

@@ -1239,13 +1239,13 @@ setDisableIntensity(false);
               }}
             >
               {durationDataIndex == 1 ? (
-                <Image src={Duration1} alt="..." />
+                <Image src={Duration1} alt="..."  width="200px" height="200px"/>
               ) : durationDataIndex == 2 ? (
                 <Image src={Duration2} alt="..." width="200px" height="200px" />
               ) : durationDataIndex == 3 ? (
                 <Image src={Duration3} alt="..." width="200px" height="200px" />
               ) : (
-                <Image src={DurationDefault} alt="..." />
+                <Image src={DurationDefault} alt="..." width="200px" height="200px"/>
               )}{" "}
             </button>
           </Grid>
@@ -1377,12 +1377,12 @@ setDisableIntensity(false);
           </Grid>
         </Grid>
         <div className={classes.resetBtn}>
-          <Grid container spacing={1} style={{ padding: "2px" }}>
+          <Grid container spacing={1} style={{ padding: "2px",marginTop:'20px' }}>
             <Grid
               item
               xs={3}
-              md={3}
-              style={{ padding: "2px", marginLeft: "30px" }}
+              md={4}
+              style={{ padding: "2px", marginLeft: "0px", }}
             >
               {/* <div className={classes.imageCount}> */}
 
@@ -1390,7 +1390,7 @@ setDisableIntensity(false);
                 // id="duration"
                 style={{
                   background: "#fff",
-                  padding: "2px",
+                  padding: "3px",
                   borderRadius: "5px",
                 }}
               >
@@ -1401,8 +1401,8 @@ setDisableIntensity(false);
                   ? songsData.map((val, ind) =>
                      
                         console.log(
-                          (totalduraion =
-                          parseInt(totalduraion) + parseInt(val["duration"]))
+                          // (totalduraion =
+                          // parseInt(totalduraion) + parseInt(val["duration"]))
                           )
                       
                     )
@@ -1410,11 +1410,11 @@ setDisableIntensity(false);
               </p>
               {/* </div> */}
             </Grid>
-            <Grid item xs={3} md={3} style={{ padding: "2px" }}>
+            <Grid item xs={3} md={4} style={{ padding: "2px" }}>
               <p
                 style={{
                   background: "#E90D0D",
-                  padding: "2px",
+                  padding: "5px",
                   borderRadius: "5px",
                 }}
               >
@@ -1469,7 +1469,7 @@ setDisableIntensity(false);
             <Grid
               item
               xs={3}
-              md={3}
+              md={4}
               style={{ padding: "2px", display: "flex" }}
             >
               <p
