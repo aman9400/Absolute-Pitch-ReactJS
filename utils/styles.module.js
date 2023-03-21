@@ -9,36 +9,35 @@ const useStyles = makeStyles({
     },
   },
   main: {
-    minHeight: "85vh",
-    marginTop: "10px",
-    // marginBottom: "2%",
-    Padding:'10px 0px 0px 200px',
-    // width:'1900px !important',
+    height: "100%", 
     width:'100%',
     "@media (min-width: 1280px) and (max-width:1680px)": {
-      marginLeft: "1.5%",
-      // width:'1700px',
-      width:'97%',
+      // marginLeft: "1.5%",
+      width:'99%',
+      // height: "100%", 
+      height: "99%", 
     },
     "@media (min-width: 600px) and (max-width:768px)": {
-      // marginLeft: "30%",
-      // marginTop: "100px",
       width:'100%',
+      height: "99%", 
     },
     "@media (max-width:700px)": {
-      marginTop: "3%",
+      // marginTop: "3%",
+      height: "99%", 
     },
-    "@media (min-width: 1600px) and (max-width: 1920px)": {
-      width:'90%',
-      // Padding:'10px 0px 0px 200px',
-      height: "100vh",
-      
-  }
+    "@media (min-width: 1681px) and (max-width: 1920px)": {
+      width:'99.5%',
+      // border:'2px solid red',
+  },
+  "@media  (min-width: 1921px)and (max-width: 1220px)": {
+    width: "98%",
+
+  },
   },
 
   mainCircle: {
-    width: "350px",
-    height: "350px",
+    width: "430px",
+    height: "430px",
     display: "flex",
 
     justifyContent: "center",
@@ -60,7 +59,7 @@ const useStyles = makeStyles({
       // marginLeft: "3%",
       // marginTop: "20%",
     },
-    "@media (min-width: 1600px) and (max-width: 1920px)": {
+    "@media (min-width: 1681px) and (max-width: 1920px)": {
       width: "400px",
       height: "400px",
       // border:'2px solid red'
@@ -231,7 +230,7 @@ const useStyles = makeStyles({
       margin: "25px 15px 15px 25px !important",
     },
     "@media (min-width: 1600px)and (max-width: 1920px)": {
-      height: "97vh"
+      height: "98vh"
     }
   },
 
@@ -500,8 +499,10 @@ premiumActive:{
 
   packageBtn: {
     position: "absolute",
-    height: "175px",
-    width: "175px",
+    // height: "175px",
+    // width: "175px",
+    height: "200px",
+    width: "200px",
     // border: "2px solid #0058ab !important",
     background: "#333333",
     display: "flex",
@@ -533,6 +534,12 @@ premiumActive:{
       width: "200px",
       left: " 25%",
       // border:'2px solid red'
+    },
+    "@media (min-width: 1921px) and (max-width: 1220px)": {
+      height: "200px",
+      width: "200px",
+      left: " 25%",
+      // border:'2px solid red'
     }
   },
 
@@ -542,8 +549,11 @@ premiumActive:{
     right: "16.31%",
     top: "60%",
     bottom: "-72.49%",
-    height: "175px",
-    width: "175px",
+    // height: "175px",
+    // width: "175px",
+
+    height: "200px",
+    width: "200px",
     // border: "2px solid #0058ab !important",
     background: "#333333",
     display: "flex",
@@ -602,7 +612,7 @@ premiumActive:{
     "&:hover": {
       disabled: true,
       content: '',
-       background:'gray',
+       //background:'gray',
       pointerEvents:'none',
       cursor:'none',
       zIndex: 60,
@@ -622,8 +632,12 @@ premiumActive:{
   IntensityBtnNew: {
     position: "absolute",
     right: "10%",
-     height: "175px",
-    width: "175px",
+    //  height: "175px",
+    // width: "175px",
+
+    height: "200px",
+    width: "200px",
+
     top: "60%",
     bottom: "-72.49%",
     display: "flex",
@@ -678,10 +692,15 @@ premiumActive:{
     // left: " -50%",
     right: "10%",
     top: "1%",
-    bottom: "-72.49%",
-    height: "150px",
     marginTop: "2px",
-    width: "150px",
+    bottom: "-72.49%",
+
+    // height: "150px",
+    // width: "150px",
+
+    height: "175px",
+    width: "175px",
+
     border: "none",
     // border:'2px solid red',
     background: "#333333",

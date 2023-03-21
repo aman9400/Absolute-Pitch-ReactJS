@@ -6,65 +6,48 @@ import { makeStyles } from "@material-ui/core";
 const useStyles = makeStyles({
   root: {
     position: "relative",
-    maxWidth:'100%',
+    maxWidth: "100%",
   },
   containerBox: {
-    // marginTop: '1px',
-    padding: "0px 5px 0px 0px",
     height: "auto",
-    // border:'2px solid red',
-    // width:'100wv !important',
-    paddingLeft:'0px',
-    // marginLeft:'-330px',
+    width:'99.5%',
+    padding:'10px',
     background: "#808d8dcf !important",
+    height:'98%',
+    
     "@media (min-width: 770px) and (max-width:1024px)": {
-      height: "90vh",
+      height:'95%',
+      border:'2px solid green',
+    },
+    "@media (min-width: 1280px) and (max-width:1680px)": {
+      // marginLeft: "1%",
+      width: "100%",
+      border:'2px solid yellow',
     },
     "@media (min-width: 600px) and (max-width:768px)": {
       height: "125vh",
+      border:'2px solid blue',
     },
-    // "@media (min-width: 380px) and (max-width:425px)": {
-    //   height: "125vh",
-    // },
-    // "@media (max-width:700px)": {
-    //   height: "128vh",
-    // },
-    "@media  (min-width: 1600px)and (max-width: 1920px)" :{
-      width:'98vw',
-      marginLeft:'1% !important',
-      height:'100vh',
-  }
+    "@media  (min-width: 1681px)and (max-width: 1920px)": {
+      width: "100%",
+      // marginLeft:'1% !important',
+      height: "99.6vh",
+      padding: "5px",
+    },
+    "@media  (min-width: 1921px)and (max-width: 1220px)": {
+      width: "90%",
+      // marginLeft:'1% !important',
+      height: "95%",
+      padding: "5px",
+    },
   },
   leftSection: {
-    // background: 'rgb(63, 70, 82)',
-    justifyContent: "center !important",
-    color: "white",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    width: "100%",
+   
+   padding:'0px 5px 2px 0px',
   },
   rightSection: {
-    // background: 'rgb(63, 70, 82)',
-    justifyContent: "center",
-    color: "white",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    width: "100%",
-    padding: "0px 10px",
-    "@media (min-width: 770px) and (max-width:1024px)": {
-      padding: "0px",
-    },
-    "@media (min-width: 600px) and (max-width:768px)": {
-      padding: "0px",
-    },
-    "@media (min-width: 380px) and (max-width:425px)": {
-      padding: "0px",
-    },
-    "@media (max-width:375px)": {
-      padding: "0px",
-    },
+    
+   padding:'0px 0px 2px 10px',
   },
 });
 function LandingPage() {
@@ -86,14 +69,12 @@ function LandingPage() {
   const [imageCountLast, setImageCountLast] = useState(0);
   const [playSongposition, setPlaySongposition] = useState(0);
 
-  const [totalCount, setTotalCount]= useState(0)
+  const [totalCount, setTotalCount] = useState(0);
 
-//when new value received 
+  //when new value received
 
-
- let sumOfImages = [];
+  let sumOfImages = [];
   function handleSong(songsData, ind) {
-
     setData(songsData);
     setIndex(ind);
 
@@ -103,13 +84,12 @@ function LandingPage() {
     setSongName(songsData[ind].song_name);
     setImageCount(songsData[ind].no_of_images);
     setPlaySongposition(++ind);
-    
-    secondsToHms(songsData[ind].duration)
+
+    secondsToHms(songsData[ind].duration);
     const getNextSong = document.getElementById("childid").children[ind];
-     getNextSong.scrollIntoView(); 
-     
+    getNextSong.scrollIntoView();
   }
-  
+
   function secondsToHms(Seconds) {
     let d = Number(Seconds);
     var m = Math.floor((d % 3600) / 60);
@@ -118,9 +98,9 @@ function LandingPage() {
     var sDisplay = s > 0 ? s : "00";
     let time = m + ":" + s;
 
-    setDuration(time)
+    setDuration(time);
   }
-   function remainingTimes(totalSecond){
+  function remainingTimes(totalSecond) {
     let rem = Number(totalSecond);
     var minuts = Math.floor((rem % 3600) / 60);
     var sec = Math.floor((rem % 3600) % 60);
@@ -128,59 +108,39 @@ function LandingPage() {
     var secDisplay = sec > 0 ? sec : "00";
     let remtime = minuts + ":" + sec;
     setRemainingTime(remtime);
-   }
-  
-  
+  }
 
-   
-  function totleTimeAndImage(data,index)
-  {
-    
+  function totleTimeAndImage(data, index) {
     setImageCountLast(data[index].no_of_images);
-
-
-   
 
     // setTotalCount((totalCount)+parseInt(data[index].no_of_images))
 
-
     setTimeout(() => {
-      setTotalCount((totalCount) => totalCount + parseInt(data[index].no_of_images));
+      setTotalCount(
+        (totalCount) => totalCount + parseInt(data[index].no_of_images)
+      );
     }, 1000);
 
-    
-    
     setAllImageCount(totalCount);
 
-    console.log (totalCount,'totalCount');
+    console.log(totalCount, "totalCount");
 
-    console.log (data[index].no_of_images,'newCount');
-
-    
-
-  
-  
+    console.log(data[index].no_of_images, "newCount");
 
     // sumOfImages.splice(ind, 0, parseInt(data[index].no_of_images));
-   
-    
-    // setAllImageCount(allImageArray.reduce((a, b) => a + b, 0));
-    
-    
-    console.log(allImageCount,'allImageCount..')
-    allImageCount > 1000 ? setAllImageArray([]) : '';
-   
 
-   
+    // setAllImageCount(allImageArray.reduce((a, b) => a + b, 0));
+
+    console.log(allImageCount, "allImageCount..");
+    allImageCount > 1000 ? setAllImageArray([]) : "";
 
     remainingTimes(totalSeconds);
-  
   }
 
   const classes = useStyles();
   return (
-    <Grid container spacing={4} className={classes.containerBox}>
-      <Grid item xs={12} md={6} sm={12} sx={12}>
+    <Grid container spacing={0} className={classes.containerBox}>
+      <Grid item xs={12} md={6} sm={12} sx={12} className={classes.leftSection}>
         <MusicWheel
           handleSong={handleSong}
           musicData={data}
@@ -201,17 +161,15 @@ function LandingPage() {
           setPlaySongposition={setPlaySongposition}
         />
       </Grid>
-      <Grid item xs={12} md={6} sm={12}>
+      <Grid item xs={12} md={6} sm={12} className={classes.rightSection}>
         <VideoPlayer
           handleSong={handleSong}
           musicData={data}
           musicIndex={index}
           totleTimeAndImage={totleTimeAndImage}
-         
         />
       </Grid>
     </Grid>
-
   );
 }
 

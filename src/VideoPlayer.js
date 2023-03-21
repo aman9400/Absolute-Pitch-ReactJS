@@ -35,7 +35,8 @@ const useStyles = makeStyles({
       margin: "25px 15px 15px 25px !important",
     },
     "@media (min-width: 1600px)and (max-width: 1920px)": {
-      height: "97vh"
+      height: "98vh",
+      width:'99.8%',
     }
   },
   playerDisplay:{
