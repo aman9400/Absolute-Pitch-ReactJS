@@ -9,19 +9,18 @@ const useStyles = makeStyles({
     maxWidth: "100%",
   },
   containerBox: {
-    height: "auto",
+    // height: "auto",
     width:'99.5%',
     padding:'10px',
     background: "#808d8dcf !important",
-    height:'98%',
-    
+    height:'96%',
     "@media (min-width: 770px) and (max-width:1024px)": {
       height:'95%',
       border:'2px solid green',
     },
     "@media (min-width: 1280px) and (max-width:1680px)": {
       // marginLeft: "1%",
-      width: "100%",
+      width: "90%",
       border:'2px solid yellow',
     },
     "@media (min-width: 600px) and (max-width:768px)": {

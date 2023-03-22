@@ -494,8 +494,8 @@
   }
   @media  (max-width: 7680px) {
     .songsWrapper  {
-       height: 25%;
-       margin-top: -30px;
+       height: 24%;
+       margin-top: -25px;
        margin-bottom: 5px !important;
    
      }

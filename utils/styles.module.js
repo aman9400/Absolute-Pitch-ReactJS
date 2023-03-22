@@ -11,6 +11,7 @@ const useStyles = makeStyles({
   main: {
     height: "100%", 
     width:'100%',
+    // background:'blue',
     "@media (min-width: 1280px) and (max-width:1680px)": {
       // marginLeft: "1.5%",
       width:'99%',
@@ -217,7 +218,7 @@ const useStyles = makeStyles({
   circleCard: {
     background: "#333 !important",
     borderRadius: "10px",
-    height: "100vh",
+    height: "97.5vh",
     "@media (min-width: 1280px) and (max-width:1480px)": { height: "135vh" },
     "@media (min-width: 1481px) and (max-width:1920px)": { height: "110vh" },
     "@media (min-width: 600px) and (max-width:768px)": {
@@ -873,10 +874,10 @@ premiumActive:{
 
   paperStyle: {
     // marginTop: "10px",
-    width: "92%",
-    padding: "0px 10px 0px 10px",
+    width: "93%",
+    padding: "0px 0px 0px 8px",
     lineHeight: "30px",
-    marginLeft: "2px",
+    marginLeft: "-2px",
     // height: "300px",
     overflow: "scroll",
     height:' -webkit-fill-available',
