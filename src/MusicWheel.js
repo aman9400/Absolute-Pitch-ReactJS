@@ -5,8 +5,9 @@ import Tooltip from "@material-ui/core/Tooltip";
 import styles from "./style.module.css";
 import Image from "next/image";
 import { getCookie, setCookie, deleteCookie } from "cookies-next";
-import staff from "../public/assets/images/staff.jpg";
-import keys from "../public/assets/images/keys.jpg";
+import letter from "../public/assets/images/Ab letter.jpg";
+import staff from "../public/assets/images/E staff.jpg";
+import keys from "../public/assets/images/C Keys.jpg";
 import playBtn from "../public/assets/images/playerButton.jpg";
 import Duration from "../public/assets/images/Duration.png";
 import Mix from "../public/assets/images/Mix.png";
@@ -1141,12 +1142,18 @@ setDisableIntensity(false);
                 btnHandler("Letter", e, 1);
               }}
               style={{
-                // background: "#fff",
-                padding: "6px",
                 borderRadius: "5px",
+                width: "90%",
+                height: "100%",
+                marginLeft:'10px'
               }}
             >
-              A Ab B Bb
+             <Image
+                src={letter}
+                alt="alt"
+                height="400px"
+                style={{ marginTop: "-2px" }}
+              />
             </button>
           </Grid>
           <Grid item xs={4} md={4}>
@@ -1163,15 +1170,16 @@ setDisableIntensity(false);
               }}
               style={{
                 borderRadius: "5px",
-                width: "100%",
-                height: "28px",
+                width: "90%",
+                height: "100%",
+                marginLeft:'10px'
               }}
               // disabled={`disable`}
             >
               <Image
                 src={staff}
                 alt="alt"
-                height="25px"
+                height="400px"
                 style={{ marginTop: "-2px" }}
               />
             </button>
@@ -1191,15 +1199,16 @@ setDisableIntensity(false);
               }}
               style={{
                 borderRadius: "5px",
-                width: "100%",
-                height: "30px",
+                width: "90%",
+                height: "100%",
+                marginLeft:'10px'
               }}
               // disabled={`disable`}
             >
               <Image
                 src={keys}
                 alt="alt"
-                height="28px"
+                height="400px"
                 style={{ maxWidth: "100%",}}
               />
             </button>
