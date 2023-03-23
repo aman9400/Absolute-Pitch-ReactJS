@@ -1044,12 +1044,7 @@ setDisableIntensity(false);
     secondsToHms(totalduraion);
   }, 1000);
 
-  // const TABLE_HEADERS = [
-  //   { name: "ID Number", id: "userNumber" },
-  //   { name: "User Type", id: "userType" },
-  //   { name: "User Category", id: "errorId" },
-  //   { name: "User Interest", id: "errorCategory" }
-  // ];
+  
 
   return (
     <div className={classes.circleCard}>
