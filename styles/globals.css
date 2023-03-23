@@ -36,7 +36,7 @@ body {
 	position: absolute;
 	/* border: 1px solid black; */
 	padding: 1px;
-    /* margin: 1em auto; */
+    
 	/* width: 16em;
     height: 16em; */
     width: 23em;
@@ -69,7 +69,7 @@ body {
   align-items: center;
   justify-content: center;
   clip-path: circle(150px);
-  /* background: yellow; */
+  
 }
 
 .circle4 {
