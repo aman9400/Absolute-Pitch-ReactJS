@@ -1593,24 +1593,7 @@ setDisableIntensity(false);
             </tr>
             {songsData && songsData.length > 0
               ? songsData.map((val, ind) => (
-                  // val["song_name"].includes("_P.") ? (
-                  //   <tr
-                  //     key={"songs" + ind}
-                  //     onClick={() =>
-                  //       alert("You need to purchase the membership")
-                  //     }
-                  //     id={ind}
-                  //     className={`
-                  //      ${styles.listStyleDisable} ${styles.liststyle}`}
-                  //   >
-                  //     <td>{val["song_title"]}</td>
-                  //     <td>{val["composer"]}</td>
-                  //     <td>{val["note_or_cord"]}</td>
-                  //     <td>{val["tempo"]}</td>
-                  //     <td>{val["image_type"]}</td>
-                  //     <td>{val["intensity"]}</td>
-                  //   </tr>
-                  // ) : (
+                 
                   <tr
                     key={"songs" + ind}
                     onClick={() => handleClickSong(songsData, ind)}
