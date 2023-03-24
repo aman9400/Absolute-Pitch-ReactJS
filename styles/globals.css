@@ -14,8 +14,8 @@ body {
 	border: 1px solid black;
 	padding: 0;
     /* margin: 1em auto; */
-	width: 27em;
-    height: 27em;
+	width: 30em;
+    height: 30em;
 	border-radius: 50%;
 	list-style: none;
     overflow: hidden;
@@ -39,16 +39,16 @@ body {
     
 	/* width: 16em;
     height: 16em; */
-    width: 23em;
+    width: 26em;
     z-index: 2;
-    height: 23em;
+    height: 26em;
 	border-radius: 100%;
 	list-style: none;
     overflow: hidden;
     display: flex;
 	align-items: center;
 	justify-content: center;
-  clip-path: circle(200px);
+  clip-path: circle(210px);
   /* background: red; */
  
 }
@@ -58,8 +58,8 @@ body {
   padding: 1px;
   margin-top: 10.6%;
   margin-left: 0.5%;
-  width: 20em;
-  height: 20em;
+  width: 23em;
+  height: 23em;
   border-radius: 50%;
   list-style: none;
   overflow: hidden;
@@ -68,7 +68,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  clip-path: circle(150px);
+  clip-path: circle(175px);
   
 }
 
