@@ -37,8 +37,8 @@ const useStyles = makeStyles({
   },
 
   mainCircle: {
-    width: "430px",
-    height: "430px",
+    width: "525px",
+    height: "520px",
     display: "flex",
 
     justifyContent: "center",
@@ -343,7 +343,7 @@ premiumActive:{
     // fontWeight: "500",
     width: "100%",
     padding: "5px",
-    height: "15px",
+    height: "25px",
     justifyContent: "center",
     alignContent: "center",
     display: "flex",
@@ -502,8 +502,8 @@ premiumActive:{
     position: "absolute",
     // height: "175px",
     // width: "175px",
-    height: "200px",
-    width: "200px",
+    height: "250px",
+    width: "250px",
     // border: "2px solid #0058ab !important",
     background: "#333333",
     display: "flex",
@@ -546,15 +546,15 @@ premiumActive:{
 
   durationBtn: {
     position: "absolute",
-    left: " 10%",
-    right: "16.31%",
+    left: " 15%",
+    // right: "16.31%",
     top: "60%",
-    bottom: "-72.49%",
+    // bottom: "-72.49%",
     // height: "175px",
     // width: "175px",
 
-    height: "200px",
-    width: "200px",
+    height: "250px",
+    width: "250px",
     // border: "2px solid #0058ab !important",
     background: "#333333",
     display: "flex",
@@ -636,8 +636,8 @@ premiumActive:{
     //  height: "175px",
     // width: "175px",
 
-    height: "200px",
-    width: "200px",
+    height: "250px",
+    width: "250px",
 
     top: "60%",
     bottom: "-72.49%",
@@ -699,8 +699,8 @@ premiumActive:{
     // height: "150px",
     // width: "150px",
 
-    height: "175px",
-    width: "175px",
+    height: "245px",
+    width: "245px",
 
     border: "none",
     // border:'2px solid red',
@@ -826,7 +826,7 @@ premiumActive:{
     color: "#000",
     alignItems: "center",
     textAlign: "center",
-    marginTop: "-20px",
+    marginTop: "10px",
     "@media (min-width: 1280px) and (max-width:1680px)": {
       // marginTop: "5% !important",
       fontSize: "14px",
@@ -859,7 +859,7 @@ premiumActive:{
   trStyle: {
     marginTop:'-15px',
     background: "black",
-    height: "30px",
+    height: "35px",
     marginTop:'0px',
     
   },
@@ -871,9 +871,16 @@ premiumActive:{
     background: "#5D432C",
     color: "white !important",
   },
-
+  thStyles: {
+    top: 0,
+    marginTop:'-10px',
+   position: 'sticky',
+    //  borderRight:'2px solid black',
+    // background: "#5D432C",
+    color: "white !important",
+  },
   paperStyle: {
-    // marginTop: "10px",
+    marginTop: "35px",
     width: "93%",
     padding: "0px 0px 0px 8px",
     lineHeight: "30px",
@@ -948,7 +955,7 @@ premiumActive:{
     textAlign: "center",
     display: "flex",
     justifyContent: "center",
-    width: "54%",
+    width: "60%",
     marginLeft: "20%",
     "@media  (min-width: 1600px) and (max-width: 1920px)": {
       // height: '280px',
