@@ -5,9 +5,8 @@ import Tooltip from "@material-ui/core/Tooltip";
 import styles from "./style.module.css";
 import Image from "next/image";
 import { getCookie, setCookie, deleteCookie } from "cookies-next";
-import letter from "../public/assets/images/Ab letter.jpg";
-import staff from "../public/assets/images/E staff.jpg";
-import keys from "../public/assets/images/C Keys.jpg";
+import staff from "../public/assets/images/staff.jpg";
+import keys from "../public/assets/images/keys.jpg";
 import playBtn from "../public/assets/images/playerButton.jpg";
 import Duration from "../public/assets/images/Duration.png";
 import Mix from "../public/assets/images/Mix.png";
@@ -121,127 +120,14 @@ function MusicWheel(props) {
   const imageTypeData = ["", "Keys", "Letter", "Staff"];
   const durationData = {
     minute1: [
-      0,
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-      17,
-      18,
-      19,
-      20,
-      21,
-      22,
-      23,
-      24,
-      25,
-      26,
-      27,
-      28,
-      29,
-      30,
-      31,
-      32,
-      33,
-      34,
-      35,
-      36,
-      37,
-      38,
-      39,
-      40,
-      41,
-      42,
-      43,
-      44,
-      45,
-      46,
-      47,
-      48,
-      49,
-      50,
-      51,
-      52,
-      53,
-      54,
-      55,
-      56,
-      57,
-      58,
-      59,
-      60,
-      61,
-      62,
-      63,
-      64,
-      65,
-      66,
-      67,
-      68,
-      69,
-      70,
-      71,
-      72,
-      73,
-      74,
-      75,
-      76,
-      77,
-      78,
-      79,
-      80,
-      81,
-      82,
-      83,
-      84,
-      85,
-      86,
-      87,
-      88,
-      89,
-      90,
-      91,
-      92,
-      93,
-      94,
-      95,
-      96,
-      97,
-      98,
-      99,
-      100,
-      101,
-      102,
-      103,
-      104,
-      105,
-      106,
-      107,
-      108,
-      109,
-      110,
-      111,
-      112,
-      113,
-      114,
-      115,
-      116,
-      117,
-      118,
-      119,
-      120,
+      0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,
+          18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34,
+          35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51,
+          52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68,
+          69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85,
+          86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102,
+          103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116,
+          117, 118, 119, 120,
     ],
 
     minute2: [
@@ -805,7 +691,7 @@ function MusicWheel(props) {
         setPackageDataIndex(0);
       } else {
         setPackageDataIndex(packageDataIndex);
-        setIntensityIndex(0);
+        setIntensityIndex(0)
         setFreeActive(true);
         setDisable(true);
         setImageTypeActive("");
@@ -835,7 +721,7 @@ function MusicWheel(props) {
       } else {
         setGroups("G1,G2,G3,G4");
       }
-      setDisableIntensity(false);
+setDisableIntensity(false);
       setImageTypeActive(1);
       setImageTypeIndex("Letter");
       // setPackageDataIndex(1);
@@ -941,20 +827,20 @@ function MusicWheel(props) {
       } else {
         setDurationDataIndex(durationDataIndex + 1);
 
-        if (durationDataIndex == "0") {
+        if (durationDataIndex == '0') {
           setDurationValue(durationData["minute1"]);
           console.log(durationValue, "durationValue");
         }
 
-        if (durationDataIndex == "1") {
+        if (durationDataIndex == '1') {
           setDurationValue(durationData["minute2"]);
           console.log(durationValue, "durationValue");
         }
-        if (durationDataIndex == "2") {
+        if (durationDataIndex == '2') {
           setDurationValue(durationData["minute3"]);
           console.log(durationValue, "durationValue");
         }
-        if (durationDataIndex == "3") {
+        if (durationDataIndex == '3') {
           setDurationDataIndex(0);
           setDurationValue("");
           console.log(durationValue, "durationValue");
@@ -1137,12 +1023,12 @@ function MusicWheel(props) {
         if (responseJson != "") {
           setSongsData(responseJson.data);
           console.log(songsData, "songdata.....");
-          props.handleSong;
+         props.handleSong;
           for (let i = 0; i <= responseJson.data.length; i++) {
             // if (responseJson.data[i].song_name.includes("_P.")) {
-            handleClickSong(responseJson.data, i);
-            // setDuration(responseJson.data[i].duration);
-            // break;
+              handleClickSong(responseJson.data, i);
+              // setDuration(responseJson.data[i].duration);
+              // break;
             //}
           }
         } else {
@@ -1157,9 +1043,16 @@ function MusicWheel(props) {
     secondsToHms(totalduraion);
   }, 1000);
 
+  // const TABLE_HEADERS = [
+  //   { name: "ID Number", id: "userNumber" },
+  //   { name: "User Type", id: "userType" },
+  //   { name: "User Category", id: "errorId" },
+  //   { name: "User Interest", id: "errorCategory" }
+  // ];
+
   return (
     <div className={classes.circleCard}>
-       {/* <div className={classes.resetBtn}>
+      <div className={classes.resetBtn}>
         <Grid
           container
           spacing={1}
@@ -1228,7 +1121,7 @@ function MusicWheel(props) {
             </button>
           </Grid>
         </Grid>
-      </div>  */}
+      </div>
       <div className={classes.resetBtn}>
         <Grid
           container
@@ -1248,18 +1141,12 @@ function MusicWheel(props) {
                 btnHandler("Letter", e, 1);
               }}
               style={{
+                // background: "#fff",
+                padding: "6px",
                 borderRadius: "5px",
-                width: "90%",
-                height: "100%",
-                marginLeft: "10px",
               }}
             >
-              <Image
-                src={letter}
-                alt="alt"
-                height="400px"
-                style={{ marginTop: "-2px" }}
-              />
+              A Ab B Bb
             </button>
           </Grid>
           <Grid item xs={4} md={4}>
@@ -1276,16 +1163,15 @@ function MusicWheel(props) {
               }}
               style={{
                 borderRadius: "5px",
-                width: "90%",
-                height: "100%",
-                marginLeft: "10px",
+                width: "100%",
+                height: "28px",
               }}
               // disabled={`disable`}
             >
               <Image
                 src={staff}
                 alt="alt"
-                height="400px"
+                height="25px"
                 style={{ marginTop: "-2px" }}
               />
             </button>
@@ -1305,23 +1191,22 @@ function MusicWheel(props) {
               }}
               style={{
                 borderRadius: "5px",
-                width: "90%",
-                height: "100%",
-                marginLeft: "10px",
+                width: "100%",
+                height: "30px",
               }}
               // disabled={`disable`}
             >
               <Image
                 src={keys}
                 alt="alt"
-                height="400px"
-                style={{ maxWidth: "100%" }}
+                height="28px"
+                style={{ maxWidth: "100%",}}
               />
             </button>
           </Grid>
         </Grid>
       </div>
-      <div style={{ marginTop: "2%",}}>
+      <div style={{ marginTop: "2%", marginBottom: "2%"}}>
         <Grid container spacing={1}>
           <Grid item xs={2} md={2} className={classes.tempoBtnContainer}>
             <button
@@ -1331,6 +1216,7 @@ function MusicWheel(props) {
               onClick={(e) => {
                 btnHandler("Package", e);
               }}
+             
             >
               {packageDataIndex == 1 ? (
                 <Image src={Mix} alt="..." />
@@ -1354,21 +1240,15 @@ function MusicWheel(props) {
               }}
             >
               {durationDataIndex == 1 ? (
-                <Image src={Duration1} alt="..." width="200px" height="230px" />
+                <Image src={Duration1} alt="..."  width="200px" height="200px"/>
               ) : durationDataIndex == 2 ? (
-                <Image src={Duration2} alt="..." width="200px" height="230px" />
+                <Image src={Duration2} alt="..." width="200px" height="200px" />
               ) : durationDataIndex == 3 ? (
-                <Image src={Duration3} alt="..." width="200px" height="230px" />
+                <Image src={Duration3} alt="..." width="200px" height="200px" />
               ) : (
-                <Image
-                  src={DurationDefault}
-                  alt="..."
-                  width="230px"
-                  height="260px"
-                />
+                <Image src={DurationDefault} alt="..." width="200px" height="200px"/>
               )}{" "}
-
-              </button>
+            </button>
           </Grid>
           <Grid item xs={8} md={8} className={classes.wheelContianer}>
             <div className={classes.mainCircle}>
@@ -1497,143 +1377,143 @@ function MusicWheel(props) {
             </button>
           </Grid>
         </Grid>
-        
         <div className={classes.resetBtn}>
-        <Grid
-          container
-          spacing={1}
-          style={{ marginTop: "15px", border: "none" }}
-        >
-          <Grid item xs={3} md={4}>
-            <button
-             
-              style={{
-                borderRadius: "5px",
-                width: "90%",
-                height: "80%",
-                marginLeft: "10px",
-                fontSize:'20px',
-                background:'#fff',
-              }}
+          <Grid container spacing={1} style={{ padding: "2px",marginTop:'20px' }}>
+            <Grid
+              item
+              xs={3}
+              md={4}
+              style={{ padding: "2px", marginLeft: "0px", }}
             >
-             {props.remainingTime
+              {/* <div className={classes.imageCount}> */}
+
+              <p
+                // id="duration"
+                style={{
+                  background: "#fff",
+                  padding: "4px",
+                  borderRadius: "5px",
+                  
+                }}
+              >
+                {props.remainingTime
                   ? props.remainingTime
                   : allPlaySongsDuration}
                 {songsData && songsData.length > 0
                   ? songsData.map((val, ind) =>
-                      console.log(
-                        (totalduraion =
-                          parseInt(totalduraion) + parseInt(val["duration"]))
-                      )
+                     
+                        console.log(
+                           (totalduraion =
+                           parseInt(totalduraion) + parseInt(val["duration"]))
+                          )
+                      
                     )
                   : ""}
-            </button>
-          </Grid>
-          <Grid item xs={4} md={4}>
-            <button
-               style={{
-                borderRadius: "5px",
-                width: "90%",
-                height: "80%",
-                marginLeft: "10px",
-                fontSize:'20px',
-                background: "#E90D0D",
-                    color: "#FFFFFF",
-                    border: "none",
-                    cursor: "pointer",
-              }}
-              onClick={() => {
-                setPackageDataIndex(0);
-                setIntensityIndex(0);
-                setTempoIndex(0);
-                setPackageDataIndex(1);
-                setPackageActive("F");
-                setDurationDataIndex(0);
-
-                setDurationValue("");
-                setDisable(false);
-                setFreeActive(false);
-                setDisableIntensity(false);
-                setTotalSongs(0);
-                setSubscriptionActivePlan(0);
-                setNordIndex111(0);
-                setAllPlaySongsDuration("00:00");
-                setSongsData([""]);
-                props.setPlaySongposition(0);
-                setImageTypeActive(0);
-
-                setNord({
-                  c1: [""],
-                  c2: [""],
-                  c3: [""],
-                });
-                setHighlightedNord({
-                  c1: [""],
-                  c2: [""],
-                  c3: [""],
-                });
-                highlightNord(songsData, ind);
-                fetchSongsData();
-              }}
-             
-              // disabled={`disable`}
-            >
-              Reset
-            </button>
-          </Grid>
-          <Grid item xs={4} md={4}>
-            <div
-              
-                style={{
-                  borderRadius: "5px",
-                  width: "90%",
-                  height: "80%",
-                  marginLeft: "15px",
-                  fontSize:'20px',
-                display:'flex',
-               
-              }}
-              // disabled={`disable`}
-            >
+              </p>
+              {/* </div> */}
+            </Grid>
+            <Grid item xs={3} md={4} style={{ padding: "2px" }}>
               <p
-                  style={{
-                    background: "#E90D0D",
-                   margin:'0',
-                   padding:'0',
-                    borderRadius: "5px 0px 0px 5px",
-                    width: "30%",
-                    cursor: "pointer",
-                    height: "100%",
-                  }}
-                  onClick={() => {
-                    ResetCounter();
-                  }}
-                ></p>
-                 <div
                 style={{
-                  background: "#fff",
-                  borderRadius: "0px 5px 5px 0px",
-                  width: "80%",
-                 
+                  background: "#E90D0D",
+                  padding: "5px",
+                  borderRadius: "5px",
                 }}
               >
-                <p
+                {" "}
+                <button
                   style={{
-                    padding:'0',
-                    marginTop:'8px',
-                  
-                    fontSize: "30px",
+                    background: "#E90D0D",
+                    color: "#FFFFFF",
+                    width: "100%",
+                    border: "none",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => {
+                    
+                    setPackageDataIndex(0);
+                    setIntensityIndex(0);
+                    setTempoIndex(0)
+                    setPackageDataIndex(1);
+                    setPackageActive("F");
+                    setDurationDataIndex(0);
                    
+                    setDurationValue("");
+                    setDisable(false);
+                    setFreeActive(false)
+                    setDisableIntensity(false)
+                    setTotalSongs(0)
+                    setSubscriptionActivePlan(0)
+                    setNordIndex111(0);
+                    setAllPlaySongsDuration("00:00");
+                    setSongsData([""]);
+                    props.setPlaySongposition(0);
+                    setImageTypeActive(0)
+                    
+                    setNord({
+                      c1: [''],
+                      c2: [''],
+                      c3: [''],
+                    });
+                    setHighlightedNord({
+                      c1: [''],
+                      c2: [''],
+                      c3: [''],
+                    });
+                    highlightNord(songsData, ind);
+                    fetchSongsData();
                   }}
                 >
-                  {" "}
-                  {props.allImageCount}
-                </p>
-              </div>
-            </div>
+                  Reset
+                </button>
+              </p>
+            </Grid>
+            <Grid
+              item
+              xs={3}
+              md={4}
+              style={{ padding: "2px", display: "flex" }}
+            >
+              <p
+                style={{
+                  background: "#E90D0D",
+                  padding: "2px",
+                  borderRadius: "5px 0px 0px 5px",
+                  width: "20%",
+                }}
+              >
+                <Tooltip title="Click for Reset Image Counter" placement="top">
+                  <button
+                    style={{
+                      background: "#E90D0D",
+                      color: "#FFFFFF",
+                      width: "90%",
+                      border: "none",
+                      cursor: "pointer",
+                    }}
+                    onClick={() => {
+                      ResetCounter();
+                    }}
+                  >
+                    {/* Reset */}
+                  </button>
+                </Tooltip>
+              </p>
+              <p
+                style={{
+                  background: "#fff",
+                  padding: "2px",
+                  borderRadius: "5px",
+                  width: "80%",
+                  borderRadius: "0px 5px 5px 0px",
+                }}
+              >
+                {" "}
+                {props.allImageCount}
+              </p>
+            </Grid>
           </Grid>
-        </Grid>
-      </div>
+        </div>
       </div>
 
       <div className={classes.songScrolling}>
@@ -1643,45 +1523,54 @@ function MusicWheel(props) {
           className={classes.bottomBoxContainer}
           style={{ padding: "0px" }}
         >
-          <Grid item xs={2} md={1} style={{ padding: "-10px",margin:'-10px' }}>
+          <Grid item xs={2} md={1} style={{ padding: "0px" }}>
             <p
               className={`${classes.bottomBox}`}
               style={{
                 color: "#fff",
-                width: "60px",
+                width: "30px",
                 background: "#333333",
                 textAlign: "center",
-                fontSize:'20px',
-                marginLeft:'5px',
               }}
             >
               {props.playSongposition}/{totalSongs}
             </p>
           </Grid>
-          <Grid item xs={10} md={11} style={{ padding: "0px",marginLeft:'10px' }}>
-            <table className={classes.tableStyle} >
-            <tr className={classes.trStyle}>
-              <th className={classes.thStyles}>{props.songTitle}</th>
-              <th className={classes.thStyles}>{props.songNote}</th>
-              <th className={classes.thStyles}>{props.composer}</th>
-              <th className={classes.thStyles}>{props.duration}</th>
-              <th className={classes.thStyles}>{props.imageCount}</th>
-             
-            </tr>
-            </table>
+          <Grid item xs={10} md={11} style={{ padding: "0px" }}>
+            <p
+              style={{
+                width: "100%",
+                fontSize: "14px",
+                textAlign: "center",
+                padding: "0px",
+              }}
+            >
+              {props.songTitle +
+                "   " +
+                props.songNote +
+                "  " +
+                props.composer +
+                "  " +
+                props.duration +
+                "  " +
+                props.imageCount}
+            </p>
           </Grid>
         </Grid>
+       
       </div>
-      {/* <div style={{ marginBottom: "30px" }}>
-      </div> */}
-      <div className={styles.songsWrapper}>
+      <div style={{ marginBottom: "30px" }}>
+      </div>
+      <div className={styles.songsWrapper} >
         <Paper elevation={3} className={classes.paperStyle}>
+          
           <table className={classes.tableStyle} id={props.id}>
             <tr className={classes.trStyle}>
               <th className={classes.thStyle}>Title</th>
               <th className={classes.thStyle}>Composer</th>
               <th className={classes.thStyle}>Note</th>
               <th className={classes.thStyle}>Tempo</th>
+              <th className={classes.thStyle}>dur..</th>
               <th
                 className={classes.thStyle}
                 style={{ cursor: "pointer" }}
@@ -1695,6 +1584,24 @@ function MusicWheel(props) {
             </tr>
             {songsData && songsData.length > 0
               ? songsData.map((val, ind) => (
+                  // val["song_name"].includes("_P.") ? (
+                  //   <tr
+                  //     key={"songs" + ind}
+                  //     onClick={() =>
+                  //       alert("You need to purchase the membership")
+                  //     }
+                  //     id={ind}
+                  //     className={`
+                  //      ${styles.listStyleDisable} ${styles.liststyle}`}
+                  //   >
+                  //     <td>{val["song_title"]}</td>
+                  //     <td>{val["composer"]}</td>
+                  //     <td>{val["note_or_cord"]}</td>
+                  //     <td>{val["tempo"]}</td>
+                  //     <td>{val["image_type"]}</td>
+                  //     <td>{val["intensity"]}</td>
+                  //   </tr>
+                  // ) : (
                   <tr
                     key={"songs" + ind}
                     onClick={() => handleClickSong(songsData, ind)}
