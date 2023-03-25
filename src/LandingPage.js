@@ -112,7 +112,13 @@ function LandingPage() {
   function totleTimeAndImage(data, index) {
     setImageCountLast(data[index].no_of_images);
 
-    setTotalCount( (totalCount) => totalCount + parseInt(data[index].no_of_images))
+    // setTotalCount((totalCount)+parseInt(data[index].no_of_images))
+
+    setTimeout(() => {
+      setTotalCount(
+        (totalCount) => totalCount + parseInt(data[index].no_of_images)
+      );
+    }, 1000);
 
     setAllImageCount(totalCount);
 

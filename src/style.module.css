@@ -479,8 +479,7 @@
    align-items: center;
     justify-content: center;
     height: auto;
-    /* margin-top: -30px; */
-    margin-top: 60px;
+    margin-top: -30px;
     bottom: 0;
 
   }
@@ -495,7 +494,7 @@
   }
   @media  (max-width: 7680px) {
     .songsWrapper  {
-       height: 22%;
+       height: 24%;
        margin-top: -25px;
        margin-bottom: 5px !important;
    
