@@ -36,9 +36,7 @@ body {
 	position: absolute;
 	/* border: 1px solid black; */
 	padding: 1px;
-    
-	/* width: 16em;
-    height: 16em; */
+  
     width: 26em;
     z-index: 2;
     height: 26em;
