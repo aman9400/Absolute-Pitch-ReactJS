@@ -1257,12 +1257,13 @@ function MusicWheel(props) {
                 marginLeft: "10px",
               }}
             >
-              <Image
+               A Ab B Bb
+              {/* <Image
                 src={letter}
                 alt="alt"
                 height="400px"
                 style={{ marginTop: "-2px" }}
-              />
+              /> */}
             </button>
           </Grid>
           <Grid item xs={4} md={4}>
