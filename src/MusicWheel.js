@@ -6,8 +6,8 @@ import styles from "./style.module.css";
 import Image from "next/image";
 import { getCookie, setCookie, deleteCookie } from "cookies-next";
 
-//import letter from "../public/assets/images/abLetter.jpg";
-import letter from "../public/assets/images/newStaffs.jpg";
+import letter from "../public/assets/images/abLetter.jpg";
+import staff from "../public/assets/images/abLetter.jpg";
 // import keys from "../public/assets/images/newKeyss.jpg";
 // import staff from "../public/assets/images/staff.jpg";
 import keys from "../public/assets/images/keys.jpg";
