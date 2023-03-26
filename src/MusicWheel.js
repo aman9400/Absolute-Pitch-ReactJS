@@ -6,8 +6,8 @@ import styles from "./style.module.css";
 import Image from "next/image";
 import { getCookie, setCookie, deleteCookie } from "cookies-next";
 
-// import letter from "../public/assets/images/abLetter.jpg";
-import staff from "../public/assets/images/newStaffs.jpg";
+//import letter from "../public/assets/images/abLetter.jpg";
+import letter from "../public/assets/images/newStaffs.jpg";
 // import keys from "../public/assets/images/newKeyss.jpg";
 // import staff from "../public/assets/images/staff.jpg";
 import keys from "../public/assets/images/keys.jpg";
@@ -1257,13 +1257,13 @@ function MusicWheel(props) {
                 marginLeft: "10px",
               }}
             >
-               A Ab B Bb
-              {/* <Image
+               {/* A Ab B Bb */}
+              <Image
                 src={letter}
                 alt="alt"
                 height="400px"
                 style={{ marginTop: "-2px" }}
-              /> */}
+              />
             </button>
           </Grid>
           <Grid item xs={4} md={4}>
