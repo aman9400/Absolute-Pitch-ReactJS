@@ -7,10 +7,10 @@ import Image from "next/image";
 import { getCookie, setCookie, deleteCookie } from "cookies-next";
 
  import letter from "../public/assets/images/abLetter.jpg";
-// import staff from "../public/assets/images/Estaff.jpg";
-// import keys from "../public/assets/images/CKeys.jpg";
-import staff from "../public/assets/images/staff.jpg";
-import keys from "../public/assets/images/keys.jpg";
+import staff from "../public/assets/images/newStaff.jpg";
+import keys from "../public/assets/images/newKeys.jpg";
+// import staff from "../public/assets/images/staff.jpg";
+// import keys from "../public/assets/images/keys.jpg";
 import playBtn from "../public/assets/images/playerButton.jpg";
 import Duration from "../public/assets/images/Duration.png";
 import Mix from "../public/assets/images/Mix.png";
