@@ -8,9 +8,9 @@ import { getCookie, setCookie, deleteCookie } from "cookies-next";
 
  import letter from "../public/assets/images/abLetter.jpg";
 import staff from "../public/assets/images/newStaffs.jpg";
-import keys from "../public/assets/images/newKeyss.jpg";
+// import keys from "../public/assets/images/newKeyss.jpg";
 // import staff from "../public/assets/images/staff.jpg";
-// import keys from "../public/assets/images/keys.jpg";
+import keys from "../public/assets/images/keys.jpg";
 import playBtn from "../public/assets/images/playerButton.jpg";
 import Duration from "../public/assets/images/Duration.png";
 import Mix from "../public/assets/images/Mix.png";
