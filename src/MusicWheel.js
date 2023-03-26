@@ -7,8 +7,8 @@ import Image from "next/image";
 import { getCookie, setCookie, deleteCookie } from "cookies-next";
 
  import letter from "../public/assets/images/abLetter.jpg";
-import staff from "../public/assets/images/newStaff.jpg";
-import keys from "../public/assets/images/newKeys.jpg";
+import staff from "../public/assets/images/newStaffs.jpg";
+import keys from "../public/assets/images/newKeyss.jpg";
 // import staff from "../public/assets/images/staff.jpg";
 // import keys from "../public/assets/images/keys.jpg";
 import playBtn from "../public/assets/images/playerButton.jpg";
