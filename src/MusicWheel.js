@@ -117,6 +117,7 @@ function MusicWheel(props) {
   const [deg, setDeg] = useState(45);
   const [nordIndex111, setNordIndex111] = useState(0);
   const [allPlaySongsDuration, setAllPlaySongsDuration] = useState(0);
+  const [allSongsDuration, setAllSongsDuration] = useState(0);
   const tempoData = ["", "Calm", "Mellow", "Moderate", "Lively"];
   const intensityData = ["", "LI", "MI", "HI"];
   const packageData = ["", "F", "P", "P", "F"];
@@ -1142,6 +1143,7 @@ function MusicWheel(props) {
           console.log(songsData, "songdata.....");
           props.handleSong;
           for (let i = 0; i <= responseJson.data.length; i++) {
+            
             // if (responseJson.data[i].song_name.includes("_P.")) {
             handleClickSong(responseJson.data, i);
             // setDuration(responseJson.data[i].duration);
@@ -1153,16 +1155,19 @@ function MusicWheel(props) {
         }
       });
   }
-  totalduraion = Number(totalduraion) - Number(props.durationLast);
+  
+  totalduraion = totalduraion - parseInt(props.durationLast);
 
   setTimeout(() => {
+    console.log(props.durationLast,'props.durationLast')
+    console.log(totalduraion,'totalduraion...')
     props.setTotalSeconds(totalduraion);
     secondsToHms(totalduraion);
   }, 1000);
 
   return (
     <div className={classes.circleCard}>
-       {/* <div className={classes.resetBtn}>
+        <div className={classes.resetBtn}>
         <Grid
           container
           spacing={1}
@@ -1231,7 +1236,7 @@ function MusicWheel(props) {
             </button>
           </Grid>
         </Grid>
-      </div>  */}
+      </div>  
       <div className={classes.resetBtn}>
         <Grid
           container
@@ -1252,21 +1257,23 @@ function MusicWheel(props) {
               }}
               style={{
                 borderRadius: "5px",
-                width: "90%",
-                height: "100%",
-                marginLeft: "10px",
+                width: "60%",
+                height: "98%",
+                marginLeft: "50px",
               }}
             >
                {/* A Ab B Bb */}
               <Image
                 src={letter}
                 alt="alt"
-                height="400px"
-                style={{ marginTop: "-2px" }}
+                width='120px'
+                height="70px"
+               
+                style={{ marginTop: "-2px", }}
               />
             </button>
           </Grid>
-          <Grid item xs={4} md={4}>
+          <Grid item xs={4} md={4} >
             <button
               className={`${
                 imageTypeActive == "2"
@@ -1280,21 +1287,23 @@ function MusicWheel(props) {
               }}
               style={{
                 borderRadius: "5px",
-                width: "90%",
-                height: "100%",
-                marginLeft: "10px",
+                width: "60%",
+                height: "98%",
+                marginLeft: "40px",
+              
               }}
               // disabled={`disable`}
             >
               <Image
                 src={staff}
                 alt="alt"
-                height="400px"
-                style={{ marginTop: "-2px" }}
+                width='120px'
+                height="70px"
+                style={{ marginTop: "-2px", }}
               />
             </button>
           </Grid>
-          <Grid item xs={4} md={4}>
+          <Grid item xs={4} md={4} >
             <button
               className={`${
                 imageTypeActive == "3"
@@ -1309,17 +1318,18 @@ function MusicWheel(props) {
               }}
               style={{
                 borderRadius: "5px",
-                width: "90%",
-                height: "100%",
-                marginLeft: "10px",
+                width: "60%",
+                height: "98%",
+                marginLeft: "20px",
+                
               }}
               // disabled={`disable`}
             >
               <Image
                 src={keys}
                 alt="alt"
-                height="400px"
-                style={{ maxWidth: "100%" }}
+                height="90px"
+                // style={{ maxWidth: "100%", }}
               />
             </button>
           </Grid>
@@ -1531,6 +1541,7 @@ function MusicWheel(props) {
                       )
                     )
                   : ""}
+                 
             </button>
           </Grid>
           <Grid item xs={4} md={4}>
@@ -1625,8 +1636,7 @@ function MusicWheel(props) {
                   style={{
                     padding:'0',
                     marginTop:'8px',
-                  
-                    fontSize: "30px",
+                    fontSize: "20px",
                    
                   }}
                 >
@@ -1708,7 +1718,6 @@ function MusicWheel(props) {
                     <td>{val["composer"]}</td>
                     <td>{val["note_or_cord"]}</td>
                     <td>{val["tempo"]}</td>
-                    <td>{val["duration"]}</td>
                     <td>{val["intensity"]}</td>
                   </tr>
                 ))

@@ -74,7 +74,8 @@ function VideoPlayer(prop) {
     for (let i = prop.musicIndex + 1; i < prop.musicData.length; i++) {
       // if(!(prop.musicData[i]["song_url"].includes("_P."))){
       prop.handleSong(prop.musicData, i);
-      prop.totleTimeAndImage(prop.musicData, prop.musicIndex);
+      prop.TotleTimeAndImage(prop.musicData, prop.musicIndex);
+      // prop.TotleTimeAndRecall(prop.musicData, prop.musicIndex);
            break;
       // }
     }

@@ -10,22 +10,22 @@ const useStyles = makeStyles({
   },
   containerBox: {
     // height: "auto",
-    width:'99.5%',
-    padding:'10px',
+    width: "99.5%",
+    padding: "10px",
     background: "#808d8dcf !important",
-    height:'96%',
+    height: "96%",
     "@media (min-width: 770px) and (max-width:1024px)": {
-      height:'95%',
-      border:'2px solid green',
+      height: "95%",
+      border: "2px solid green",
     },
     "@media (min-width: 1280px) and (max-width:1680px)": {
       // marginLeft: "1%",
       width: "90%",
-      border:'2px solid yellow',
+      border: "2px solid yellow",
     },
     "@media (min-width: 600px) and (max-width:768px)": {
       height: "125vh",
-      border:'2px solid blue',
+      border: "2px solid blue",
     },
     "@media  (min-width: 1681px)and (max-width: 1920px)": {
       width: "100%",
@@ -41,12 +41,10 @@ const useStyles = makeStyles({
     },
   },
   leftSection: {
-   
-   padding:'0px 5px 2px 0px',
+    padding: "0px 5px 2px 0px",
   },
   rightSection: {
-    
-   padding:'0px 0px 2px 10px',
+    padding: "0px 0px 2px 10px",
   },
 });
 function LandingPage() {
@@ -60,7 +58,7 @@ function LandingPage() {
   const [songNote, setSongNote] = useState("Note");
   const [totalSeconds, setTotalSeconds] = useState(0);
   const [allImageCount, setAllImageCount] = useState(0);
-  const [allImageArray, setAllImageArray] = useState([]);
+  const [currentSongTime, setCurrentSongTime] = useState(0);
   const [imageCount, setImageCount] = useState(0);
   const [duration, setDuration] = useState(0);
   const [durationLast, setDurationLast] = useState(0);
@@ -109,27 +107,32 @@ function LandingPage() {
     setRemainingTime(remtime);
   }
 
-  function totleTimeAndImage(data, index) {
+  function TotleTimeAndImage(data, index) {
+
+    setDurationLast(data[index].duration);
     setImageCountLast(data[index].no_of_images);
 
-    setTotalCount( (totalCount) => totalCount + parseInt(data[index].no_of_images))
+    setTotalCount(
+      (totalCount) => totalCount + parseInt(data[index].no_of_images)
+    );
 
     setAllImageCount(totalCount);
-
     console.log(totalCount, "totalCount");
-
     console.log(data[index].no_of_images, "newCount");
-
-    // sumOfImages.splice(ind, 0, parseInt(data[index].no_of_images));
-
-    // setAllImageCount(allImageArray.reduce((a, b) => a + b, 0));
-
-    console.log(allImageCount, "allImageCount..");
-    allImageCount > 1000 ? setAllImageArray([]) : "";
-
+    allImageCount > 1000 ? setTotalCount(0) : "";
     remainingTimes(totalSeconds);
+    
   }
 
+  useEffect(() => {
+    setCurrentSongTime(durationLast);
+  }, [durationLast]);
+  useEffect(() => {
+    setAllImageCount(totalCount);
+    
+  }, [totalCount]);
+
+ 
   const classes = useStyles();
   return (
     <Grid container spacing={0} className={classes.containerBox}>
@@ -145,7 +148,7 @@ function LandingPage() {
           songNote={songNote}
           allImageCount={allImageCount}
           duration={duration}
-          durationLast={durationLast}
+          durationLast={currentSongTime}
           imageCount={imageCount}
           playSongposition={playSongposition}
           setAllImageCount={setAllImageCount}
@@ -159,7 +162,7 @@ function LandingPage() {
           handleSong={handleSong}
           musicData={data}
           musicIndex={index}
-          totleTimeAndImage={totleTimeAndImage}
+          TotleTimeAndImage={TotleTimeAndImage}
         />
       </Grid>
     </Grid>
