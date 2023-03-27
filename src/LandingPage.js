@@ -109,7 +109,7 @@ function LandingPage() {
 
   function TotleTimeAndImage(data, index) {
 
-    setDurationLast(data[index].duration);
+    setDurationLast((durationLast) => durationLast + parseInt(data[index].duration));
     setImageCountLast(data[index].no_of_images);
 
     setTotalCount(
