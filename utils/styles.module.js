@@ -124,8 +124,8 @@ const useStyles = makeStyles({
   },
 
   circle4: {
-    width: "75px",
-    height: "75px",
+    width: "100px",
+    height: "100px",
     borderRadius: "50%",
     listStyle: "none",
     overflow: "hidden",
@@ -878,6 +878,16 @@ premiumActive:{
     //  borderRight:'2px solid black',
     // background: "#5D432C",
     color: "white !important",
+    width:'30%',
+  },
+  thStylesNew: {
+    top: 0,
+    marginTop:'-10px',
+   position: 'sticky',
+    //  borderRight:'2px solid black',
+    // background: "#5D432C",
+    color: "white !important",
+    width:'17%',
   },
   paperStyle: {
     marginTop: "35px",
@@ -924,7 +934,7 @@ premiumActive:{
   },
   playerBtn: {
     cursor: "pointer",
-    fontSize: "70px",
+    fontSize: "80px",
     position: "absolute",
     color: "#00BF55",
     borderRadius: "5px",

@@ -23,9 +23,9 @@ import Tempo2 from "../public/assets/images/Tempo 2nd.png";
 import Tempo3 from "../public/assets/images/Tempo 3rd.png";
 import Tempo4 from "../public/assets/images/Tempo 4th.png";
 import Intencity from "../public/assets/images/Intencity.png";
-import Intencity2 from "../public/assets/images/Intencity1st.png";
-import Intencity3 from "../public/assets/images/Intencity2nd.png";
-import Intencity4 from "../public/assets/images/Intencity3rd.png";
+import Intencity2 from "../public/assets/images/Intencity1.png";
+import Intencity3 from "../public/assets/images/Intencity2.png";
+import Intencity4 from "../public/assets/images/Intencity3.png";
 import DurationDefault from "../public/assets/images/Duration.png";
 import Duration1 from "../public/assets/images/GroupDuration1.png";
 import Duration2 from "../public/assets/images/GroupDuration2.png";
@@ -1456,8 +1456,8 @@ function MusicWheel(props) {
                         fetchSongsData();
                       }}
                       style={{
-                        width: "50% !important",
-                        height: "50% !important",
+                        width: "60% !important",
+                        height: "60% !important",
                       }}
                     />
                   </div>
@@ -1676,10 +1676,10 @@ function MusicWheel(props) {
             <table className={classes.tableStyle} >
             <tr className={classes.trStyle}>
               <th className={classes.thStyles}>{props.songTitle}</th>
-              <th className={classes.thStyles}>{props.songNote}</th>
-              <th className={classes.thStyles}>{props.composer}</th>
-              <th className={classes.thStyles}>{props.duration}</th>
-              <th className={classes.thStyles}>{props.imageCount}</th>
+               <th className={classes.thStylesNew}>{props.composer}</th>
+              <th className={classes.thStylesNew}>{props.songNote}</th>
+              <th className={classes.thStylesNew}>{props.duration}</th>
+              <th className={classes.thStylesNew}>{props.imageCount}</th>
              
             </tr>
             </table>

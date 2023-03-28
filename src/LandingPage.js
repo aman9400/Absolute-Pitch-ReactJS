@@ -119,7 +119,7 @@ function LandingPage() {
     setAllImageCount(totalCount);
     console.log(totalCount, "totalCount");
     console.log(data[index].no_of_images, "newCount");
-    allImageCount > 1000 ? setTotalCount(0) : "";
+    allImageCount > 10000 ? setTotalCount(0) : "";
     remainingTimes(totalSeconds);
     
   }
