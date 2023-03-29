@@ -3,6 +3,7 @@ import { Grid } from "@material-ui/core";
 import MusicWheel from "./MusicWheel";
 import VideoPlayer from "./VideoPlayer";
 import { makeStyles } from "@material-ui/core";
+import Cookies from 'js-cookie'
 const useStyles = makeStyles({
   root: {
     position: "relative",
@@ -121,6 +122,7 @@ function LandingPage() {
     console.log(data[index].no_of_images, "newCount");
     allImageCount > 10000 ? setTotalCount(0) : "";
     remainingTimes(totalSeconds);
+    Cookies.set('name', 'bar')
     
   }
 
