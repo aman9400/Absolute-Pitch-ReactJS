@@ -68,7 +68,11 @@ function LandingPage() {
   const [playSongposition, setPlaySongposition] = useState(0);
 
   const [totalCount, setTotalCount] = useState(0);
-
+  const nordArray = {"A":0, "Ab":0, "B":0, "Bb":0, "C":0, "D":0, "Db":0, "E":0, "Eb":0, "F":0, "G":0, "Gb":0,"Am":0, "Abm":0, "Bm":0, "Bbm":0, "Cm":0, "Dm":0, "Dbm":0, "Em":0, "Ebm":0, "Fm":0, "Gm":0, "Gbm":0,"AM":0, "AbM":0, "BM":0, "BbM":0, "CM":0, "DM":0, "DbM":0, "EM":0, "EbM":0, "FM":0, "GM":0, "GbM":0};
+  if(!Cookies.get('nordArray')){
+    Cookies.set('nordArray', nordArray);
+  }
+  
   //when new value received
 
   let sumOfImages = [];
@@ -82,12 +86,27 @@ function LandingPage() {
     setSongName(songsData[ind].song_name);
     setImageCount(songsData[ind].no_of_images);
     setPlaySongposition(++ind);
-
     secondsToHms(songsData[ind].duration);
     const getNextSong = document.getElementById("childid").children[ind];
     getNextSong.scrollIntoView();
-  }
 
+    // console.log(Cookies.get('nordArray'));
+    var newArr1 = JSON.parse(Cookies.get('nordArray'));
+    for (let x in newArr1) {
+        if(x===songNote)
+        {
+          newArr1[x]=newArr1[x]+1;
+        
+        }
+       //  console.log(x);
+        
+      }
+      Cookies.set('nordArray', newArr1);
+      // console.log(nordArray,'nordArray....');
+       console.log(Cookies.set('nordArray', JSON.stringify(newArr1)));
+       console.log(Cookies.get('nordArray'),'get..');
+  }
+  
   function secondsToHms(Seconds) {
     let d = Number(Seconds);
     var m = Math.floor((d % 3600) / 60);
@@ -118,13 +137,18 @@ function LandingPage() {
     );
 
     setAllImageCount(totalCount);
-    console.log(totalCount, "totalCount");
-    console.log(data[index].no_of_images, "newCount");
+    // console.log(totalCount, "totalCount");
+    // console.log(data[index].no_of_images, "newCount");
     allImageCount > 10000 ? setTotalCount(0) : "";
     remainingTimes(totalSeconds);
-    Cookies.set('name', 'bar')
+    
+    
     
   }
+  // Cookies.set('name', songNote);
+ 
+
+  Cookies.set('nordArray', JSON.stringify(nordArray));
 
   useEffect(() => {
     setCurrentSongTime(durationLast);

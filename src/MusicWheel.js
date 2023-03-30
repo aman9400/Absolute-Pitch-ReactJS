@@ -721,7 +721,7 @@ function MusicWheel(props) {
   };
 
   const requestSort = (key) => {
-    console.log("*** requestSort", key, sortConfig);
+    // console.log("*** requestSort", key, sortConfig);
     let direction = "ascending";
     if (
       sortConfig &&
@@ -950,21 +950,21 @@ function MusicWheel(props) {
 
         if (durationDataIndex == "0") {
           setDurationValue(durationData["minute1"]);
-          console.log(durationValue, "durationValue");
+          // console.log(durationValue, "durationValue");
         }
 
         if (durationDataIndex == "1") {
           setDurationValue(durationData["minute2"]);
-          console.log(durationValue, "durationValue");
+          // console.log(durationValue, "durationValue");
         }
         if (durationDataIndex == "2") {
           setDurationValue(durationData["minute3"]);
-          console.log(durationValue, "durationValue");
+          // console.log(durationValue, "durationValue");
         }
         if (durationDataIndex == "3") {
           setDurationDataIndex(0);
           setDurationValue("");
-          console.log(durationValue, "durationValue");
+          // console.log(durationValue, "durationValue");
         }
 
         setNord({ c1: [], c2: [], c3: [] });
@@ -1000,7 +1000,7 @@ function MusicWheel(props) {
 
   function secondsToHms(Seconds) {
     let d = Number(Seconds);
-    console.log(Seconds, "...Secondss");
+    // console.log(Seconds, "...Secondss");
     var m = Math.floor((d % 3600) / 60);
     var s = Math.floor((d % 3600) % 60);
 
@@ -1113,7 +1113,7 @@ function MusicWheel(props) {
     myHeaders.append("Cookie", "PHPSESSID=ckmj4nc6enk1u3e0rle62m3l64");
 
     const nord_or_cord = getNord();
-    console.log(nord_or_cord, "nord_or_cord.............");
+    // console.log(nord_or_cord, "nord_or_cord.............");
     var urlencoded = new URLSearchParams();
     urlencoded.append("songs", "1");
     urlencoded.append("note_or_cord", nord_or_cord);
@@ -1125,7 +1125,7 @@ function MusicWheel(props) {
     urlencoded.append("tempo", tempoData[tempoIndex]);
     urlencoded.append("image_type", imageTypeIndex);
     urlencoded.append("package", packageActive);
-    console.log(packageActive, "packageActive....");
+    // console.log(packageActive, "packageActive....");
     var requestOptions = {
       method: "POST",
       headers: myHeaders,
@@ -1139,11 +1139,11 @@ function MusicWheel(props) {
     )
       .then((response) => response.json())
       .then((responseJson) => {
-        console.log(responseJson.data, "responseJson.data...");
+        // console.log(responseJson.data, "responseJson.data...");
         setTotalSongs(responseJson.data.length);
         if (responseJson != "") {
           setSongsData(responseJson.data);
-          console.log(songsData, "songdata.....");
+          // console.log(songsData, "songdata.....");
           props.handleSong;
           for (let i = 0; i <= responseJson.data.length; i++) {
             // if (responseJson.data[i].song_name.includes("_P.")) {
@@ -1161,8 +1161,8 @@ function MusicWheel(props) {
   totalduraion = totalduraion - parseInt(props.durationLast);
 
   setTimeout(() => {
-    console.log(props.durationLast, "props.durationLast");
-    console.log(totalduraion, "totalduraion...");
+    // console.log(props.durationLast, "props.durationLast");
+    // console.log(totalduraion, "totalduraion...");
     props.setTotalSeconds(totalduraion);
     secondsToHms(totalduraion);
   }, 1000);
@@ -1548,8 +1548,8 @@ function MusicWheel(props) {
                 {songsData && songsData.length > 0
                   ? songsData.map((val, ind) =>
                       console.log(
-                        (totalduraion =
-                          parseInt(totalduraion) + parseInt(val["duration"]))
+                        // (totalduraion =
+                        //   parseInt(totalduraion) + parseInt(val["duration"]))
                       )
                     )
                   : ""}
