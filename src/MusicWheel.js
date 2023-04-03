@@ -8,6 +8,7 @@ import { getCookie, setCookie, deleteCookie } from "cookies-next";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import letter from "../public/assets/images/abLetter.jpg";
+import Countdown from 'react-countdown';
 // import staff from "../public/assets/images/newStaffs.jpg";
 // import keys from "../public/assets/images/newKeyss.jpg";
 import staff from "../public/assets/images/staff.jpg";
@@ -88,6 +89,7 @@ const conditionalRowStyles = [
   },
   // You can also pass a callback to style for additional customization
 ];
+const Completionist = () => <span>00:00</span>;
 function MusicWheel(props) {
   const router = useRouter();
   const classes = useStyles();
@@ -120,6 +122,7 @@ function MusicWheel(props) {
   const [nordIndex111, setNordIndex111] = useState(0);
   const [allPlaySongsDuration, setAllPlaySongsDuration] = useState(0);
   const [allSongsDuration, setAllSongsDuration] = useState(0);
+  const [time, setTime] = useState(0);
   const tempoData = ["", "Calm", "Mellow", "Moderate", "Lively"];
   const intensityData = ["", "LI", "MI", "HI"];
   const packageData = ["", "F", "P", "P", "F"];
@@ -685,7 +688,7 @@ function MusicWheel(props) {
       550,
     ],
   };
-  
+  let xx = 200000;
   const data = {
     c1: ["+", "+", "+", "+", "+", "+", "+", "+", "+", "+", "+", "+"],
     c2: ["-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"],
@@ -998,45 +1001,44 @@ function MusicWheel(props) {
     }
   }
 
-  function secondsToHms(Seconds) {
-    let d = Number(Seconds);
-    // console.log(Seconds, "...Secondss");
+  setTimeout(
+  function secondsToHms() {
+    let d = Number(props.tduration);
     var m = Math.floor((d % 3600) / 60);
     var s = Math.floor((d % 3600) % 60);
-
     var mDisplay = m > 0 ? m : "00";
     var sDisplay = s > 0 ? s : "00";
     let time = m + ":" + s;
-
-    setAllPlaySongsDuration(time);
-    // countdown(mDisplay, sDisplay);
+    // return time;
+     countdown(mDisplay, sDisplay);
+    // setAllsongTime(time);
   }
+  ,2000);
+  function countdown(minutes, seconds) {
+    var mins = minutes;
+    seconds++;
+    function tick() {
+      var counter = document.getElementById("duration");
+      var current_minutes = mins;
+      seconds--;
+      counter.innerHTML =
+        current_minutes.toString() +
+        ":" +
+        (seconds < 10 ? "0" : "") +
+        String(seconds);
 
-  // function countdown(minutes, seconds) {
-  //   var mins = minutes;
-  //   seconds++;
-  //   function tick() {
-  //     var counter = document.getElementById("duration");
-  //     var current_minutes = mins;
-  //     seconds--;
-  //     counter.innerHTML =
-  //       current_minutes.toString() +
-  //       ":" +
-  //       (seconds < 10 ? "0" : "") +
-  //       String(seconds);
-
-  //     if (seconds > 0) {
-  //       let timeoutHandle = setTimeout(tick, 1000);
-  //     } else {
-  //       if (mins > 1) {
-  //         setTimeout(function() {
-  //           countdown(mins - 1, 59);
-  //         }, 1000);
-  //       }
-  //     }
-  //   }
-  //   tick();
-  // }
+      if (seconds > 0) {
+        let timeoutHandle = setTimeout(tick, 1000);
+      } else {
+        if (mins > 1) {
+          setTimeout(function() {
+            countdown(mins - 1, 59);
+          }, 1000);
+        }
+      }
+    }
+    tick();
+  }
 
   function highlightNord(songsData, ind) {
     const current_song = songsData[ind];
@@ -1132,40 +1134,33 @@ function MusicWheel(props) {
       body: urlencoded,
       redirect: "follow",
     };
-
+const arr=[];
     fetch(
       "https://mylatinhome.com/absolute/appdata/webservice.php",
       requestOptions
     )
       .then((response) => response.json())
       .then((responseJson) => {
-        // console.log(responseJson.data, "responseJson.data...");
+        
         setTotalSongs(responseJson.data.length);
         if (responseJson != "") {
           setSongsData(responseJson.data);
-          // console.log(songsData, "songdata.....");
+         
           props.handleSong;
+          
           for (let i = 0; i <= responseJson.data.length; i++) {
-            // if (responseJson.data[i].song_name.includes("_P.")) {
+          
             handleClickSong(responseJson.data, i);
-            // setDuration(responseJson.data[i].duration);
-            // break;
-            //}
+            // setAllSongsDuration((pre)=>pre+responseJson.data[i].duration);
           }
+         
         } else {
           alert("error in response");
         }
       });
   }
 
-  totalduraion = totalduraion - parseInt(props.durationLast);
-
-  setTimeout(() => {
-    // console.log(props.durationLast, "props.durationLast");
-    // console.log(totalduraion, "totalduraion...");
-    props.setTotalSeconds(totalduraion);
-    secondsToHms(totalduraion);
-  }, 1000);
+ 
 
   return (
     <div className={classes.circleCard}>
@@ -1541,18 +1536,18 @@ function MusicWheel(props) {
                   fontSize: "20px",
                   background: "#fff",
                 }}
+                id='duration'
               >
-                {props.remainingTime
-                  ? props.remainingTime
-                  : allPlaySongsDuration}
-                {songsData && songsData.length > 0
-                  ? songsData.map((val, ind) =>
-                      console.log(
-                         (totalduraion =
-                           parseInt(totalduraion) + parseInt(val["duration"]))
-                      )
-                    )
-                  : ""}
+{/* {props.allsongTime} */}
+{/* <Countdown 
+    
+    >
+      <Completionist />
+    </Countdown>
+                */}
+                {/* {!props.remainingTime
+                  ?  props.allsongTime
+                  : props.remainingTime} */}
               </button>
             </Grid>
             <Grid item xs={4} md={4}>

@@ -3,7 +3,8 @@ import { Grid } from "@material-ui/core";
 import MusicWheel from "./MusicWheel";
 import VideoPlayer from "./VideoPlayer";
 import { makeStyles } from "@material-ui/core";
-import Cookies from 'js-cookie'
+import { Audio } from "react-loader-spinner";
+import Cookies from "js-cookie";
 const useStyles = makeStyles({
   root: {
     position: "relative",
@@ -63,16 +64,56 @@ function LandingPage() {
   const [imageCount, setImageCount] = useState(0);
   const [duration, setDuration] = useState(0);
   const [durationLast, setDurationLast] = useState(0);
-  const [remainingTime, setRemainingTime] = useState(0);
+
   const [imageCountLast, setImageCountLast] = useState(0);
   const [playSongposition, setPlaySongposition] = useState(0);
-
+  const [allsongTime, setAllsongTime] = useState(0);
+  const [allSongsDuration, setAllSongsDuration] = useState(0);
+  const [time, setTime] = useState(0);
+  const [remainingTime, setRemainingTime] = useState(time);
   const [totalCount, setTotalCount] = useState(0);
-  const nordArray = {"A":0, "Ab":0, "B":0, "Bb":0, "C":0, "D":0, "Db":0, "E":0, "Eb":0, "F":0, "G":0, "Gb":0,"Am":0, "Abm":0, "Bm":0, "Bbm":0, "Cm":0, "Dm":0, "Dbm":0, "Em":0, "Ebm":0, "Fm":0, "Gm":0, "Gbm":0,"AM":0, "AbM":0, "BM":0, "BbM":0, "CM":0, "DM":0, "DbM":0, "EM":0, "EbM":0, "FM":0, "GM":0, "GbM":0};
-  if(!Cookies.get('nordArray')){
-    Cookies.set('nordArray', nordArray);
+  const nordArray = {
+    A: 0,
+    Ab: 0,
+    B: 0,
+    Bb: 0,
+    C: 0,
+    D: 0,
+    Db: 0,
+    E: 0,
+    Eb: 0,
+    F: 0,
+    G: 0,
+    Gb: 0,
+    Am: 0,
+    Abm: 0,
+    Bm: 0,
+    Bbm: 0,
+    Cm: 0,
+    Dm: 0,
+    Dbm: 0,
+    Em: 0,
+    Ebm: 0,
+    Fm: 0,
+    Gm: 0,
+    Gbm: 0,
+    AM: 0,
+    AbM: 0,
+    BM: 0,
+    BbM: 0,
+    CM: 0,
+    DM: 0,
+    DbM: 0,
+    EM: 0,
+    EbM: 0,
+    FM: 0,
+    GM: 0,
+    GbM: 0,
+  };
+  if (!Cookies.get("nordArray")) {
+    Cookies.set("nordArray", nordArray);
   }
-  
+
   //when new value received
 
   let sumOfImages = [];
@@ -86,27 +127,69 @@ function LandingPage() {
     setSongName(songsData[ind].song_name);
     setImageCount(songsData[ind].no_of_images);
     setPlaySongposition(++ind);
-    secondsToHms(songsData[ind].duration);
+    setDuration(secondsToHms(songsData[ind].duration));
     const getNextSong = document.getElementById("childid").children[ind];
     getNextSong.scrollIntoView();
 
     // console.log(Cookies.get('nordArray'));
-    var newArr1 = JSON.parse(Cookies.get('nordArray'));
+    var newArr1 = JSON.parse(Cookies.get("nordArray"));
     for (let x in newArr1) {
-        if(x===songNote)
-        {
-          newArr1[x]=newArr1[x]+1;
-        
-        }
-       //  console.log(x);
-        
+      if (x === songNote) {
+        newArr1[x] = newArr1[x] + 1;
       }
-      Cookies.set('nordArray', newArr1);
-      // console.log(nordArray,'nordArray....');
-       console.log(Cookies.set('nordArray', JSON.stringify(newArr1)));
-       console.log(Cookies.get('nordArray'),'get..');
+      //  console.log(x);
+    }
+    Cookies.set("nordArray", newArr1);
+    // console.log(nordArray,'nordArray....');
+    console.log(Cookies.set("nordArray", JSON.stringify(newArr1)));
+    console.log(Cookies.get("nordArray"), "get..");
   }
-  
+
+  function TotleTimeAndImage(data, index) {
+    setDurationLast(
+      (durationLast) => durationLast + parseInt(data[index].duration)
+    );
+    setImageCountLast(data[index].no_of_images);
+    setTotalCount(
+      (totalCount) => totalCount + parseInt(data[index].no_of_images)
+    );
+    setAllImageCount(totalCount);
+    allImageCount > 10000 ? setTotalCount(0) : "";
+    // remainingTimes(time,durationLast)
+  }
+  // Cookies.set('name', songNote);
+  Cookies.set("nordArray", JSON.stringify(nordArray));
+
+  useEffect(() => {
+    setCurrentSongTime(durationLast);
+  }, [durationLast]);
+
+  useEffect(() => {
+    setAllImageCount(totalCount);
+  }, [totalCount]);
+
+  useEffect(() => {
+    for (let x in data) {
+      setAllSongsDuration(
+        (allSongsDuration) => allSongsDuration + parseInt(data[x].duration)
+      );
+    }
+  }, [data]);
+
+  useEffect(() => {
+    setTime(allSongsDuration);
+  }, [allSongsDuration]);
+
+  useEffect(() => {
+    let x = secondsToHms(time);
+    setAllsongTime(x);
+  }, [time]);
+
+  useEffect(() => {
+    let r = remainingTimes(time, durationLast);
+    setRemainingTime(r);
+  }, [durationLast]);
+
   function secondsToHms(Seconds) {
     let d = Number(Seconds);
     var m = Math.floor((d % 3600) / 60);
@@ -114,51 +197,46 @@ function LandingPage() {
     var mDisplay = m > 0 ? m : "00";
     var sDisplay = s > 0 ? s : "00";
     let time = m + ":" + s;
-
-    setDuration(time);
+    return time;
+    // countdown(mDisplay, sDisplay);
+    // setAllsongTime(time);
   }
-  function remainingTimes(totalSecond) {
-    let rem = Number(totalSecond);
+  function countdown(minutes, seconds) {
+    var mins = minutes;
+    seconds++;
+    function tick() {
+      var counter = document.getElementById("duration");
+      var current_minutes = mins;
+      seconds--;
+      counter.innerHTML =
+        current_minutes.toString() +
+        ":" +
+        (seconds < 10 ? "0" : "") +
+        String(seconds);
+
+      if (seconds > 0) {
+        let timeoutHandle = setTimeout(tick, 1000);
+      } else {
+        if (mins > 1) {
+          setTimeout(function() {
+            countdown(mins - 1, 59);
+          }, 1000);
+        }
+      }
+    }
+    tick();
+  }
+
+  function remainingTimes(x, y) {
+    let rem = Number(x) - Number(y);
     var minuts = Math.floor((rem % 3600) / 60);
     var sec = Math.floor((rem % 3600) % 60);
     var mimutsDisplay = minuts > 0 ? minuts : "00";
     var secDisplay = sec > 0 ? sec : "00";
     let remtime = minuts + ":" + sec;
-    setRemainingTime(remtime);
+    return remtime;
   }
 
-  function TotleTimeAndImage(data, index) {
-
-    setDurationLast((durationLast) => durationLast + parseInt(data[index].duration));
-    setImageCountLast(data[index].no_of_images);
-
-    setTotalCount(
-      (totalCount) => totalCount + parseInt(data[index].no_of_images)
-    );
-
-    setAllImageCount(totalCount);
-    // console.log(totalCount, "totalCount");
-    // console.log(data[index].no_of_images, "newCount");
-    allImageCount > 10000 ? setTotalCount(0) : "";
-    remainingTimes(totalSeconds);
-    
-    
-    
-  }
-  // Cookies.set('name', songNote);
- 
-
-  Cookies.set('nordArray', JSON.stringify(nordArray));
-
-  useEffect(() => {
-    setCurrentSongTime(durationLast);
-  }, [durationLast]);
-  useEffect(() => {
-    setAllImageCount(totalCount);
-    
-  }, [totalCount]);
-
- 
   const classes = useStyles();
   return (
     <Grid container spacing={0} className={classes.containerBox}>
@@ -180,7 +258,9 @@ function LandingPage() {
           setAllImageCount={setAllImageCount}
           setTotalSeconds={setTotalSeconds}
           remainingTime={remainingTime}
+          tduration={time}
           setPlaySongposition={setPlaySongposition}
+          allsongTime={allsongTime}
         />
       </Grid>
       <Grid item xs={12} md={6} sm={12} className={classes.rightSection}>
