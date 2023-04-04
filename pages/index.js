@@ -16,7 +16,7 @@ export default function Home() {
   const ref = useRef();
   return (
     <Layout>
-      {"premium" != true ? (
+      { true ? (
         <div>
           <LandingPage />
         </div>
@@ -44,15 +44,15 @@ export default function Home() {
             offset={1}
             speed={1}
             factor={4}
-            style={{ marginTop: "-140px" }}
+            // style={{ marginTop: "-140px" }}
           >
             <div className="animation_layer parallax" id="artback"></div>
           </ParallaxLayer>
           <ParallaxLayer
-            sticky={{ start: 0.5, end: 3.5 }}
+            sticky={{ start: 0.2, end: 3.5 }}
             style={{ textAlign: "center" }}
           >
-            <Image src={cat} alt=".."  height={60} width={60}/>
+            <Image src={cat} alt=".."  height={100} width={100}/>
           </ParallaxLayer>
         </Parallax>
       )}

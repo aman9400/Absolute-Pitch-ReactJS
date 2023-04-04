@@ -122,7 +122,7 @@ function MusicWheel(props) {
   const [nordIndex111, setNordIndex111] = useState(0);
   const [allPlaySongsDuration, setAllPlaySongsDuration] = useState(0);
   const [allSongsDuration, setAllSongsDuration] = useState(0);
-  const [time, setTime] = useState(0);
+  const [remainingDuration, setRemainingDuration] = useState(0);
   const tempoData = ["", "Calm", "Mellow", "Moderate", "Lively"];
   const intensityData = ["", "LI", "MI", "HI"];
   const packageData = ["", "F", "P", "P", "F"];
@@ -716,6 +716,7 @@ function MusicWheel(props) {
     "https://mylatinhome.com/absolute/note-sound/Ab.wav",
   ];
 
+  
   const getClassNamesFor = (id) => {
     if (!sortConfig) {
       return;
@@ -769,6 +770,7 @@ function MusicWheel(props) {
   const handleClick = (e, path) => {
     router.push("/UserLog");
   };
+  
   function changeHandler(c, ind, event) {
     // if (imageTypeIndex == "") {
     //   alert("Please seect any ImageType Key");
@@ -995,25 +997,26 @@ function MusicWheel(props) {
     }
   }, [props.musicIndex]);
 
+  
   function handleClickSong(songsData, ind) {
     if (songsData.length > 0) {
       props.handleSong(songsData, ind);
     }
   }
 
-  setTimeout(
-  function secondsToHms() {
-    let d = Number(props.tduration);
-    var m = Math.floor((d % 3600) / 60);
-    var s = Math.floor((d % 3600) % 60);
-    var mDisplay = m > 0 ? m : "00";
-    var sDisplay = s > 0 ? s : "00";
-    let time = m + ":" + s;
-    // return time;
-     countdown(mDisplay, sDisplay);
-    // setAllsongTime(time);
-  }
-  ,2000);
+  // setTimeout(
+  // function secondsToHms() {
+  //   let d = Number(props.tduration);
+  //   var m = Math.floor((d % 3600) / 60);
+  //   var s = Math.floor((d % 3600) % 60);
+  //   var mDisplay = m > 0 ? m : "00";
+  //   var sDisplay = s > 0 ? s : "00";
+  //   let time = m + ":" + s;
+  //   // return time;
+  //    countdown(mDisplay, sDisplay);
+  //   // setAllsongTime(time);
+  // }
+  // ,2000);
   function countdown(minutes, seconds) {
     var mins = minutes;
     seconds++;
@@ -1092,22 +1095,8 @@ function MusicWheel(props) {
     // secondsToHms(totalduraion);
     props.setAllImageCount(0);
   }
-  function rowClick() {
-    let node = document.getElementsByTagName(DataTable);
-
-    alert(node[5]);
-  }
-  function rotationBtn(id, e) {
-    var rote = 100;
-
-    let content = document.getElementById("TempoBtn");
-    let btn = document.getElementById(id);
-    // content.addEventListener('click',()=>{
-    btn.style.transform = "rotate(" + deg + "deg)";
-    setDeg(deg + 45);
-
-    // })
-  }
+ 
+ 
   function fetchSongsData() {
     var myHeaders = new Headers();
     myHeaders.append("Accept", "application/json");
@@ -1151,6 +1140,7 @@ const arr=[];
           for (let i = 0; i <= responseJson.data.length; i++) {
           
             handleClickSong(responseJson.data, i);
+            break;
             // setAllSongsDuration((pre)=>pre+responseJson.data[i].duration);
           }
          
@@ -1538,16 +1528,10 @@ const arr=[];
                 }}
                 id='duration'
               >
-{/* {props.allsongTime} */}
-{/* <Countdown 
-    
-    >
-      <Completionist />
-    </Countdown>
-                */}
-                {/* {!props.remainingTime
-                  ?  props.allsongTime
-                  : props.remainingTime} */}
+
+
+                {props.remainingTime}
+
               </button>
             </Grid>
             <Grid item xs={4} md={4}>

@@ -70,7 +70,7 @@ function LandingPage() {
   const [allsongTime, setAllsongTime] = useState(0);
   const [allSongsDuration, setAllSongsDuration] = useState(0);
   const [time, setTime] = useState(0);
-  const [remainingTime, setRemainingTime] = useState(time);
+  const [remainingTime, setRemainingTime] = useState();
   const [totalCount, setTotalCount] = useState(0);
   const nordArray = {
     A: 0,
@@ -116,7 +116,7 @@ function LandingPage() {
 
   //when new value received
 
-  let sumOfImages = [];
+  
   function handleSong(songsData, ind) {
     setData(songsData);
     setIndex(ind);
@@ -164,10 +164,13 @@ function LandingPage() {
     setCurrentSongTime(durationLast);
   }, [durationLast]);
 
+// UseEffect for total image count
+
   useEffect(() => {
     setAllImageCount(totalCount);
   }, [totalCount]);
 
+  // UseEffect for total song duration
   useEffect(() => {
     for (let x in data) {
       setAllSongsDuration(
@@ -176,19 +179,23 @@ function LandingPage() {
     }
   }, [data]);
 
+//set updated total time
   useEffect(() => {
     setTime(allSongsDuration);
+   
   }, [allSongsDuration]);
+
 
   useEffect(() => {
     let x = secondsToHms(time);
     setAllsongTime(x);
+    setRemainingTime(x);
   }, [time]);
 
   useEffect(() => {
     let r = remainingTimes(time, durationLast);
     setRemainingTime(r);
-  }, [durationLast]);
+  },[currentSongTime]);
 
   function secondsToHms(Seconds) {
     let d = Number(Seconds);
@@ -201,32 +208,7 @@ function LandingPage() {
     // countdown(mDisplay, sDisplay);
     // setAllsongTime(time);
   }
-  function countdown(minutes, seconds) {
-    var mins = minutes;
-    seconds++;
-    function tick() {
-      var counter = document.getElementById("duration");
-      var current_minutes = mins;
-      seconds--;
-      counter.innerHTML =
-        current_minutes.toString() +
-        ":" +
-        (seconds < 10 ? "0" : "") +
-        String(seconds);
-
-      if (seconds > 0) {
-        let timeoutHandle = setTimeout(tick, 1000);
-      } else {
-        if (mins > 1) {
-          setTimeout(function() {
-            countdown(mins - 1, 59);
-          }, 1000);
-        }
-      }
-    }
-    tick();
-  }
-
+ 
   function remainingTimes(x, y) {
     let rem = Number(x) - Number(y);
     var minuts = Math.floor((rem % 3600) / 60);
@@ -234,6 +216,7 @@ function LandingPage() {
     var mimutsDisplay = minuts > 0 ? minuts : "00";
     var secDisplay = sec > 0 ? sec : "00";
     let remtime = minuts + ":" + sec;
+    console.log(remtime,'remtime...')
     return remtime;
   }
 
