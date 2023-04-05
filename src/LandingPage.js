@@ -180,18 +180,18 @@ function LandingPage() {
   useEffect(() => {
     setTime(allSongsDuration/2);
   }, [allSongsDuration]);
-  
+  let x = secondsToHms(time/2);
   useEffect(() => {
     // console.log(time, "time...");
-    let x = secondsToHms(time/2);
+    
     // setAllsongTime(x);
     setRemainingTime(x);
   }, [time]);
 
   useEffect(() => {
-    let r = remainingTimes(time, durationLast);
+    let r = remainingTimes(time/2, durationLast);
     setRemainingTime(r);
-  }, [currentSongTime]);
+  }, [durationLast]);
 
   function secondsToHms(Seconds) {
     let d = Number(Seconds);
@@ -249,6 +249,7 @@ function LandingPage() {
           musicData={data}
           musicIndex={index}
           TotleTimeAndImage={TotleTimeAndImage}
+          timeData={setAllSongsDuration}
         />
       </Grid>
     </Grid>

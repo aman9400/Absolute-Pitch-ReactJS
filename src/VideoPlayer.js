@@ -71,9 +71,10 @@ function VideoPlayer(prop) {
     : "";
 
   function playNextSong() {
+    prop.timeData(0)
     for (let i = prop.musicIndex + 1; i < prop.musicData.length; i++) {
       // if(!(prop.musicData[i]["song_url"].includes("_P."))){
-        console.log(i,'index.....')
+       
       prop.handleSong(prop.musicData, i);
       console.log(i)
       prop.TotleTimeAndImage(prop.musicData, prop.musicIndex);
