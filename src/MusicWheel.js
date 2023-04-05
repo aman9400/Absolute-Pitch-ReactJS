@@ -4,11 +4,11 @@ import useStyles from "../utils/styles.module";
 import Tooltip from "@material-ui/core/Tooltip";
 import styles from "./style.module.css";
 import Image from "next/image";
-import { getCookie, setCookie, deleteCookie } from "cookies-next";
+import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import letter from "../public/assets/images/abLetter.jpg";
-import Countdown from 'react-countdown';
+
 // import staff from "../public/assets/images/newStaffs.jpg";
 // import keys from "../public/assets/images/newKeyss.jpg";
 import staff from "../public/assets/images/staff.jpg";
@@ -999,6 +999,7 @@ function MusicWheel(props) {
 
   
   function handleClickSong(songsData, ind) {
+    props.timeData(0)
     if (songsData.length > 0) {
       props.handleSong(songsData, ind);
     }
@@ -1134,9 +1135,11 @@ const arr=[];
         setTotalSongs(responseJson.data.length);
         if (responseJson != "") {
           setSongsData(responseJson.data);
-         
+          props.timeData(0)
+        //  props.setResponseData(responseJson.data);
           props.handleSong;
           
+          // Cookies.set("apiData",responseJson.data['duration']);
           for (let i = 0; i <= responseJson.data.length; i++) {
           
             handleClickSong(responseJson.data, i);

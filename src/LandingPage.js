@@ -113,36 +113,31 @@ function LandingPage() {
   if (!Cookies.get("nordArray")) {
     Cookies.set("nordArray", nordArray);
   }
-
+// let dataArr = Cookies.get("apiData");
+// console.log(dataArr,'dataArr....');
   //when new value received
 
-  
   function handleSong(songsData, ind) {
-    setData(songsData);
-    setIndex(ind);
 
+    setData(songsData);
+    console.log(songsData,'data....')
+    setIndex(ind);
     setSongTitle(songsData[ind].song_title);
     setComposer(songsData[ind].composer);
     setSongNote(songsData[ind].note_or_cord);
     setSongName(songsData[ind].song_name);
     setImageCount(songsData[ind].no_of_images);
     setPlaySongposition(++ind);
-    setDuration(secondsToHms(songsData[ind].duration));
+    // setDuration(secondsToHms(songsData[ind].tempo));
+    setDuration(songsData[ind].tempo);
+    for (let x in songsData) {
+      setAllSongsDuration(
+        (allSongsDuration) => allSongsDuration + parseInt(songsData[x].duration)
+      );
+    }
     const getNextSong = document.getElementById("childid").children[ind];
     getNextSong.scrollIntoView();
 
-    // console.log(Cookies.get('nordArray'));
-    var newArr1 = JSON.parse(Cookies.get("nordArray"));
-    for (let x in newArr1) {
-      if (x === songNote) {
-        newArr1[x] = newArr1[x] + 1;
-      }
-      //  console.log(x);
-    }
-    Cookies.set("nordArray", newArr1);
-    // console.log(nordArray,'nordArray....');
-    console.log(Cookies.set("nordArray", JSON.stringify(newArr1)));
-    console.log(Cookies.get("nordArray"), "get..");
   }
 
   function TotleTimeAndImage(data, index) {
@@ -164,7 +159,7 @@ function LandingPage() {
     setCurrentSongTime(durationLast);
   }, [durationLast]);
 
-// UseEffect for total image count
+  // UseEffect for total image count
 
   useEffect(() => {
     setAllImageCount(totalCount);
@@ -172,54 +167,53 @@ function LandingPage() {
 
   // UseEffect for total song duration
   useEffect(() => {
+   
     for (let x in data) {
       setAllSongsDuration(
         (allSongsDuration) => allSongsDuration + parseInt(data[x].duration)
       );
     }
-  }, [data]);
+    
+  },[]);
 
-//set updated total time
+  //set updated total time
   useEffect(() => {
-    setTime(allSongsDuration);
-   
+    setTime(allSongsDuration/2);
   }, [allSongsDuration]);
-
-
+  
   useEffect(() => {
-    console.log(time,'time...');
-    let x = secondsToHms(time);
-    setAllsongTime(x);
+    // console.log(time, "time...");
+    let x = secondsToHms(time/2);
+    // setAllsongTime(x);
     setRemainingTime(x);
   }, [time]);
 
   useEffect(() => {
     let r = remainingTimes(time, durationLast);
     setRemainingTime(r);
-  },[currentSongTime]);
+  }, [currentSongTime]);
 
   function secondsToHms(Seconds) {
     let d = Number(Seconds);
     const result = new Date(d * 1000).toISOString().slice(11, 19);
-console.log(result,'result...'); // 👉️ "00:10:00" (hh:mm:ss)
-return result;
-    
+    console.log(result, "result..."); // 👉️ "00:10:00" (hh:mm:ss)
+    return result;
   }
- 
+
   function remainingTimes(x, y) {
-    let rem = Number(x) - Number(y);
-    const result = new Date(rem * 1000).toISOString().slice(11, 19);
+    let d = Number(x) - Number(y);
+    const result = new Date(d * 1000).toISOString().slice(11, 19);
     console.log(result,'result...'); // 👉️ "00:10:00" (hh:mm:ss)
     return result;
-    // let hours = Math.floor((rem / 1000 / 60 / 60) % 24);
-    // let minuts = Math.floor((rem % 3600) / 60);
-    // let sec = Math.floor((rem % 3600) % 60);
-    // let hoursDisplay = hours > 0 ? hours : "00";
-    // let mimutsDisplay = minuts > 0 ? minuts : "00";
-    // let secDisplay = sec > 0 ? sec : "00";
-    // let remtime = hours + ":" + minuts + ":" + sec;
-    // console.log(remtime,'remtime...')
-    // return remtime;
+
+    // var h = Math.floor(d / 3600);
+    // var m = Math.floor((d % 3600) / 60);
+    // var s = Math.floor((d % 3600) % 60);
+
+    // var hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours, ") : "";
+    // var mDisplay = m > 0 ? m + (m == 1 ? " minute, " : " minutes, ") : "";
+    // var sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
+    // return hDisplay + mDisplay + sDisplay;
   }
 
   const classes = useStyles();
@@ -246,6 +240,7 @@ return result;
           tduration={time}
           setPlaySongposition={setPlaySongposition}
           allsongTime={allsongTime}
+          timeData={setAllSongsDuration}
         />
       </Grid>
       <Grid item xs={12} md={6} sm={12} className={classes.rightSection}>
