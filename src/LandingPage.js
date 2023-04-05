@@ -187,6 +187,7 @@ function LandingPage() {
 
 
   useEffect(() => {
+    console.log(time,'time...');
     let x = secondsToHms(time);
     setAllsongTime(x);
     setRemainingTime(x);
@@ -199,25 +200,26 @@ function LandingPage() {
 
   function secondsToHms(Seconds) {
     let d = Number(Seconds);
-    var m = Math.floor((d % 3600) / 60);
-    var s = Math.floor((d % 3600) % 60);
-    var mDisplay = m > 0 ? m : "00";
-    var sDisplay = s > 0 ? s : "00";
-    let time = m + ":" + s;
-    return time;
-    // countdown(mDisplay, sDisplay);
-    // setAllsongTime(time);
+    const result = new Date(d * 1000).toISOString().slice(11, 19);
+console.log(result,'result...'); // 👉️ "00:10:00" (hh:mm:ss)
+return result;
+    
   }
  
   function remainingTimes(x, y) {
     let rem = Number(x) - Number(y);
-    var minuts = Math.floor((rem % 3600) / 60);
-    var sec = Math.floor((rem % 3600) % 60);
-    var mimutsDisplay = minuts > 0 ? minuts : "00";
-    var secDisplay = sec > 0 ? sec : "00";
-    let remtime = minuts + ":" + sec;
-    console.log(remtime,'remtime...')
-    return remtime;
+    const result = new Date(rem * 1000).toISOString().slice(11, 19);
+    console.log(result,'result...'); // 👉️ "00:10:00" (hh:mm:ss)
+    return result;
+    // let hours = Math.floor((rem / 1000 / 60 / 60) % 24);
+    // let minuts = Math.floor((rem % 3600) / 60);
+    // let sec = Math.floor((rem % 3600) % 60);
+    // let hoursDisplay = hours > 0 ? hours : "00";
+    // let mimutsDisplay = minuts > 0 ? minuts : "00";
+    // let secDisplay = sec > 0 ? sec : "00";
+    // let remtime = hours + ":" + minuts + ":" + sec;
+    // console.log(remtime,'remtime...')
+    // return remtime;
   }
 
   const classes = useStyles();

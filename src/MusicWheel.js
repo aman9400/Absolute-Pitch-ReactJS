@@ -1012,9 +1012,9 @@ function MusicWheel(props) {
   //   var mDisplay = m > 0 ? m : "00";
   //   var sDisplay = s > 0 ? s : "00";
   //   let time = m + ":" + s;
-  //   // return time;
+  //   * return time;
   //    countdown(mDisplay, sDisplay);
-  //   // setAllsongTime(time);
+  //   * setAllsongTime(time);
   // }
   // ,2000);
   function countdown(minutes, seconds) {
@@ -1639,7 +1639,7 @@ const arr=[];
       <div className={classes.songScrolling}>
         <Grid
           container
-          spacing={2}
+          spacing={0}
           className={classes.bottomBoxContainer}
           style={{ padding: "0px" }}
         >
@@ -1653,11 +1653,11 @@ const arr=[];
               className={`${classes.bottomBox}`}
               style={{
                 color: "#fff",
-                width: "60px",
+                width: "63px",
                 background: "#333333",
                 textAlign: "center",
                 fontSize: "20px",
-                marginLeft: "5px",
+                marginLeft: "15px",
               }}
             >
               {props.playSongposition}/{totalSongs}
@@ -1667,7 +1667,7 @@ const arr=[];
             item
             xs={10}
             md={11}
-            style={{ padding: "0px", marginLeft: "10px" }}
+            style={{ padding: "0px", marginLeft: "20px" }}
           >
             <table className={classes.tableStyle}>
               <tr className={classes.trStyle}>
