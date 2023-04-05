@@ -878,7 +878,7 @@ premiumActive:{
     //  borderRight:'2px solid black',
     // background: "#5D432C",
     color: "white !important",
-    width:'30%',
+    width:'28%',
   },
   thStylesNew: {
     top: 0,

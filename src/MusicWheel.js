@@ -1148,6 +1148,7 @@ const arr=[];
           }
          
         } else {
+          props.timeData(0);
           alert("error in response");
         }
       });

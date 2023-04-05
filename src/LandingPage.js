@@ -70,7 +70,7 @@ function LandingPage() {
   const [allsongTime, setAllsongTime] = useState(0);
   const [allSongsDuration, setAllSongsDuration] = useState(0);
   const [time, setTime] = useState(0);
-  const [remainingTime, setRemainingTime] = useState();
+  const [remainingTime, setRemainingTime] = useState(0);
   const [totalCount, setTotalCount] = useState(0);
   const nordArray = {
     A: 0,
@@ -117,9 +117,13 @@ function LandingPage() {
 // console.log(dataArr,'dataArr....');
   //when new value received
 
+// ***********Handle song start here **************
   function handleSong(songsData, ind) {
-
+    setTimeout( setAllSongsDuration(0),
+    setTime(0),200)
+   
     setData(songsData);
+    
     console.log(songsData,'data....')
     setIndex(ind);
     setSongTitle(songsData[ind].song_title);
@@ -127,20 +131,38 @@ function LandingPage() {
     setSongNote(songsData[ind].note_or_cord);
     setSongName(songsData[ind].song_name);
     setImageCount(songsData[ind].no_of_images);
+    setDuration(songsData[ind].tempo);
     setPlaySongposition(++ind);
     // setDuration(secondsToHms(songsData[ind].tempo));
-    setDuration(songsData[ind].tempo);
+    
     for (let x in songsData) {
       setAllSongsDuration(
         (allSongsDuration) => allSongsDuration + parseInt(songsData[x].duration)
       );
+      console.log(songsData[x].duration,'ddd...')
     }
+    console.log(allSongsDuration,'allSongsDuration ttt...')
     const getNextSong = document.getElementById("childid").children[ind];
     getNextSong.scrollIntoView();
 
   }
+  //****** Handle song End here *************
+
+  useEffect(() => {
+    for (let x in data) {
+      setAllSongsDuration(
+        (allSongsDuration) => allSongsDuration + parseInt(data[x].duration)
+      );
+      console.log(data[x].duration,'dddd...')
+    }
+    let r = remainingTimes(allSongsDuration, durationLast);
+    setRemainingTime(r);
+  },[data]);
+
+  // *********** TotleTimeAndImage start here **************
 
   function TotleTimeAndImage(data, index) {
+   
     setDurationLast(
       (durationLast) => durationLast + parseInt(data[index].duration)
     );
@@ -151,7 +173,11 @@ function LandingPage() {
     setAllImageCount(totalCount);
     allImageCount > 10000 ? setTotalCount(0) : "";
     // remainingTimes(time,durationLast)
+    
   }
+
+  // *********** TotleTimeAndImage End here **************
+
   // Cookies.set('name', songNote);
   Cookies.set("nordArray", JSON.stringify(nordArray));
 
@@ -166,39 +192,31 @@ function LandingPage() {
   }, [totalCount]);
 
   // UseEffect for total song duration
-  useEffect(() => {
-   
-    for (let x in data) {
-      setAllSongsDuration(
-        (allSongsDuration) => allSongsDuration + parseInt(data[x].duration)
-      );
-    }
-    
-  },[]);
+  
 
   //set updated total time
   useEffect(() => {
-    setTime(allSongsDuration/2);
+    setTime(allSongsDuration);
   }, [allSongsDuration]);
-  let x = secondsToHms(time/2);
+  
   useEffect(() => {
     // console.log(time, "time...");
-    
+    // let x = secondsToHms(time);
     // setAllsongTime(x);
-    setRemainingTime(x);
+    // setRemainingTime(x);
   }, [time]);
 
   useEffect(() => {
-    let r = remainingTimes(time/2, durationLast);
+    let r = remainingTimes(allSongsDuration, durationLast);
     setRemainingTime(r);
   }, [durationLast]);
 
-  function secondsToHms(Seconds) {
-    let d = Number(Seconds);
-    const result = new Date(d * 1000).toISOString().slice(11, 19);
-    console.log(result, "result..."); // 👉️ "00:10:00" (hh:mm:ss)
-    return result;
-  }
+  // function secondsToHms(Seconds) {
+  //   let d = Number(Seconds);
+  //   const result = new Date(d * 1000).toISOString().slice(11, 19);
+  //   console.log(result, "result..."); // 👉️ "00:10:00" (hh:mm:ss)
+  //   return result;
+  // }
 
   function remainingTimes(x, y) {
     let d = Number(x) - Number(y);
