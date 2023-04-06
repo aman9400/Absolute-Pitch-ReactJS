@@ -861,7 +861,7 @@ premiumActive:{
     background: "black",
     height: "35px",
     marginTop:'0px',
-    
+    width:'98%',
   },
   thStyle: {
     top: 0,
@@ -878,7 +878,7 @@ premiumActive:{
     //  borderRight:'2px solid black',
     // background: "#5D432C",
     color: "white !important",
-    width:'28%',
+    width:'30%',
   },
   thStylesNew: {
     top: 0,
@@ -888,6 +888,15 @@ premiumActive:{
     // background: "#5D432C",
     color: "white !important",
     width:'17%',
+  },
+  thTotalSongs: {
+    top: 0,
+    marginTop:'-10px',
+   position: 'sticky',
+    //  borderRight:'2px solid black',
+    // background: "#5D432C",
+    color: "white !important",
+    width:'12%',
   },
   paperStyle: {
     marginTop: "35px",

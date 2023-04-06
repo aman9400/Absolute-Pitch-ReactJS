@@ -119,8 +119,8 @@ function LandingPage() {
 
 // ***********Handle song start here **************
   function handleSong(songsData, ind) {
-    setTimeout( setAllSongsDuration(0),
-    setTime(0),200)
+    setTimeout(setAllSongsDuration(0),
+    setTime(0),200);
    
     setData(songsData);
     
@@ -162,7 +162,8 @@ function LandingPage() {
   // *********** TotleTimeAndImage start here **************
 
   function TotleTimeAndImage(data, index) {
-   
+    setAllSongsDuration(0);
+    setTime(0);
     setDurationLast(
       (durationLast) => durationLast + parseInt(data[index].duration)
     );
