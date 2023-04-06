@@ -1678,12 +1678,13 @@ const arr=[];
           >
             <table className={classes.tableStyle}>
               <tr className={classes.trStyle}>
-                <th className={classes.thTotalSongs}>{props.playSongposition}/{totalSongs}</th>
+                
                 <th className={classes.thStyles}>{props.songTitle}</th>
                 <th className={classes.thStylesNew}>{props.composer}</th>
                 <th className={classes.thStylesNew}>{props.songNote}</th>
                 <th className={classes.thTotalSongs}>{props.duration}</th>
                 <th className={classes.thTotalSongs}>{props.imageCount}</th>
+                <th className={classes.thTotalSongs}>{props.playSongposition}/{totalSongs}</th>
               </tr>
             </table>
           </Grid>
@@ -1695,7 +1696,7 @@ const arr=[];
         <Paper elevation={3} className={classes.paperStyle}>
           <table className={classes.tableStyle} id={props.id}>
             <tr className={classes.trStyle}>
-              <th className={classes.thStyle}>Title</th>
+              <th className={classes.thStyleTitle}>Title</th>
               <th className={classes.thStyle}>Composer</th>
               <th className={classes.thStyle}>Note</th>
               <th className={classes.thStyle}>Tempo</th>

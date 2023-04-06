@@ -870,6 +870,16 @@ premiumActive:{
     //  borderRight:'2px solid black',
     background: "#5D432C",
     color: "white !important",
+    width:'15%',
+  },
+  thStyleTitle: {
+    top: 0,
+    marginTop:'-10px',
+   position: 'sticky',
+    //  borderRight:'2px solid black',
+    background: "#5D432C",
+    color: "white !important",
+    width:'23%',
   },
   thStyles: {
     top: 0,
@@ -878,7 +888,7 @@ premiumActive:{
     //  borderRight:'2px solid black',
     // background: "#5D432C",
     color: "white !important",
-    width:'30%',
+    width:'25%',
   },
   thStylesNew: {
     top: 0,
@@ -887,7 +897,7 @@ premiumActive:{
     //  borderRight:'2px solid black',
     // background: "#5D432C",
     color: "white !important",
-    width:'17%',
+    width:'15%',
   },
   thTotalSongs: {
     top: 0,

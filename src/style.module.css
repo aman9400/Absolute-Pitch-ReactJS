@@ -349,7 +349,7 @@
     /* background: #85b5b1; */
     background: #FFFFFF;
     opacity: 80%;
-    font-size: 14px !important;
+    font-size: 22px !important;
    
   }
   .list:nth-child(2) .textThird {
@@ -363,7 +363,7 @@
     /* background: #c4ddaf; */
     background: #FFFFFF;
     opacity: 80%;
-     font-size: 14px !important;
+     font-size: 22px !important;
    
   }
   
@@ -385,7 +385,7 @@
     /* background: rgba(225, 224, 144, 0.9); */
     background: #FFFFFF;
     opacity: 80%;
-     font-size: 14px !important;
+     font-size: 22px !important;
    
   }
   
@@ -400,7 +400,7 @@
     /* background: #a4a5a8; */
     background: #FFFFFF;
     opacity: 80%;
-     font-size: 14px !important;
+     font-size: 22px !important;
    
   }
   
@@ -415,7 +415,7 @@
     /* background: #64717a; */
     background: #FFFFFF;
     opacity: 80%;
-     font-size: 14px !important;
+     font-size: 22px !important;
    
   }
   
@@ -684,7 +684,7 @@
     /* border-radius: 20px; */
    
     background: #18b0a0;
-    font-size: 12px;
+    font-size: 16px;
     width: 96%;
   }
   .liststyle {
@@ -695,7 +695,7 @@
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 16px;
     /* border-color: #CACACA; */
     line-height: 25px;
     margin-left: 50px;
@@ -711,7 +711,7 @@
    
     opacity: 0.6;
     background: gray;
-    font-size: 14px;
+    font-size: 22px;
     width: 96%;
   }
   
