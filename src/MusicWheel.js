@@ -812,13 +812,10 @@ function MusicWheel(props) {
   }
   function subscriptionPlan(type) {
     if (type == "Free") {
-      props.timeData(0);
       setSubscriptionActivePlan(1);
       if (packageDataIndex == packageData.length - 1) {
-        props.timeData(0);
         setPackageDataIndex(0);
       } else {
-        props.timeData(0);
         setPackageDataIndex(packageDataIndex);
         setIntensityIndex(0);
         setFreeActive(true);
@@ -833,7 +830,6 @@ function MusicWheel(props) {
       }
     }
     if (type == "Letter") {
-      props.timeData(0);
       setSubscriptionActivePlan(2);
       setGroups("G1,G2,G3,G4");
       // setPackageDataIndex(0);
@@ -845,13 +841,10 @@ function MusicWheel(props) {
       setDisableIntensity(false);
     }
     if (type == "Premium") {
-      props.timeData(0);
       setSubscriptionActivePlan(3);
       if (packageDataIndex > 2) {
-        props.timeData(0);
         setGroups("O1,O2,O3");
       } else {
-        props.timeData(0);
         setGroups("G1,G2,G3,G4");
       }
       setDisableIntensity(false);
@@ -883,11 +876,10 @@ function MusicWheel(props) {
     // setImageTypeActive(1);
     if (type == "Tempo") {
       if (tempoIndex == tempoData.length - 1) {
-        props.timeData(0);
         setTempoIndex(0);
       } else {
         setTempoIndex(tempoIndex + 1);
-        props.timeData(0);
+
         setNord({ c1: [], c2: [], c3: [] });
         setNordData([]);
       }
@@ -896,12 +888,10 @@ function MusicWheel(props) {
     if (type == "Package") {
       if (packageDataIndex == packageData.length - 1) {
         setPackageDataIndex(0);
-         props.timeData(0);
         // setPackageActive('');
       } else {
         setPackageDataIndex(packageDataIndex + 1);
         if (packageDataIndex == "1") {
-          props.timeData(0);
           setImageTypeActive(1);
           setImageTypeIndex("Letter");
           setGroups("G1,G2,G3,G4");
@@ -909,14 +899,12 @@ function MusicWheel(props) {
           setPackageActive("");
         }
         if (packageDataIndex == "2") {
-          props.timeData(0);
           setGroups("o1,o2,o3");
           setSubscriptionActivePlan(3);
           setImageTypeActive(1);
           setImageTypeIndex("Letter");
         }
         if (packageDataIndex == "3") {
-          props.timeData(0);
           setGroups("G1,G2,G3,G4,o1,o2,o3");
           setSubscriptionActivePlan(3);
           setImageTypeIndex("Letter");
@@ -927,18 +915,14 @@ function MusicWheel(props) {
         setNordData([]);
       }
       if (packageDataIndex == "4") {
-        props.timeData(0);
         setPackageActive("F");
         setPackageDataIndex(1);
       }
     }
     if (type == "Intensity") {
-      props.timeData(0);
       if (intensityIndex == intensityData.length - 1) {
-        props.timeData(0);
         setIntensityIndex(0);
       } else {
-        props.timeData(0);
         setIntensityIndex(intensityIndex + 1);
         setNord({ c1: [], c2: [], c3: [] });
         setNordData([]);
@@ -946,54 +930,43 @@ function MusicWheel(props) {
     }
 
     if (type == "Keys") {
-      props.timeData(0);
       // alert("You need to purchase the membership");
       setImageTypeIndex(type);
       toggleActiveStyle(ind);
       // await fetchSongsData(type);
     }
     if (type == "Letter") {
-      props.timeData(0);
       setImageTypeIndex(type);
       toggleActiveStyle(ind);
       // await fetchSongsData(type);
     }
     if (type == "Staff") {
-      props.timeData(0);
       // alert("You need to purchase the membership");
       setImageTypeIndex(type);
       toggleActiveStyle(ind);
       // await fetchSongsData(type);
     }
     if (type == "Duration") {
-      props.timeData(0);
       if (durationDataIndex == durationData.length - 1) {
-        props.timeData(0);
         setDurationDataIndex(0);
-       
         // setDurationValue(durationData["minute1"]);
       } else {
-        props.timeData(0);
         setDurationDataIndex(durationDataIndex + 1);
 
         if (durationDataIndex == "0") {
-          props.timeData(0);
           setDurationValue(durationData["minute1"]);
           // console.log(durationValue, "durationValue");
         }
 
         if (durationDataIndex == "1") {
-          props.timeData(0);
           setDurationValue(durationData["minute2"]);
           // console.log(durationValue, "durationValue");
         }
         if (durationDataIndex == "2") {
-          props.timeData(0);
           setDurationValue(durationData["minute3"]);
           // console.log(durationValue, "durationValue");
         }
         if (durationDataIndex == "3") {
-          props.timeData(0);
           setDurationDataIndex(0);
           setDurationValue("");
           // console.log(durationValue, "durationValue");
@@ -1158,18 +1131,14 @@ const arr=[];
     )
       .then((response) => response.json())
       .then((responseJson) => {
-        props.timeData(0)
+        
         setTotalSongs(responseJson.data.length);
         if(responseJson.data.length == 0){
-          props.setPlaySongposition(0),
-          setTimeout(props.timeData(0)
-          ,200)
-          // handleClickSong(responseJson.data, 0);
+          props.setPlaySongposition(0);
         }
         if (responseJson != "") {
-          props.timeData(0)
           setSongsData(responseJson.data);
-         
+          props.timeData(0)
         //  props.setResponseData(responseJson.data);
           props.handleSong;
           
@@ -1183,10 +1152,9 @@ const arr=[];
          
         } else {
           props.timeData(0);
-          // alert("error in response");
+          alert("error in response");
         }
       });
-      
   }
 
  
@@ -1569,8 +1537,7 @@ const arr=[];
               >
 
 
-                {totalSongs == 0 ? '00:00:00' :
-                props.remainingTime}
+                {totalSongs == 0 ? '00:00:00': props.remainingTime}
 
               </button>
             </Grid>
@@ -1711,7 +1678,7 @@ const arr=[];
           >
             <table className={classes.tableStyle}>
               <tr className={classes.trStyle}>
-                <th className={classes.thTotalSongs}> {props.playSongposition}/{totalSongs}</th>
+                <th className={classes.thTotalSongs}>{props.playSongposition}/{totalSongs}</th>
                 <th className={classes.thStyles}>{props.songTitle}</th>
                 <th className={classes.thStylesNew}>{props.composer}</th>
                 <th className={classes.thStylesNew}>{props.songNote}</th>

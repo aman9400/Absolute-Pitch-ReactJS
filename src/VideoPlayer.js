@@ -71,7 +71,7 @@ function VideoPlayer(prop) {
     : "";
 
   function playNextSong() {
-    prop.timeData(0)
+    // prop.timeData(0)
     for (let i = prop.musicIndex + 1; i < prop.musicData.length; i++) {
       prop.handleSong(prop.musicData, i);
       prop.TotleTimeAndImage(prop.musicData, prop.musicIndex);
