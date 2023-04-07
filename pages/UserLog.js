@@ -1,6 +1,12 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core";
-import Cookies from 'js-cookie'
+import Cookies from 'js-cookie';
+import Image from 'next/image';
+import { useRouter } from "next/router";
+import Link from "next/link";
+const myLoader = ({ src, width, quality }) => {
+  return `https://example.com/${src}?w=${width}&q=${quality || 75}`
+}
 const useStyles = makeStyles({
   root: {
     position: "relative",
@@ -44,6 +50,7 @@ const useStyles = makeStyles({
   },
 });
 const  UserLog = () => {
+  const router = useRouter();
   const lang = Cookies.get('name');
   if(lang){
     console.log(lang,"if");
@@ -158,6 +165,9 @@ const  UserLog = () => {
         style={{ background: "#fff", alignItems: "center" }}
       >
         <div className={classes.para}><h3>User Log</h3></div>
+        <Link href="/">
+                <a onClick={(e) => router.push("/Library")}>Library</a>
+              </Link>
         <table style={{ width:'100%',height:'90vh' }}>
           <tr>
             {data["c1"].map((val, ind) => (

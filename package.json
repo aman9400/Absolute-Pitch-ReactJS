@@ -32,6 +32,7 @@
     "react-countdown": "^2.3.5",
     "react-data-table-component": "^7.5.3",
     "react-dom": "18.2.0",
+    "react-iframe": "^1.8.5",
     "react-loader-spinner": "^5.3.4",
     "react-nl2br": "^1.0.4",
     "react-player": "^2.11.0",
