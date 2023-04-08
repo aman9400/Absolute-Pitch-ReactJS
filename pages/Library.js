@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core";
 import Image from "next/image";
 import Iframe from "react-iframe";
 import Logo from "../public/logo.png";
+import Article from "../public/arcticle.jpg";
 const myLoader = ({ src, width, quality }) => {
   return `https://example.com/${src}?w=${width}&q=${quality || 75}`;
 };
@@ -622,39 +623,264 @@ const Library = () => {
          <p className={classes.headingStyle}>Articles</p>
         <p className={classes.headingStyle2}>MP3/MP4 I Produce Thumbnail</p>
         <div className={classes.content}>
-          <span className={classes.spanBox}></span>
-          <span className={classes.spanBox}></span>
-          <span className={classes.spanBox}></span>
-          <span className={classes.spanBox}></span>
-          <span className={classes.spanBox}></span>
+          <span className={classes.spanBox}>
+             <Image
+              loader={myLoader}
+              src={Article}
+              alt="Picture of the author"
+              width={500}
+              height={500}
+              style={{marginTop:'10px'}}
+            />
+          </span>
+          <span className={classes.spanBox}>
+             <Image
+              loader={myLoader}
+              src={Article}
+              alt="Picture of the author"
+              width={500}
+              height={500}
+              style={{marginTop:'10px'}}
+            />
+          </span>
+          <span className={classes.spanBox}>
+             <Image
+              loader={myLoader}
+              src={Article}
+              alt="Picture of the author"
+              width={500}
+              height={500}
+              style={{marginTop:'10px'}}
+            />
+          </span>
+          <span className={classes.spanBox}>
+             <Image
+              loader={myLoader}
+              src={Article}
+              alt="Picture of the author"
+              width={500}
+              height={500}
+              style={{marginTop:'10px'}}
+            />
+          </span>
+          <span className={classes.spanBox}>
+             <Image
+              loader={myLoader}
+              src={Article}
+              alt="Picture of the author"
+              width={500}
+              height={500}
+              style={{marginTop:'10px'}}
+            />
+          </span>
         </div>
         <div className={classes.content}>
-          <span className={classes.spanBox}></span>
-          <span className={classes.spanBox}></span>
-          <span className={classes.spanBox}></span>
-          <span className={classes.spanBox}></span>
-          <span className={classes.spanBox}></span>
+          <span className={classes.spanBox}>
+             <Image
+              loader={myLoader}
+              src={Article}
+              alt="Picture of the author"
+              width={500}
+              height={500}
+              style={{marginTop:'10px'}}
+            />
+          </span>
+          <span className={classes.spanBox}>
+             <Image
+              loader={myLoader}
+              src={Article}
+              alt="Picture of the author"
+              width={500}
+              height={500}
+              style={{marginTop:'10px'}}
+            />
+          </span>
+          <span className={classes.spanBox}>
+             <Image
+              loader={myLoader}
+              src={Article}
+              alt="Picture of the author"
+              width={500}
+              height={500}
+              style={{marginTop:'10px'}}
+            />
+          </span>
+          <span className={classes.spanBox}>
+             <Image
+              loader={myLoader}
+              src={Article}
+              alt="Picture of the author"
+              width={500}
+              height={500}
+              style={{marginTop:'10px'}}
+            />
+          </span>
+          <span className={classes.spanBox}>
+             <Image
+              loader={myLoader}
+              src={Article}
+              alt="Picture of the author"
+              width={500}
+              height={500}
+              style={{marginTop:'10px'}}
+            />
+          </span>
         </div>
         <div className={classes.content}>
-          <span className={classes.spanBox}></span>
-          <span className={classes.spanBox}></span>
-          <span className={classes.spanBox}></span>
-          <span className={classes.spanBox}></span>
-          <span className={classes.spanBox}></span>
+          <span className={classes.spanBox}>
+            <Image
+              loader={myLoader}
+              src={Article}
+              alt="Picture of the author"
+              width={500}
+              height={500}
+              style={{marginTop:'10px'}}
+            />
+          </span>
+          <span className={classes.spanBox}>
+            <Image
+              loader={myLoader}
+              src={Article}
+              alt="Picture of the author"
+              width={500}
+              height={500}
+              style={{marginTop:'10px'}}
+            />
+          </span>
+          <span className={classes.spanBox}>
+            <Image
+              loader={myLoader}
+              src={Article}
+              alt="Picture of the author"
+              width={500}
+              height={500}
+              style={{marginTop:'10px'}}
+            />
+          </span>
+          <span className={classes.spanBox}>
+            <Image
+              loader={myLoader}
+              src={Article}
+              alt="Picture of the author"
+              width={500}
+              height={500}
+              style={{marginTop:'10px'}}
+            />
+          </span>
+          <span className={classes.spanBox}>
+            <Image
+              loader={myLoader}
+              src={Article}
+              alt="Picture of the author"
+              width={500}
+              height={500}
+              style={{marginTop:'10px'}}
+            />
+          </span>
         </div>
         <div className={classes.content}>
-          <span className={classes.spanBox}></span>
-          <span className={classes.spanBox}></span>
-          <span className={classes.spanBox}></span>
-          <span className={classes.spanBox}></span>
-          <span className={classes.spanBox}></span>
+          <span className={classes.spanBox}>
+            <Image
+              loader={myLoader}
+              src={Article}
+              alt="Picture of the author"
+              width={500}
+              height={500}
+              style={{marginTop:'10px'}}
+            />
+          </span>
+          <span className={classes.spanBox}>
+            <Image
+              loader={myLoader}
+              src={Article}
+              alt="Picture of the author"
+              width={500}
+              height={500}
+              style={{marginTop:'10px'}}
+            />
+          </span>
+          <span className={classes.spanBox}>
+            <Image
+              loader={myLoader}
+              src={Article}
+              alt="Picture of the author"
+              width={500}
+              height={500}
+              style={{marginTop:'10px'}}
+            />
+          </span>
+          <span className={classes.spanBox}>
+            <Image
+              loader={myLoader}
+              src={Article}
+              alt="Picture of the author"
+              width={500}
+              height={500}
+              style={{marginTop:'10px'}}
+            />
+          </span>
+          <span className={classes.spanBox}>
+            <Image
+              loader={myLoader}
+              src={Article}
+              alt="Picture of the author"
+              width={500}
+              height={500}
+              style={{marginTop:'10px'}}
+            />
+          </span>
         </div>
         <div className={classes.content}>
-          <span className={classes.spanBox}></span>
-          <span className={classes.spanBox}></span>
-          <span className={classes.spanBox}></span>
-          <span className={classes.spanBox}></span>
-          <span className={classes.spanBox}></span>
+          <span className={classes.spanBox}>
+            <Image
+              loader={myLoader}
+              src={Article}
+              alt="Picture of the author"
+              width={500}
+              height={500}
+              style={{marginTop:'10px'}}
+            />
+          </span>
+          <span className={classes.spanBox}>
+            <Image
+              loader={myLoader}
+              src={Article}
+              alt="Picture of the author"
+              width={500}
+              height={500}
+              style={{marginTop:'10px'}}
+            />
+          </span>
+          <span className={classes.spanBox}>
+            <Image
+              loader={myLoader}
+              src={Article}
+              alt="Picture of the author"
+              width={500}
+              height={500}
+              style={{marginTop:'10px'}}
+            />
+          </span>
+          <span className={classes.spanBox}>
+            <Image
+              loader={myLoader}
+              src={Article}
+              alt="Picture of the author"
+              width={500}
+              height={500}
+              style={{marginTop:'10px'}}
+            />
+          </span>
+          <span className={classes.spanBox}>
+            <Image
+              loader={myLoader}
+              src={Article}
+              alt="Picture of the author"
+              width={500}
+              height={500}
+              style={{marginTop:'10px'}}
+            />
+          </span>
         </div>
       </Grid>
     </Grid>
