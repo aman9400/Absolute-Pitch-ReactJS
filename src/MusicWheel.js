@@ -768,7 +768,7 @@ function MusicWheel(props) {
   //   },
   // ];
   const handleClick = (e, path) => {
-    router.push("/UserLog");
+    router.push("/AdminPanel");
   };
   
   function changeHandler(c, ind, event) {
@@ -1240,7 +1240,7 @@ const arr=[];
               }}
             >
               <Link href="/">
-                <a onClick={(e) => handleClick(e, "/UserLog")}>UserLog</a>
+                <a onClick={(e) => handleClick(e, "/AdminPanel")}>UserLog</a>
               </Link>
             </div>
           </Grid>

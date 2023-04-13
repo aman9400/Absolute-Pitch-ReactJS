@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Grid } from "@material-ui/core";
+import { Grid ,makeStyles} from "@material-ui/core";
 import MusicWheel from "./MusicWheel";
 import VideoPlayer from "./VideoPlayer";
-import { makeStyles } from "@material-ui/core";
+// import { makeStyles } from "@material-ui/core";
 import { Audio } from "react-loader-spinner";
 import Cookies from "js-cookie";
 const useStyles = makeStyles({
