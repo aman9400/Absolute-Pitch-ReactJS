@@ -1,8 +1,6 @@
 import React from "react";
 import { Grid, makeStyles } from "@material-ui/core";
 import { useRouter } from "next/router";
-import SideMenu from '../src/SideBar/Navbar/Navbar';
-import TopBar from '../src/SideBar/Topbar/Topbar';
 const useStyles = makeStyles({
   root: {
     position: "relative",
@@ -10,35 +8,30 @@ const useStyles = makeStyles({
   },
   containerBox: {
     // height: "auto",
-    width: "85% !important",
+    width: "99.5%",
     padding: "10px",
-    // background: "#808d8dcf !important",
-    height: "93vh",
-    marginLeft:'13%',
-    marginTop:'3%',
-    // border:'2px solid red',
+    background: "#fff !important",
+    height: "100vh",
     "@media (min-width: 770px) and (max-width:1024px)": {
       height: "95%",
-      width: "50%",
     },
     "@media (min-width: 1280px) and (max-width:1680px)": {
       // marginLeft: "1%",
-      width: "50%",
+      width: "90%",
       border: "2px solid yellow",
     },
     "@media (min-width: 600px) and (max-width:768px)": {
       height: "125vh",
       border: "2px solid blue",
-      width: "50%",
     },
     "@media  (min-width: 1681px)and (max-width: 1920px)": {
-      width: "50%",
+      width: "100%",
       // marginLeft:'1% !important',
       height: "99.6vh",
       padding: "5px",
     },
     "@media  (min-width: 1921px)and (max-width: 1220px)": {
-      width: "50%",
+      width: "90%",
       // marginLeft:'1% !important',
       height: "95%",
       padding: "5px",
@@ -52,16 +45,13 @@ const AdminPanel = () => {
     router.push(path);
   };
   return (
-    
-    <> <TopBar/>
-    <SideMenu/>
     <Grid container spacing={0} className={classes.containerBox}>
       <Grid item xs={12} md={3} sm={12} sx={12}>
         <div
           style={{
             background: "blue",
             height: "200px",
-            width: "80%",
+            width: "90%",
             // marginLeft: "10px",
             cursor: "pointer",
             padding:'20px',
@@ -77,7 +67,7 @@ const AdminPanel = () => {
           style={{
             background: "Yellow",
             height: "200px",
-            width: "80%",
+            width: "90%",
             cursor: "pointer",
             padding:'20px',
             borderRadius:'20px',
@@ -92,7 +82,7 @@ const AdminPanel = () => {
           style={{
             background: "green",
             height: "200px",
-            width: "80%",
+            width: "90%",
             cursor: "pointer",
             padding:'20px',
             borderRadius:'20px',
@@ -107,7 +97,7 @@ const AdminPanel = () => {
           style={{
             background: "orange",
             height: "200px",
-            width: "80%",
+            width: "90%",
             cursor: "pointer",
             padding:'20px',
             borderRadius:'20px',
@@ -117,8 +107,6 @@ const AdminPanel = () => {
         </div>
       </Grid>
     </Grid>
-    </>
-   
   );
 };
 
