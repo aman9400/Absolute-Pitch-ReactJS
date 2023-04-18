@@ -101,25 +101,6 @@ const  UserLog = () => {
   const matchThree = data["c3"].indexOf(`${lang}`)
   // console.log(lang,'lang')
   
-  
-
-//  for (let x in nordArray) {
-//   if(x===`${lang}`)
-//   {
-//     nordArray[x]=nordArray[x]+1;
-//     console.log(nordArray[x]+1);
-//   }
-//    console.log(x);
-// }
-// console.log(nordArray);
-
-
-
-
-
-
-
-
   const newArrOne = arrOne.map((num , ind) => 
   {
     
@@ -165,12 +146,9 @@ const  UserLog = () => {
         style={{ background: "#fff", alignItems: "center" }}
       >
         <div className={classes.para}><h3>User Log</h3></div>
-        {/* <Link href="/">
+        <Link href="/">
                 <a onClick={(e) => router.push("/Library")}>Library</a>
               </Link>
-              <Link href="/">
-                <a onClick={(e) => router.push("/Feedback")}>Feedback Form</a>
-              </Link> */}
         <table style={{ width:'100%',height:'90vh' }}>
           <tr>
             {data["c1"].map((val, ind) => (
