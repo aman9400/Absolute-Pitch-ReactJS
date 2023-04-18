@@ -113,7 +113,7 @@ const AdminPanel = () => {
             borderRadius:'20px',
           }}
         >
-          <h1>Next..</h1>
+          <h1>Upcoming..</h1>
         </div>
       </Grid>
     </Grid>

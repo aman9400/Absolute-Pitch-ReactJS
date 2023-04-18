@@ -102,14 +102,14 @@ const Navbar = ({ onMobileClose, openMobile }) => {
   const handleClick = () => {
     setOpen(!open);
   };
-  useEffect(() => {
-    if (UserAccountid) {
+  // useEffect(() => {
+  //   if (UserAccountid) {
 
-    }
-    else {
-       router.push('/signin', undefined, { shallow: true });
-    }
-  }, )
+  //   }
+  //   else {
+  //      router.push('/signin', undefined, { shallow: true });
+  //   }
+  // }, )
   
   const content = (
     <Box
