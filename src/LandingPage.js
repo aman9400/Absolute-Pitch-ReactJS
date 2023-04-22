@@ -18,16 +18,16 @@ const useStyles = makeStyles({
     height: "96%",
     "@media (min-width: 770px) and (max-width:1024px)": {
       height: "95%",
-      border: "2px solid green",
+      // border: "2px solid green",
     },
     "@media (min-width: 1280px) and (max-width:1680px)": {
       // marginLeft: "1%",
       width: "90%",
-      border: "2px solid yellow",
+      // border: "2px solid yellow",
     },
     "@media (min-width: 600px) and (max-width:768px)": {
       height: "125vh",
-      border: "2px solid blue",
+      // border: "2px solid blue",
     },
     "@media  (min-width: 1681px)and (max-width: 1920px)": {
       width: "100%",

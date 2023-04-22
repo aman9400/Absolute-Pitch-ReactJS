@@ -140,7 +140,26 @@ const useStyles = makeStyles({
     justifyContent: "center",
     textAlign: "center",
     // background: "#00BF55 !important",
-    "@media (min-width: 1600px) and (max-width: 1920px)": {}
+    "@media (min-width: 1600px) and (max-width: 1920px)": {},
+    "@media (min-width: 600px) and (max-width: 768px)": {
+      
+        width: "75px !important",
+        height: "75px !important",
+      
+    },
+    "@media (min-width: 769px) and (max-width: 1023px)": {
+      
+      width: "75px !important",
+      height: "75px !important",
+    
+  },
+    "@media (min-width: 1024px) and (max-width: 1279px)": {
+      
+        width: "70px !important",
+        height: "70px !important",
+      
+    }
+
   },
 
   circle5: {
@@ -526,7 +545,19 @@ premiumActive:{
       height: "150px",
       width: "150px",
     },
-    "@media (min-width: 720px) and (max-width:1024px)": {
+    "@media (min-width: 600px) and (max-width:768px)": {
+      height: "150px",
+      width: "150px",
+    },
+    "@media (min-width: 769px) and (max-width:959px)": {
+      height: "200px",
+      width: "200px",
+    },
+    "@media (min-width: 960px) and (max-width:1023px)": {
+      height: "150px",
+      width: "150px",
+    },
+    "@media (min-width: 1024px) and (max-width:1279px)": {
       height: "150px",
       width: "150px",
     },
@@ -565,6 +596,25 @@ premiumActive:{
     borderRadius: "50%",
     // background: "radial-gradient(#FFF 40%, #000)",
     cursor: "pointer",
+    "@media (min-width: 600px) and (max-width:768px)": {
+      height: "150px",
+      width: "150px",
+      top: "75%",
+    },
+    "@media (min-width: 769px) and (max-width:959px)": {
+      height: "200px",
+      width: "200px",
+    },
+    "@media (min-width: 960px) and (max-width:1023px)": {
+      height: "150px",
+      width: "150px",
+      top: "75%",
+    },
+    "@media (min-width: 1024px) and (max-width:1279px)": {
+      height: "150px",
+      width: "150px",
+      top: "75%",
+    },
     "@media (min-width: 1280px) and (max-width:1480px)": {
       height: "150px",
       width: "150px",
@@ -575,17 +625,18 @@ premiumActive:{
       width: "150px",
       top: "60%",
     },
+    
     // background: "radial-gradient(#FFF 40%, #000)",
     // transform: "rotate(-25.33deg)",
     border: "none",
     "&:hover": {
       // background: "radial-gradient(blue 40%, #000)",
     },
-    "@media (min-width: 720px) and (max-width:1024px)": {
-      height: "120px",
-      width: "120px",
-      top: "75%",
-    },
+    // "@media (min-width: 720px) and (max-width:1024px)": {
+    //   height: "120px",
+    //   width: "120px",
+    //   top: "75%",
+    // },
     "@media (min-width: 1600px) and (max-width: 1920px)": {
       height: "200px",
       width: "200px",
@@ -650,6 +701,26 @@ premiumActive:{
     color: "blue",
     cursor: "pointer",
     borderRadius: "50%",
+    "@media (min-width: 600px) and (max-width:768px)": {
+      height: "150px",
+      width: "150px",
+      top: "75%",
+    },
+    "@media (min-width: 769px) and (max-width:959px)": {
+      height: "200px",
+      width: "200px",
+      top: "60%",
+    },
+    "@media (min-width: 960px) and (max-width:1023px)": {
+      height: "150px",
+      width: "150px",
+      top: "75%",
+    },
+    "@media (min-width: 1024px) and (max-width:1279px)": {
+      height: "150px",
+      width: "150px",
+      top: "75%",
+    },
     "@media (min-width: 1280px) and (max-width:1480px)": {
       height: "150px",
       width: "150px",
@@ -671,11 +742,7 @@ premiumActive:{
       // cursor:'none',
       // zIndex: 60,
     },
-    "@media (min-width: 720px) and (max-width:1024px)": {
-      height: "120px",
-      width: "120px",
-      top: "70%",
-    },
+    
     border: "none",
     "&:hover": {
       // background: "radial-gradient(blue 40%, #000)",
@@ -721,10 +788,27 @@ premiumActive:{
       width: "130px",
       right: "12%",
     },
-    "@media (min-width: 720px) and (max-width:1024px)": {
-      height: "120px",
-      width: "120px",
-      right: "20%",
+    "@media (min-width: 600px) and (max-width:768px)": {
+      height: "150px",
+      width: "150px",
+    },
+    "@media (min-width: 769px) and (max-width:959px)": {
+      height: "200px",
+      width: "200px",
+    },
+    "@media (min-width: 960px) and (max-width:1023px)": {
+      height: "150px",
+      width: "150px",
+    },
+    "@media (min-width: 1024px) and (max-width:1279px)": {
+      height: "150px",
+      width: "150px",
+      top: "75%",
+    },
+   
+    "@media (min-width: 1024px) and (max-width:1279px)": {
+      height: "145px",
+      width: "145px",
     },
     "@media (min-width: 1600px) and (max-width: 1920px)": {
 
