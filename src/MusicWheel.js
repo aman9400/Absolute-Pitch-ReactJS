@@ -1532,6 +1532,11 @@ const arr=[];
                   marginLeft: "10px",
                   fontSize: "20px",
                   background: "#fff",
+                  "@media  (min-width: 300px) and (max-width: 450px)": {
+                    width: "80%",
+                  height: "50%",
+                  fontSize: "16px",
+                  },
                 }}
                 id='duration'
               >
@@ -1553,6 +1558,11 @@ const arr=[];
                   color: "#FFFFFF",
                   border: "none",
                   cursor: "pointer",
+                  "@media  (min-width: 300px) and (max-width: 450px)": {
+                    width: "80%",
+                  height: "50%",
+                  fontSize: "16px",
+                  },
                 }}
                 onClick={() => {
                   setPackageDataIndex(0);
@@ -1602,6 +1612,11 @@ const arr=[];
                   marginLeft: "15px",
                   fontSize: "20px",
                   display: "flex",
+                  "@media  (min-width: 300px) and (max-width: 450px)": {
+                    width: "80%",
+                  height: "50%",
+                  fontSize: "16px",
+                  },
                 }}
                 // disabled={`disable`}
               >

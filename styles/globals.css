@@ -539,6 +539,92 @@ li:nth-child(12) .text {
   
   }
   }
+  @media  (min-width: 300px) and (max-width: 450px) {
+    .circle {
+      width: 18em;
+        height: 18em;
+    }
+    .circle2 {
+     
+      width: 15.5em;
+      height: 15.5em;
+      clip-path: circle(145px);
+   
+  }
+  
+  .circle3 {
+    position: absolute;
+    padding: 10px;
+    margin-top: 16%;
+    margin-left: 0.5%;
+    width: 11.5em;
+    height: 11.5em;
+    display: flex;
+    clip-path: circle(125px);
+    /* background: yellow; */
+  }
+  
+  .circle4 {
+    
+    width: 40px;
+    height: 60px;
+   
+  }
+  
+  .circle5 {
+    width: 4em;
+    height: 4em;
+  }
+  
+  .circle6 {
+    width: 25px;
+    height: 25px;
+  
+  }
+  }
+  @media  (min-width: 451px) and (max-width: 599px) {
+    .circle {
+      width: 18em;
+        height: 18em;
+    }
+    .circle2 {
+     
+      width: 16em;
+      height: 16em;
+      /* clip-path: circle(165px); */
+   
+  }
+  
+  .circle3 {
+    position: absolute;
+    padding: 10px;
+    margin-top: 16%;
+    margin-left: 0.5%;
+    width: 13em;
+    height: 13em;
+    display: flex;
+    /* clip-path: circle(150px); */
+    /* background: yellow; */
+  }
+  
+  .circle4 {
+    
+    width: 40px;
+    height: 60px;
+   
+  }
+  
+  .circle5 {
+    width: 4em;
+    height: 4em;
+  }
+  
+  .circle6 {
+    width: 25px;
+    height: 25px;
+  
+  }
+  }
   @media  (min-width: 960px) and (max-width: 1023px) {
     .circle {
       width: 22em;

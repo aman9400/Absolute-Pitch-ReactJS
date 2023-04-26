@@ -493,7 +493,7 @@
     font-size: 12px;
     justify-content: center;
   }
-  @media  (max-width: 7680px) {
+  @media  (max-width: 768px) {
     .songsWrapper  {
        height: 22%;
        margin-top: -25px;
@@ -718,6 +718,46 @@
   .btnUl {
     font-size: 20px;
   }
+  @media  (min-width: 300px) and (max-width: 450px) {
+    .text {
+      /* padding-top: 2px; */
+      font-size: 25px !important;
+    }
+    .textThird {
+      padding-top: 5px;
+      font-size: 20px !important;
+    }
+   .textTwo {
+    padding-top: 0px !important;
+    font-size: 20px !important;
+   }
+   .songsWrapper  {
+    height: 30%;
+     margin-top: 5px;
+     margin-bottom: 5px !important;
+ 
+   }
+  }
+  @media  (min-width: 451px) and (max-width: 599px) {
+    .text {
+      /* padding-top: 2px; */
+      font-size: 25px !important;
+    }
+    .textThird {
+      padding-top: 12px;
+      font-size: 25px !important;
+    }
+   .textTwo {
+    /* padding-top: -5px !important; */
+    font-size: 25px !important;
+   }
+   .songsWrapper  {
+    height: 30%;
+     margin-top: 5px;
+     margin-bottom: 5px !important;
+ 
+   }
+  }
   @media  (min-width: 600px) and (max-width: 768px) {
     .textThird {
       
@@ -764,3 +804,4 @@
  
    }
   }
+  
