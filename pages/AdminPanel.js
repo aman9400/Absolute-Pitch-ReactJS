@@ -11,17 +11,31 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import UserLog from "./UserLog";
+import Feedback from "./Feedback";
 const style = {
   position: 'absolute',
-  top: '50%',
-  left: '45%',
-  transform: 'translate(-50%, -50%)',
+  // top: '5%',
+  // left: '45%',
+  overflow: 'auto',
+  // transform: 'translate(-50%, -50%)',
   width: '100%',
   height:'100%',
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
+ background:'skyblue',
   boxShadow: 24,
-  p: 4,
+  "@media  (min-width: 300px) and (max-width: 450px)": {
+    borderRadius: "5px",
+    width: '100%',
+  height:'100%',
+  },
+  "@media  (min-width: 451px) and (max-width: 599px)": {
+    width: '80%',
+  height:'90%',
+  },
+  "@media  (min-width: 600px) and (max-width: 1024px)": {
+    width: '90%',
+    height:'90%',
+  },
+   p: 1,
 };
 const useStyles = makeStyles({
   root: {
@@ -112,8 +126,13 @@ const useStyles = makeStyles({
 const AdminPanel = () => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
+  const [feedback, setFeedback] = useState(false);
+  const [lat, setLat] = useState();
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const feedBackOpen = () => setFeedback(true);
+  const feedBackClose = () => setFeedback(false);
+
   return (
     <Grid container spacing={0} className={classes.containerBox}>
       <Grid
@@ -172,24 +191,25 @@ const AdminPanel = () => {
         sm={12}
         sx={12}
         className={classes.leftSection}
-        style={{ border: "2px solid red" }}
+        // style={{ border: "2px solid red" }}
       >
         <div
           className={classes.systemBox}
           style={{
-            border: "2px solid red",
+            // border: "2px solid red",
             justifyContent: "center",
             alignItems: "center",
           }}
         >
-          <h1 className={classes.typo_design}>My Library</h1>
+         <h1 className={classes.typo_design}>My Library</h1>
           <Modal
             open={open}
             onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
+            
           >
             <Box sx={style}>
+            <div style={{display:'flex',height:'80px'}}> <span style={{float:'right',borderRadius:'50%',fontSize:'40px',width:'4%',justifyContent:'center',alignItems:'center',textAlign:'center',cursor:'pointer'}} onClick={handleClose}>X</span></div>
+          
               <UserLog/>
             </Box>
           </Modal>
@@ -212,7 +232,7 @@ const AdminPanel = () => {
           container
           spacing={0}
           className={classes.SocialLinkBox}
-          style={{ border: "2px solid red" }}
+          // style={{ border: "2px solid red" }}
         >
           <Grid
             item
@@ -297,9 +317,54 @@ const AdminPanel = () => {
         </Grid>
         <div
           className={classes.LocationBox}
-          style={{ border: "2px solid red" }}
+          style={{ border:'2px solid blue',borderRadius:"20px", }}
         >
-          hjhjjjjj
+          <iframe
+                                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.4011591332214!2d77.38284451495223!3d28.617736682423658!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ceff3427f6a17%3A0xb06a2d3f7237b807!2sPlot%20No%20C%2C%2076%2C%20Sector%2063%20Rd%2C%20C%20Block%2C%20Sector%2064%2C%20Noida%2C%20Uttar%20Pradesh%20201301!5e0!3m2!1sen!2sin!4v1650868898630!5m2!1sen!2sin"
+                                      title="title"
+                                      // frameborder="0"
+                                      id="lat"
+                                      name="lat"
+                                      onChange={(e) => setLat(e.target.value)}
+                                      style={{ border: 0 }}
+                                      value={lat}
+                                      allowfullscreen=""
+                                      aria-hidden="false"
+                                      // tabindex="0"
+                                    />
+                                    MAP HERE
+        </div>
+        <div style={{width:'100%',height:'400px',border:'2px solid blue',borderRadius:"20px",marginTop:'5px',textAlign:'center',}}>
+          <h4 style={{width:'90%',padding:'10px',fontSize:'35',fontFamily:'sans-serif',fontStyle:'bold',lineHeight:'20px'}}>
+            We are on Journey together to raise humanity.What is or is not working for you ? $25 subcription created for any suggestion used !
+          </h4>
+        </div>
+        <div style={{width:'100%',height:'350px',border:'2px solid blue',justifyContent:'center',alignItems:'center',textAlign:'center',borderRadius:"20px",marginTop:'20px'}}>
+         <h3>User Feedback Form</h3> 
+        <Modal
+            open={feedback}
+            onClose={handleClose}
+            
+          >
+            <Box sx={style}>
+            <div> <span style={{float:'right',borderRadius:'50%',fontSize:'40px',width:'4%',justifyContent:'center',alignItems:'center',textAlign:'center',cursor:'pointer'}} onClick={feedBackClose}>X</span></div>
+          
+              <Feedback/>
+            </Box>
+          </Modal>
+          <Button
+          onClick={feedBackOpen}
+            style={{
+              marginLeft: "5%",
+              background: "#fff",
+              borderRadius: "10px",
+              width: "40%",
+              padding: "10px",
+              marginTop:'20px'
+            }}
+          >
+            Click Here To Open
+          </Button>
         </div>
       </Grid>
     </Grid>

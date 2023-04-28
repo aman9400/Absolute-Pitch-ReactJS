@@ -34,8 +34,23 @@ const useStyles = makeStyles({
     background: "#5D432C",
     color: "white !important",
     width: "8%",
-    height: "60px",
-    fontSize:'30px',
+    height: "30px",
+    fontSize:'25px',
+    "@media  (min-width: 300px) and (max-width: 450px)": {
+      width: "8%",
+      height: "40px",
+      fontSize:'20px',
+    },
+    "@media  (min-width: 451px) and (max-width: 599px)": {
+      width: "8%",
+      height: "50px",
+      fontSize:'25px',
+    },
+    "@media  (min-width: 600px) and (max-width: 1024px)": {
+      width: "8%",
+      height: "60px",
+      fontSize:'30px',
+    }
   },
   th2: {
     top: 0,
@@ -45,8 +60,45 @@ const useStyles = makeStyles({
     background: "#82E3F4",
     color: "white !important",
     width: "8%",
-    height: "60px",
-    fontSize:'30px',
+    height: "30px",
+    fontSize:'25px',
+    "@media  (min-width: 300px) and (max-width: 450px)": {
+      width: "8%",
+      height: "40px",
+      fontSize:'20px',
+    },
+    "@media  (min-width: 451px) and (max-width: 599px)": {
+      width: "8%",
+      height: "50px",
+      fontSize:'25px',
+    },
+    "@media  (min-width: 600px) and (max-width: 1024px)": {
+      width: "8%",
+      height: "50px",
+      fontSize:'25px',
+    }
+  },
+  tableDesign:{
+    width:'100%',
+    height:'88vh',
+    "@media  (min-width: 300px) and (max-width: 450px)": {
+      
+      width: "70%",
+      height: "80%",
+     
+    },
+    "@media  (min-width: 451px) and (max-width: 599px)": {
+      
+      width: "70%",
+      height: "80%",
+      
+    },
+    "@media  (min-width: 600px) and (max-width: 1024px)": {
+      
+      width: "60%",
+      height: "98%",
+      
+    },
   },
 });
 const  UserLog = () => {
@@ -146,10 +198,10 @@ const  UserLog = () => {
         style={{ background: "#fff", alignItems: "center" }}
       >
         <div className={classes.para}><h3>User Log</h3></div>
-        <Link href="/">
+        {/* <Link href="/">
                 <a onClick={(e) => router.push("/Library")}>Library</a>
-              </Link>
-        <table style={{ width:'100%',height:'90vh' }}>
+              </Link> */}
+        <table className={classes.tableDesign}>
           <tr>
             {data["c1"].map((val, ind) => (
               <th key={ind} className={classes.th}>
