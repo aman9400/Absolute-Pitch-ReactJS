@@ -7,8 +7,8 @@ import {
   TextField,
 } from "@material-ui/core";
 import Image from "next/image";
-import Background from "../../public/assets/images/bgtexture.jpg";
-import Logo from "../../public/assets/images/logo.png";
+import Background from "../public/assets/images/bgtexture.jpg";
+import Logo from "../public/assets/images/logo.png";
 const useStyles = makeStyles({
   root: {
     position: "relative",
@@ -144,7 +144,7 @@ const useStyles = makeStyles({
     },
   },
 });
-const Signup = () => {
+const SignUp = () => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [cpass, setpPass] = useState("");
@@ -238,4 +238,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default SignUp;
