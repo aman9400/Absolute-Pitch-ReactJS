@@ -47,7 +47,7 @@ const useStyles = makeStyles({
   },
   containerBox: {
     // height: "auto",
-    width: "99.5%",
+    // width: "99.5%",
     padding: "10px",
     backgroundPosition: 'center',
     backgroundSize: 'cover',
