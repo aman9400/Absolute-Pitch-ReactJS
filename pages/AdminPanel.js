@@ -8,7 +8,7 @@ import Twitter from "../public/assets/images/twitter.png";
 import InstaGram from "../public/assets/images/insta.png";
 import FaceBook from "../public/assets/images/facebook.png";
 import bgImage from "../public/assets/images/bgtexture.jpg";
-import Background from '../public/assets/images/bgtexture.jpg';
+// import Background from '../public/assets/images/bgtexture.jpg';
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
@@ -55,7 +55,7 @@ const useStyles = makeStyles({
     backgroundRepeat: 'no-repeat',
     // width: '100%',
     // height: '100%',
-    backgroundImage: `url(${Background.src})`,
+    // backgroundImage: `url(${Background.src})`,
     
     "@media (min-width: 770px) and (max-width:1024px)": {
       height: "95%",
