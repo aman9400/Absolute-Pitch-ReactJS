@@ -8,7 +8,7 @@ import {
 } from "@material-ui/core";
 import Image from "next/image";
 import Background from "../../public/assets/images/bgtexture.jpg";
-import Logo from "../../public/assets/images/logo.png";
+// import Logo from "../../public/assets/images/logo.png";
 const useStyles = makeStyles({
   root: {
     position: "relative",
@@ -20,7 +20,7 @@ const useStyles = makeStyles({
     justifyContent: "center",
     alignItems: "center",
     display: "flex",
-    border: "2px solid red",
+    // border: "2px solid red",
   },
   FormContainer: {
     justifyContent: "center",
@@ -152,7 +152,7 @@ const Signup = () => {
   return (
     <div className={classes.root}>
       <div className={classes.FormContainer}>
-        <div className={classes.ImgContainer}>
+        {/* <div className={classes.ImgContainer}>
           <Image
             src={Logo}
             alt="Picture of the author"
@@ -160,7 +160,7 @@ const Signup = () => {
             height={200}
             style={{ marginTop: "2px", borderRadius: "20px" }}
           />
-        </div>
+        </div> */}
         <div className={classes.innerContainer}>
           <div>
             <h1 style={{ color: "#fff" }}>SIGNUP TO YOUR ACCOUNT</h1>
