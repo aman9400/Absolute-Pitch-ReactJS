@@ -7,6 +7,8 @@ import Gmail from "../public/assets/images/mail.png";
 import Twitter from "../public/assets/images/twitter.png";
 import InstaGram from "../public/assets/images/insta.png";
 import FaceBook from "../public/assets/images/facebook.png";
+import bgImage from "../public/assets/images/bgtexture.jpg";
+import Background from '../public/assets/images/bgtexture.jpg';
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
@@ -47,8 +49,14 @@ const useStyles = makeStyles({
     // height: "auto",
     width: "99.5%",
     padding: "10px",
-    background: "#ebb44e !important",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
     height: "100vh",
+    backgroundRepeat: 'no-repeat',
+    // width: '100%',
+    // height: '100%',
+    backgroundImage: `url(${Background.src})`,
+    
     "@media (min-width: 770px) and (max-width:1024px)": {
       height: "95%",
     },
@@ -121,6 +129,11 @@ const useStyles = makeStyles({
     JustifyContent: "center",
     cursor: "pointer",
     borderRadius: "5px",
+  },
+  iframeDesign:{
+    width:'100%',
+    height:'100%',
+    borderRadius:'20px',
   },
 });
 const AdminPanel = () => {
@@ -317,7 +330,7 @@ const AdminPanel = () => {
         </Grid>
         <div
           className={classes.LocationBox}
-          style={{ border:'2px solid blue',borderRadius:"20px", }}
+          style={{ border:'4px solid white',borderRadius:"20px", }}
         >
           <iframe
                                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.4011591332214!2d77.38284451495223!3d28.617736682423658!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ceff3427f6a17%3A0xb06a2d3f7237b807!2sPlot%20No%20C%2C%2076%2C%20Sector%2063%20Rd%2C%20C%20Block%2C%20Sector%2064%2C%20Noida%2C%20Uttar%20Pradesh%20201301!5e0!3m2!1sen!2sin!4v1650868898630!5m2!1sen!2sin"
@@ -331,15 +344,16 @@ const AdminPanel = () => {
                                       allowfullscreen=""
                                       aria-hidden="false"
                                       // tabindex="0"
+                                     className={classes.iframeDesign}
                                     />
-                                    MAP HERE
+                                    {/* MAP HERE */}
         </div>
-        <div style={{width:'100%',height:'400px',border:'2px solid blue',borderRadius:"20px",marginTop:'5px',textAlign:'center',}}>
+        <div style={{width:'100%',height:'400px',border:'4px solid white',borderRadius:"20px",marginTop:'5px',textAlign:'center',}}>
           <h4 style={{width:'90%',padding:'10px',fontSize:'35',fontFamily:'sans-serif',fontStyle:'bold',lineHeight:'20px'}}>
             We are on Journey together to raise humanity.What is or is not working for you ? $25 subcription created for any suggestion used !
           </h4>
         </div>
-        <div style={{width:'100%',height:'350px',border:'2px solid blue',justifyContent:'center',alignItems:'center',textAlign:'center',borderRadius:"20px",marginTop:'20px'}}>
+        <div style={{width:'100%',height:'335px',border:'4px solid white',justifyContent:'center',alignItems:'center',textAlign:'center',borderRadius:"20px",marginTop:'20px'}}>
          <h3>User Feedback Form</h3> 
         <Modal
             open={feedback}
