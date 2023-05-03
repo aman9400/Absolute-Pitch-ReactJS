@@ -5,7 +5,7 @@ import {  Grid,
   Container,
   TextField, } from "@material-ui/core";
   import Image from "next/image";
-  import Background from "../public/assets/images/bgtexture.jpg";
+  import Background from "../public/assets/images/blackboard.png";
   import Logo from "../public/assets/images/logo.png";
 const useStyles = makeStyles({
   root: {

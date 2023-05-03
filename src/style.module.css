@@ -478,10 +478,11 @@
    display: flex;
    align-items: center;
     justify-content: center;
-    height: auto;
-    /* margin-top: -30px; */
-    margin-top: 60px;
+    height: 250px !important;
+    margin-top: -30px;
+    /* margin-top: 60px; */
     bottom: 0;
+  /* overflow: scroll; */
 
   }
   .songsWrapper p {

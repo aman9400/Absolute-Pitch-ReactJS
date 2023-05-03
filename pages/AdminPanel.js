@@ -14,6 +14,7 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import UserLog from "./UserLog";
 import Feedback from "./Feedback";
+import LineChart from "./LineChart";
 const style = {
   position: 'absolute',
   // top: '5%',
@@ -238,6 +239,14 @@ const AdminPanel = () => {
           >
             Click Here
           </Button>
+        </div>
+        <div style={{width:'99%',height:'320px',border:'4px solid white',justifyContent:'center',alignItems:'center',textAlign:'center',borderRadius:"20px",marginTop:'0px'}}>
+       
+       
+        </div>
+        <div style={{width:'99%',height:'320px',border:'4px solid white',justifyContent:'center',alignItems:'center',textAlign:'center',borderRadius:"20px",marginTop:'20px'}}>
+        
+       <LineChart/>
         </div>
       </Grid>
       <Grid item xs={12} md={3} sm={12} sx={12}>
