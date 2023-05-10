@@ -139,7 +139,7 @@ function LandingPage() {
       setAllSongsDuration(
         (allSongsDuration) => allSongsDuration + parseInt(songsData[x].duration)
       );
-      console.log(songsData[x].duration,'ddd...')
+      // console.log(songsData[x].duration,'ddd...')
     }
     console.log(allSongsDuration,'allSongsDuration ttt...')
     const getNextSong = document.getElementById("childid").children[ind];
@@ -153,7 +153,7 @@ function LandingPage() {
       setAllSongsDuration(
         (allSongsDuration) => allSongsDuration + parseInt(data[x].duration)
       );
-      console.log(data[x].duration,'dddd...')
+      // console.log(data[x].duration,'dddd...')
     }
     let r = remainingTimes(allSongsDuration, durationLast);
     setRemainingTime(r);
