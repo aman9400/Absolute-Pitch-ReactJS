@@ -255,14 +255,14 @@ alignItems:'center',
           </Button>
         </div>
         <div style={{width:'99%',height:'320px',border:'4px solid white',justifyContent:'center',alignItems:'center',textAlign:'center',borderRadius:"10px",marginTop:'8px'}}>
-        {/* <Image
+        <Image
               src={Calender}
               alt="Picture of the author"
               width="1210"
               height={320}
              
-            /> */}
-       <CalenderPage/>
+            />
+       {/* <CalenderPage/> */}
         </div>
         <div style={{width:'99%',height:'320px',border:'4px solid white',justifyContent:'center',alignItems:'center',textAlign:'center',borderRadius:"10px",marginTop:'20px'}}>
         <NewChart/>
