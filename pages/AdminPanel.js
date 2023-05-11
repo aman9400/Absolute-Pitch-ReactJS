@@ -7,14 +7,13 @@ import Gmail from "../public/assets/images/mail.png";
 import Twitter from "../public/assets/images/twitter.png";
 import InstaGram from "../public/assets/images/insta.png";
 import FaceBook from "../public/assets/images/facebook.png";
-import Calender from "../public/assets/images/cal.png";
+import bgImage from "../public/assets/images/bgtexture.jpg";
 import Background from '../public/assets/images/bgtexture.jpg';
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import UserLog from "./UserLog";
 import Feedback from "./Feedback";
-import CalenderPage from "./Calender";
 import LineChart from "./LineChart";
 import NewChart from "./NewChart";
 const style = {
@@ -94,7 +93,7 @@ const useStyles = makeStyles({
   systemBox: {
     width: "100%",
     height: "28vh",
-    background:'grey',
+    // background:'grey',
   },
   systemBox1: {
     width: "100%",
@@ -169,21 +168,16 @@ const AdminPanel = () => {
           <div
             style={{
               marginTop: "2px",
-              height: "99%",
-              width: "99%",
+              height: "58%",
+              width: "100%",
               background: "#fff",
-              justifyContent:'center',
-              display:'flex',
-              textAlign:'center',
-alignItems:'center',
             }}
           >
             <Image
               src={TipsImg}
               alt="Picture of the author"
-              width="520"
-              height={420}
-             
+              width="500"
+              height={190}
             />
           </div>
         </div>
@@ -225,11 +219,9 @@ alignItems:'center',
             // border: "2px solid red",
             justifyContent: "center",
             alignItems: "center",
-            background:'grey',
-            borderRadius:'10px',
           }}
         >
-         <h2 className={classes.typo_design}>User Log</h2>
+         <h1 className={classes.typo_design}>User Log</h1>
           <Modal
             open={open}
             onClose={handleClose}
@@ -254,17 +246,11 @@ alignItems:'center',
             Click Here
           </Button>
         </div>
-        <div style={{width:'99%',height:'320px',border:'4px solid white',justifyContent:'center',alignItems:'center',textAlign:'center',borderRadius:"10px",marginTop:'8px'}}>
-        <Image
-              src={Calender}
-              alt="Picture of the author"
-              width="1210"
-              height={320}
-             
-            />
-       {/* <CalenderPage/> */}
+        <div style={{width:'99%',height:'320px',border:'4px solid white',justifyContent:'center',alignItems:'center',textAlign:'center',borderRadius:"20px",marginTop:'0px'}}>
+       
+       
         </div>
-        <div style={{width:'99%',height:'320px',border:'4px solid white',justifyContent:'center',alignItems:'center',textAlign:'center',borderRadius:"10px",marginTop:'20px'}}>
+        <div style={{width:'99%',height:'320px',border:'4px solid white',justifyContent:'center',alignItems:'center',textAlign:'center',borderRadius:"20px",marginTop:'20px'}}>
         <NewChart/>
        {/* <LineChart/> */}
         </div>
