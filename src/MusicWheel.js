@@ -708,7 +708,7 @@ function MusicWheel(props) {
       "C",
     ],
   };
-  const customProps = { id: props.id };
+  // const customProps = { id: props.id };
   const nordMap = { "+": "M", "-": "m", "#": "b" };
   const soundData = [
     "https://mylatinhome.com/absolute/note-sound/A.wav",
@@ -777,9 +777,10 @@ function MusicWheel(props) {
     // } else {
     const temp = { ...nord };
     const count = [...temp["c1"], ...temp["c2"], ...temp["c3"]]?.length || 0;
-    if (["c1", "c2", "c3"].includes(c)) {
+    if (["c1", "c2", "c3",].includes(c)) {
       if (temp[c].indexOf(ind) == -1 && count < 3) {
         if ((count >= 1 && ind == nordIndex111) || count < 1) {
+          
           temp[c].push(ind);
           setNord(temp);
           if (c == "c1" || c == "c2") {
@@ -802,6 +803,7 @@ function MusicWheel(props) {
         }
         nordData.splice(nordIndex1, 1);
         setNordData(nordData);
+        console.log(nordData,'nordData')
       }
       setPackageDataIndex(0);
       setTempoIndex(0);
@@ -1000,6 +1002,7 @@ function MusicWheel(props) {
   
   function handleClickSong(songsData, ind) {
     props.timeData(0)
+    // highlightNord(songsData, ind)
     if (songsData.length > 0) {
       props.handleSong(songsData, ind);
     }
@@ -1054,6 +1057,7 @@ function MusicWheel(props) {
       }
       const selecetd_index = data["c3"].indexOf(selected_nord);
       setHighlightedNord({ c1: [], c2: [], c3: [selecetd_index] });
+      console.log(highlightedNord);
     } else if (last_nord == "m") {
       selected_nord = selected_nord.slice(0, selected_nord.length - 1);
       if (selected_nord.length > 1) {
@@ -1061,6 +1065,7 @@ function MusicWheel(props) {
       }
       const selecetd_index = data["c3"].indexOf(selected_nord);
       setHighlightedNord({ c1: [], c2: [selecetd_index], c3: [] });
+      console.log(highlightedNord);
     } else if (last_nord == "M") {
       selected_nord = selected_nord.slice(0, selected_nord.length - 1);
       if (selected_nord.length > 1) {
@@ -1068,6 +1073,7 @@ function MusicWheel(props) {
       }
       const selecetd_index = data["c3"].indexOf(selected_nord);
       setHighlightedNord({ c1: [selecetd_index], c2: [], c3: [] });
+      console.log(highlightedNord);
     }
   }
 
@@ -1105,7 +1111,7 @@ function MusicWheel(props) {
     myHeaders.append("Cookie", "PHPSESSID=ckmj4nc6enk1u3e0rle62m3l64");
 
     const nord_or_cord = getNord();
-    // console.log(nord_or_cord, "nord_or_cord.............");
+    console.log(nord_or_cord, "nord_or_cord.............");
     var urlencoded = new URLSearchParams();
     urlencoded.append("songs", "1");
     urlencoded.append("note_or_cord", nord_or_cord);
@@ -1743,6 +1749,22 @@ const arr=[];
               : // )
                 "No Songs Found"}
           </table>
+
+          {/* {songsData && songsData.length > 0 ? (
+            <DataTable
+              id="data"
+              columns={columns}
+              data={songsData}
+              fixedHeader
+              className={classes.tableStyleNew}
+              customStyles={customStyles}
+              onRowClicked={rowClick}
+              conditionalRowStyles={conditionalRowStyles}
+            />
+          ) : (
+            "No Songs Found"
+          )} */}
+          {/* </div> */}
         </Paper>
       </div>
     </div>
