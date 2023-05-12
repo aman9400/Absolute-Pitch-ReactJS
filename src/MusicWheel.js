@@ -693,7 +693,6 @@ function MusicWheel(props) {
     c1: ["+", "+", "+", "+", "+", "+", "+", "+", "+", "+", "+", "+"],
     c2: ["-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"],
     c3: ["Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B", "C"],
-    // c3: ["D", "D", "b", "E", "F", "G", "G", "b", "A", "b", "B", "C"],
     c3String: [
       "C#\nDb",
       "D",
@@ -709,7 +708,7 @@ function MusicWheel(props) {
       "C",
     ],
   };
-  // const customProps = { id: props.id };
+  const customProps = { id: props.id };
   const nordMap = { "+": "M", "-": "m", "#": "b" };
   const soundData = [
     "https://mylatinhome.com/absolute/note-sound/A.wav",
@@ -778,10 +777,9 @@ function MusicWheel(props) {
     // } else {
     const temp = { ...nord };
     const count = [...temp["c1"], ...temp["c2"], ...temp["c3"]]?.length || 0;
-    if (["c1", "c2", "c3",].includes(c)) {
+    if (["c1", "c2", "c3"].includes(c)) {
       if (temp[c].indexOf(ind) == -1 && count < 3) {
         if ((count >= 1 && ind == nordIndex111) || count < 1) {
-          
           temp[c].push(ind);
           setNord(temp);
           if (c == "c1" || c == "c2") {
@@ -804,7 +802,6 @@ function MusicWheel(props) {
         }
         nordData.splice(nordIndex1, 1);
         setNordData(nordData);
-        console.log(nordData,'nordData')
       }
       setPackageDataIndex(0);
       setTempoIndex(0);
@@ -1003,7 +1000,6 @@ function MusicWheel(props) {
   
   function handleClickSong(songsData, ind) {
     props.timeData(0)
-    // highlightNord(songsData, ind)
     if (songsData.length > 0) {
       props.handleSong(songsData, ind);
     }
@@ -1050,43 +1046,28 @@ function MusicWheel(props) {
 
   function highlightNord(songsData, ind) {
     const current_song = songsData[ind];
-    
-    console.log(ind,'ind...');
     let selected_nord = current_song["note_or_cord"];
-    console.log(selected_nord,'selected_nord....');
     const last_nord = selected_nord[selected_nord.length - 1];
-    console.log(last_nord,'last_nord....');
     if (last_nord != "m" && last_nord != "M") {
-      // if (selected_nord.length > 1) {
-      //   selected_nord = selected_nord.replace("b", "#");
-      //   console.log(selected_nord.length,'selected_nord....');
-      // }
+      if (selected_nord.length > 1) {
+        selected_nord = selected_nord.replace("b", "#");
+      }
       const selecetd_index = data["c3"].indexOf(selected_nord);
-      console.log(data["c3"].indexOf(selected_nord),'data["c3"].indexOf(selected_nord)....');
-      console.log(selecetd_index,'selecetd_index....');
       setHighlightedNord({ c1: [], c2: [], c3: [selecetd_index] });
-      console.log(highlightedNord,'highlightedNord....');
     } else if (last_nord == "m") {
       selected_nord = selected_nord.slice(0, selected_nord.length - 1);
-      console.log(selected_nord,'selected_nord....');
-      // if (selected_nord.length > 1) {
-      //   selected_nord = selected_nord.replace("b", "#");
-      //   console.log(selected_nord,'selected_nord....');
-      // }
+      if (selected_nord.length > 1) {
+        selected_nord = selected_nord.replace("b", "#");
+      }
       const selecetd_index = data["c3"].indexOf(selected_nord);
-      console.log(selecetd_index,'selecetd_index....');
       setHighlightedNord({ c1: [], c2: [selecetd_index], c3: [] });
-      console.log(highlightedNord,'highlightedNordC2..');
     } else if (last_nord == "M") {
       selected_nord = selected_nord.slice(0, selected_nord.length - 1);
-      // if (selected_nord.length > 1) {
-      //   selected_nord = selected_nord.replace("b", "#");
-      // }
+      if (selected_nord.length > 1) {
+        selected_nord = selected_nord.replace("b", "#");
+      }
       const selecetd_index = data["c3"].indexOf(selected_nord);
-      console.log(selecetd_index,'selecetd_index....');
       setHighlightedNord({ c1: [selecetd_index], c2: [], c3: [] });
-     
-      console.log(highlightedNord,'highlightedNordC3..');
     }
   }
 
@@ -1124,7 +1105,7 @@ function MusicWheel(props) {
     myHeaders.append("Cookie", "PHPSESSID=ckmj4nc6enk1u3e0rle62m3l64");
 
     const nord_or_cord = getNord();
-    console.log(nord_or_cord, "nord_or_cord.............");
+    // console.log(nord_or_cord, "nord_or_cord.............");
     var urlencoded = new URLSearchParams();
     urlencoded.append("songs", "1");
     urlencoded.append("note_or_cord", nord_or_cord);
