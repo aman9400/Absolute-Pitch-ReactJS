@@ -1743,22 +1743,6 @@ const arr=[];
               : // )
                 "No Songs Found"}
           </table>
-
-          {/* {songsData && songsData.length > 0 ? (
-            <DataTable
-              id="data"
-              columns={columns}
-              data={songsData}
-              fixedHeader
-              className={classes.tableStyleNew}
-              customStyles={customStyles}
-              onRowClicked={rowClick}
-              conditionalRowStyles={conditionalRowStyles}
-            />
-          ) : (
-            "No Songs Found"
-          )} */}
-          {/* </div> */}
         </Paper>
       </div>
     </div>
