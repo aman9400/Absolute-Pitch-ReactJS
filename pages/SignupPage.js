@@ -7,6 +7,9 @@ import {
   TextField,
 } from "@material-ui/core";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import { Formik } from "formik";
+import * as Yup from "yup";
 import Background from "../public/assets/images/blackboard.png";
 import Logo from "../public/assets/images/logo.png";
 const useStyles = makeStyles({
@@ -147,8 +150,43 @@ const useStyles = makeStyles({
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
-  const [cpass, setpPass] = useState("");
+  const [name, setName] = useState("");
   const classes = useStyles();
+  const router = useRouter();
+  const RagisterAccountSubmit = async (values) => {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+    var urlencoded = new URLSearchParams();
+    urlencoded.append("registration", "1");
+    urlencoded.append("email", "brajesh123@gmail.com");
+    urlencoded.append("password", "123456");
+    urlencoded.append("name", "brajesh");
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: urlencoded,
+      redirect: "follow",
+    };
+
+    fetch(
+      "https://mylatinhome.com/absolute/appdata/webservice.php",
+      requestOptions
+    )
+    .then((response) => response.json())
+    .then((responseJson) => {
+     
+      if (responseJson.valid === false) {
+       alert('Not Register')
+      } else {
+        alert('Register Successfully')
+        router.push({
+          pathname: "/SigninPage",
+        });
+      }
+    });
+  };
   return (
     <div className={classes.root}>
       <div className={classes.FormContainer}>
@@ -170,68 +208,118 @@ const SignUp = () => {
               Hey,Enter your details to get signup to you account
             </h3>
           </div>
-          <form id="my-form">
-            <div className={classes.songBox}>
-              <Grid container spacing={1}>
-                <Grid item md={12} xs={12} style={{ position: "relative" }}>
-                  <TextField
-                    required
-                    id="email"
-                    type="text"
-                    className={classes.inputField}
-                    label="Enter Email"
-                    variant="filled"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    name="email"
-                    size="small"
-                  />
-                </Grid>
-                <Grid item md={12} xs={12} style={{ position: "relative" }}>
-                  <TextField
-                    required
-                    id="password"
-                    type="text"
-                    className={classes.inputField}
-                    label="Password"
-                    value={pass}
-                    variant="filled"
-                    onChange={(e) => setPass(e.target.value)}
-                    name="password"
-                    size="small"
-                  />
-                </Grid>
-                <Grid item md={12} xs={12} style={{ position: "relative" }}>
-                  <TextField
-                    required
-                    id="confirm_password"
-                    type="text"
-                    className={classes.inputField}
-                    label="Confirm Password"
-                    value={cpass}
-                    variant="filled"
-                    onChange={(e) => setpPass(e.target.value)}
-                    name="confirm_password"
-                    size="small"
-                  />
-                </Grid>
-              </Grid>
-            </div>
+          <Formik
+            initialValues={{
+              email: "",
+              passsword: "",
+              cpasssword: "",
+            }}
+            validationSchema={Yup.object().shape({
+              email: Yup.string()
+                .max(50)
+                .required("Email ID is required.")
+                .email("Email ID is invalid."),
+              passsword: Yup.string()
+                .required("No password provided.")
+                .min(4, "Password is too short - should be 4 chars minimum.")
+                .matches(
+                  /[a-zA-Z]/,
+                  "Password can only contain Latin letters."
+                ),
+              cpasssword: Yup.string()
+                .required("No password provided.")
+                .min(4, "Password is too short - should be 4 chars minimum.")
+                .matches(
+                  /[a-zA-Z]/,
+                  "Password can only contain Latin letters."
+                ),
+            })}
+            onSubmit={async (values, { setSubmitting }) => {
+              const result = RagisterAccountSubmit(values, null, 2);
+            }}
+          >
+            {({
+              errors,
+              handleChange,
+              handleSubmit,
+              isSubmitting,
+              setFieldValue,
+              isValid,
+              touched,
+              values,
+            }) => (
+              <form id="my-form" onSubmit={handleSubmit}>
+                <div className={classes.songBox}>
+                  <Grid container spacing={1}>
+                  </Grid>
+                    <Grid item md={12} xs={12} style={{ position: "relative" }}>
+                      <TextField
+                        required
+                        id="name"
+                        type="text"
+                        className={classes.inputField}
+                        error={Boolean(
+                          touched.name && errors.name
+                        )}
+                        helperText={
+                          touched.name && errors.name
+                        }
+                        label="Name"
+                        value={name}
+                        variant="filled"
+                        onChange={(e) => setName(e.target.value)}
+                        name="name"
+                        size="small"
+                      />
+                    </Grid>
+                    <Grid item md={12} xs={12} style={{ position: "relative" }}>
+                      <TextField
+                        required
+                        id="email"
+                        type="text"
+                        className={classes.inputField}
+                        label="Email"
+                        value={email}
+                        variant="filled"
+                        onChange={(e) => setEmail(e.target.value)}
+                        name="passsword"
+                        size="small"
+                      />
+                    </Grid>
+                    <Grid item md={12} xs={12} style={{ position: "relative" }}>
+                      <TextField
+                        required
+                        id="passsword"
+                        type="text"
+                        className={classes.inputField}
+                        label="Password"
+                        value={pass}
+                        variant="filled"
+                        onChange={(e) => setPass(e.target.value)}
+                        name="passsword"
+                        size="small"
+                      />
+                   
+                  </Grid>
+                </div>
 
-            <div>
-              <Button
-                className={classes.typo_design}
-                style={{ width: "75%", marginTop: "150px" }}
-              >
-                SIGN UP
-              </Button>
-            </div>
-            <div>
-              <h3 style={{ color: "#fff" }} className={classes.typo_one}>
-                Dont have an account?Sign In
-              </h3>
-            </div>
-          </form>
+                <div>
+                  <Button
+                    className={classes.typo_design}
+                    style={{ width: "75%", marginTop: "150px" }}
+                    onClick={RagisterAccountSubmit}
+                  >
+                    SIGN UP
+                  </Button>
+                </div>
+                <div>
+                  <h3 style={{ color: "#fff" }} className={classes.typo_one}>
+                    Dont have an account?Sign In
+                  </h3>
+                </div>
+              </form>
+            )}
+          </Formik>
         </div>
       </div>
     </div>

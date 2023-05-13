@@ -110,9 +110,9 @@ const  UserLog = () => {
     console.log(lang,"else");
   }
   const classes = useStyles();
-  const arrOne = [0,0,0,0,0,0,0,0,0,0,0,0];
-  const arrTwo = [0,0,0,0,0,0,0,0,0,0,0,0];
-  const arrThree = [0,0,0,0,0,0,0,0,0,0,0,0];
+  const arrOne = [3,1,2,6,4,5,7,9,8,3,1,4];
+  const arrTwo = [5,1,3,4,8,6,3,2,5,4,2,3];
+  const arrThree = [6,3,4,3,2,1,5,3,2,1,3,2];
  
   const nordArray = {"A":0, "Ab":0, "B":0, "Bb":0, "C":0, "D":0, "Db":0, "E":0, "Eb":0, "F":0, "G":0, "Gb":0,"Am":0, "Abm":0, "Bm":0, "Bbm":0, "Cm":0, "Dm":0, "Dbm":0, "Em":0, "Ebm":0, "Fm":0, "Gm":0, "Gbm":0,"AM":0, "AbM":0, "BM":0, "BbM":0, "CM":0, "DM":0, "DbM":0, "EM":0, "EbM":0, "FM":0, "GM":0, "GbM":0};
   
