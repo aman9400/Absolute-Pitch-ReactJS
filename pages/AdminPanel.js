@@ -14,6 +14,8 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import UserLog from "./UserLog";
 import Feedback from "./Feedback";
+import LineChart from "./LineChart";
+import NewChart from "./NewChart";
 const style = {
   position: 'absolute',
   // top: '5%',
@@ -47,7 +49,7 @@ const useStyles = makeStyles({
   },
   containerBox: {
     // height: "auto",
-    width: "99.5%",
+    // width: "99.5%",
     padding: "10px",
     backgroundPosition: 'center',
     backgroundSize: 'cover',
@@ -91,6 +93,11 @@ const useStyles = makeStyles({
   systemBox: {
     width: "100%",
     height: "28vh",
+    // background:'grey',
+  },
+  systemBox1: {
+    width: "100%",
+    height: "24vh",
     // background:'grey',
   },
   typo_design: {
@@ -207,14 +214,14 @@ const AdminPanel = () => {
         // style={{ border: "2px solid red" }}
       >
         <div
-          className={classes.systemBox}
+          className={classes.systemBox1}
           style={{
             // border: "2px solid red",
             justifyContent: "center",
             alignItems: "center",
           }}
         >
-         <h1 className={classes.typo_design}>My Library</h1>
+         <h1 className={classes.typo_design}>User Log</h1>
           <Modal
             open={open}
             onClose={handleClose}
@@ -238,6 +245,14 @@ const AdminPanel = () => {
           >
             Click Here
           </Button>
+        </div>
+        <div style={{width:'99%',height:'320px',border:'4px solid white',justifyContent:'center',alignItems:'center',textAlign:'center',borderRadius:"20px",marginTop:'0px'}}>
+       
+       
+        </div>
+        <div style={{width:'99%',height:'320px',border:'4px solid white',justifyContent:'center',alignItems:'center',textAlign:'center',borderRadius:"20px",marginTop:'20px'}}>
+        <NewChart/>
+       {/* <LineChart/> */}
         </div>
       </Grid>
       <Grid item xs={12} md={3} sm={12} sx={12}>
@@ -348,7 +363,7 @@ const AdminPanel = () => {
                                     />
                                     {/* MAP HERE */}
         </div>
-        <div style={{width:'100%',height:'400px',border:'4px solid white',borderRadius:"20px",marginTop:'5px',textAlign:'center',}}>
+        <div style={{width:'100%',height:'280px',border:'4px solid white',borderRadius:"20px",marginTop:'5px',textAlign:'center',}}>
           <h4 style={{width:'90%',padding:'10px',fontSize:'35',fontFamily:'sans-serif',fontStyle:'bold',lineHeight:'20px'}}>
             We are on Journey together to raise humanity.What is or is not working for you ? $25 subcription created for any suggestion used !
           </h4>

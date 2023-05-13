@@ -725,7 +725,7 @@ function MusicWheel(props) {
   };
 
   const requestSort = (key) => {
-    // console.log("*** requestSort", key, sortConfig);
+   
     let direction = "ascending";
     if (
       sortConfig &&
@@ -737,36 +737,7 @@ function MusicWheel(props) {
     setSortConfig({ key, direction });
   };
 
-  // let lastInd = -1;
-  // const columns = [
-  //   {
-  //     name: "Title",
-  //     selector: (row) => row.song_title,
-  //     sortable: true,
-  //     keyField: true,
-  //     striped: true,
-  //     width: "180px",
-  //   },
-  //   { name: "Composer", selector: (row) => row.composer, sortable: true },
-  //   {
-  //     name: "Note",
-  //     selector: (row) => row.note_or_cord,
-  //     sortable: true,
-  //     width: "70px",
-  //   },
-  //   {
-  //     name: "Tempo",
-  //     selector: (row) => row.tempo,
-  //     sortable: true,
-  //     width: "76px",
-  //   },
-  //   {
-  //     name: "Intensity",
-  //     selector: (row) => row.intensity,
-  //     sortable: true,
-  //     width: "90px",
-  //   },
-  // ];
+ 
   const handleClick = (e, path) => {
     router.push("/Library");
   };
@@ -780,6 +751,7 @@ function MusicWheel(props) {
     if (["c1", "c2", "c3"].includes(c)) {
       if (temp[c].indexOf(ind) == -1 && count < 3) {
         if ((count >= 1 && ind == nordIndex111) || count < 1) {
+          
           temp[c].push(ind);
           setNord(temp);
           if (c == "c1" || c == "c2") {
@@ -802,6 +774,7 @@ function MusicWheel(props) {
         }
         nordData.splice(nordIndex1, 1);
         setNordData(nordData);
+       
       }
       setPackageDataIndex(0);
       setTempoIndex(0);
@@ -857,17 +830,6 @@ function MusicWheel(props) {
       // setImageTypeIndex("Letter,Staff,Keys");
     }
   }
-  // function intensitySort(){
-  //   setIntensityIndex(1+intensityIndex);
-
-  //   if(intensityIndex == '1')
-  //   {
-
-  //     fetchSongsData()
-  //   }
-  //   setNord({ c1: [], c2: [], c3: [] });
-  //   setNordData([]);
-  // }
 
   async function btnHandler(type, e, ind) {
     // if (imageTypeIndex == "") {
@@ -930,46 +892,42 @@ function MusicWheel(props) {
     }
 
     if (type == "Keys") {
-      // alert("You need to purchase the membership");
+     
       setImageTypeIndex(type);
       toggleActiveStyle(ind);
-      // await fetchSongsData(type);
+     
     }
     if (type == "Letter") {
       setImageTypeIndex(type);
       toggleActiveStyle(ind);
-      // await fetchSongsData(type);
+      
     }
     if (type == "Staff") {
       // alert("You need to purchase the membership");
       setImageTypeIndex(type);
       toggleActiveStyle(ind);
-      // await fetchSongsData(type);
+     
     }
     if (type == "Duration") {
       if (durationDataIndex == durationData.length - 1) {
         setDurationDataIndex(0);
-        // setDurationValue(durationData["minute1"]);
+       
       } else {
         setDurationDataIndex(durationDataIndex + 1);
 
         if (durationDataIndex == "0") {
           setDurationValue(durationData["minute1"]);
-          // console.log(durationValue, "durationValue");
         }
 
         if (durationDataIndex == "1") {
           setDurationValue(durationData["minute2"]);
-          // console.log(durationValue, "durationValue");
         }
         if (durationDataIndex == "2") {
           setDurationValue(durationData["minute3"]);
-          // console.log(durationValue, "durationValue");
         }
         if (durationDataIndex == "3") {
           setDurationDataIndex(0);
           setDurationValue("");
-          // console.log(durationValue, "durationValue");
         }
 
         setNord({ c1: [], c2: [], c3: [] });
@@ -1000,24 +958,11 @@ function MusicWheel(props) {
   
   function handleClickSong(songsData, ind) {
     props.timeData(0)
+    // highlightNord(songsData, ind)
     if (songsData.length > 0) {
       props.handleSong(songsData, ind);
     }
   }
-
-  // setTimeout(
-  // function secondsToHms() {
-  //   let d = Number(props.tduration);
-  //   var m = Math.floor((d % 3600) / 60);
-  //   var s = Math.floor((d % 3600) % 60);
-  //   var mDisplay = m > 0 ? m : "00";
-  //   var sDisplay = s > 0 ? s : "00";
-  //   let time = m + ":" + s;
-  //   * return time;
-  //    countdown(mDisplay, sDisplay);
-  //   * setAllsongTime(time);
-  // }
-  // ,2000);
   function countdown(minutes, seconds) {
     var mins = minutes;
     seconds++;
@@ -1049,25 +994,28 @@ function MusicWheel(props) {
     let selected_nord = current_song["note_or_cord"];
     const last_nord = selected_nord[selected_nord.length - 1];
     if (last_nord != "m" && last_nord != "M") {
-      if (selected_nord.length > 1) {
-        selected_nord = selected_nord.replace("b", "#");
-      }
+      // if (selected_nord.length > 1) {
+      //   selected_nord = selected_nord.replace("b", "#");
+      // }
       const selecetd_index = data["c3"].indexOf(selected_nord);
       setHighlightedNord({ c1: [], c2: [], c3: [selecetd_index] });
+      
     } else if (last_nord == "m") {
       selected_nord = selected_nord.slice(0, selected_nord.length - 1);
-      if (selected_nord.length > 1) {
-        selected_nord = selected_nord.replace("b", "#");
-      }
+      // if (selected_nord.length > 1) {
+      //   selected_nord = selected_nord.replace("b", "#");
+      // }
       const selecetd_index = data["c3"].indexOf(selected_nord);
       setHighlightedNord({ c1: [], c2: [selecetd_index], c3: [] });
+      
     } else if (last_nord == "M") {
       selected_nord = selected_nord.slice(0, selected_nord.length - 1);
-      if (selected_nord.length > 1) {
-        selected_nord = selected_nord.replace("b", "#");
-      }
+      // if (selected_nord.length > 1) {
+      //   selected_nord = selected_nord.replace("b", "#");
+      // }
       const selecetd_index = data["c3"].indexOf(selected_nord);
       setHighlightedNord({ c1: [selecetd_index], c2: [], c3: [] });
+      
     }
   }
 
@@ -1105,7 +1053,7 @@ function MusicWheel(props) {
     myHeaders.append("Cookie", "PHPSESSID=ckmj4nc6enk1u3e0rle62m3l64");
 
     const nord_or_cord = getNord();
-    // console.log(nord_or_cord, "nord_or_cord.............");
+    console.log(nord_or_cord, "nord_or_cord.............");
     var urlencoded = new URLSearchParams();
     urlencoded.append("songs", "1");
     urlencoded.append("note_or_cord", nord_or_cord);
@@ -1117,7 +1065,7 @@ function MusicWheel(props) {
     urlencoded.append("tempo", tempoData[tempoIndex]);
     urlencoded.append("image_type", imageTypeIndex);
     urlencoded.append("package", packageActive);
-    // console.log(packageActive, "packageActive....");
+    
     var requestOptions = {
       method: "POST",
       headers: myHeaders,
@@ -1743,22 +1691,6 @@ const arr=[];
               : // )
                 "No Songs Found"}
           </table>
-
-          {/* {songsData && songsData.length > 0 ? (
-            <DataTable
-              id="data"
-              columns={columns}
-              data={songsData}
-              fixedHeader
-              className={classes.tableStyleNew}
-              customStyles={customStyles}
-              onRowClicked={rowClick}
-              conditionalRowStyles={conditionalRowStyles}
-            />
-          ) : (
-            "No Songs Found"
-          )} */}
-          {/* </div> */}
         </Paper>
       </div>
     </div>
