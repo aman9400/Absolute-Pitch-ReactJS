@@ -160,8 +160,8 @@ const SignIn = () => {
 
     var urlencoded = new URLSearchParams();
     urlencoded.append("login", "1");
-    urlencoded.append("email", "brajesh123@gmail.com");
-    urlencoded.append("password", "123456");
+    urlencoded.append("email", email);
+    urlencoded.append("password", pass);
 
     var requestOptions = {
       method: "POST",
@@ -298,7 +298,7 @@ const SignIn = () => {
                 </div>
                 <div>
                   <h3 style={{ color: "#fff" }} className={classes.typo_one}>
-                    Dont have an account?<span onClick={SignupPge} style={{corsur:'pointer'}}>Sign Up</span>
+                    Dont have an account?<span onClick={SignupPge} style={{cursor:'pointer'}}>Sign Up</span>
                   </h3>
                 </div>
               </form>

@@ -159,9 +159,9 @@ const SignUp = () => {
 
     var urlencoded = new URLSearchParams();
     urlencoded.append("registration", "1");
-    urlencoded.append("email", "brajesh123@gmail.com");
-    urlencoded.append("password", "123456");
-    urlencoded.append("name", "brajesh");
+    urlencoded.append("email", email);
+    urlencoded.append("password", pass);
+    urlencoded.append("name", name);
 
     var requestOptions = {
       method: "POST",
@@ -317,7 +317,7 @@ const SignUp = () => {
                 </div>
                 <div>
                   <h3 style={{ color: "#fff" }} className={classes.typo_one}>
-                    Dont have an account?<span onClick={SignupPge} style={{corsur:'pointer'}}>Sign In</span>
+                    Dont have an account?<span onClick={SignupPge} style={{cursor:'pointer'}}>Sign In</span>
                   </h3>
                 </div>
               </form>

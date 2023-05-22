@@ -98,7 +98,7 @@ const useStyles = makeStyles({
 const UserLog = () => {
   const router = useRouter();
   const lang = Cookies.get("name");
-  
+  const userId = Cookies.get("userId");
   const classes = useStyles();
 
   const arrOne = [0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0];
@@ -149,7 +149,7 @@ const UserLog = () => {
 
     var urlencoded = new URLSearchParams();
     urlencoded.append("log-report", "1");
-    urlencoded.append("user_id", "10");
+    urlencoded.append("user_id",Cookies.get("userId"));
 
     var requestOptions = {
       method: "POST",
