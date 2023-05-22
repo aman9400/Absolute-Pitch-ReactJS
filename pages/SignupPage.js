@@ -187,6 +187,9 @@ const SignUp = () => {
       }
     });
   };
+  const SignupPge = () => {
+    router.push("/SigninPage");
+  }
   return (
     <div className={classes.root}>
       <div className={classes.FormContainer}>
@@ -314,7 +317,7 @@ const SignUp = () => {
                 </div>
                 <div>
                   <h3 style={{ color: "#fff" }} className={classes.typo_one}>
-                    Dont have an account?Sign In
+                    Dont have an account?<span onClick={SignupPge} style={{corsur:'pointer'}}>Sign In</span>
                   </h3>
                 </div>
               </form>
