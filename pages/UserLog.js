@@ -271,7 +271,7 @@ console.log(lc1,'le.....');
           <tr>
             {arrTwo.map((val, ind) => (
               <th key={ind} className={classes.th2}>
-                {ind > 12 && ind < 24 ? val.numberCount: '0' } 
+                {val} 
               </th>
             ))}
           </tr>
@@ -285,7 +285,7 @@ console.log(lc1,'le.....');
           <tr>
             {arrThree.map((val, ind) => (
               <th key={ind} className={classes.th2}>
-                  {ind > 24 ? val.numberCount: '0' } 
+                  {val} 
               </th>
             ))}
           </tr>
