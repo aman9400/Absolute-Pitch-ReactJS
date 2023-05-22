@@ -8,6 +8,7 @@ import {
 } from "@material-ui/core";
 import Image from "next/image";
 import { Formik } from "formik";
+import Cookies from "js-cookie";
 import * as Yup from "yup";
 import { useRouter } from "next/router";
 import Background from "../public/assets/images/blackboard.png";
@@ -123,8 +124,6 @@ const useStyles = makeStyles({
     fontStyle: "normal",
     fontSize: "25px",
     lineHeight: "30px",
-    // textAlign: "center",
-    // alignItems: "center",
   },
 
   typo_design: {
@@ -152,6 +151,7 @@ const SignIn = () => {
   const classes = useStyles();
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
+  const [ userId, setUserId] = useState("");
   const router = useRouter();
 
   const LoginAccountSubmit = async (values) => {
@@ -176,12 +176,15 @@ const SignIn = () => {
     )
       .then((response) => response.json())
       .then((responseJson) => {
-        if (responseJson.valid === false) {
+        if (responseJson.success === '0') {
           alert("Not Login");
         } else {
-          alert("Login Successfully");
+          // alert("Login Successfully");
+          setUserId(responseJson.data.user_details.id);
+          Cookies.set("userId",responseJson.data.user_details.id);
+          console.log(responseJson.data.user_details.id,'userid');
           router.push({
-            pathname: "/_app",
+            pathname: "/",
           });
         }
       });

@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core";
-import Cookies from 'js-cookie';
-import Image from 'next/image';
+import Cookies from "js-cookie";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import Link from "next/link";
 const myLoader = ({ src, width, quality }) => {
-  return `https://example.com/${src}?w=${width}&q=${quality || 75}`
-}
+  return `https://example.com/${src}?w=${width}&q=${quality || 75}`;
+};
 const useStyles = makeStyles({
   root: {
     position: "relative",
@@ -35,22 +35,22 @@ const useStyles = makeStyles({
     color: "white !important",
     width: "8%",
     height: "30px",
-    fontSize:'25px',
+    fontSize: "25px",
     "@media  (min-width: 300px) and (max-width: 450px)": {
       width: "8%",
       height: "40px",
-      fontSize:'20px',
+      fontSize: "20px",
     },
     "@media  (min-width: 451px) and (max-width: 599px)": {
       width: "8%",
       height: "50px",
-      fontSize:'25px',
+      fontSize: "25px",
     },
     "@media  (min-width: 600px) and (max-width: 1024px)": {
       width: "8%",
       height: "60px",
-      fontSize:'30px',
-    }
+      fontSize: "30px",
+    },
   },
   th2: {
     top: 0,
@@ -61,63 +61,51 @@ const useStyles = makeStyles({
     color: "white !important",
     width: "8%",
     height: "30px",
-    fontSize:'25px',
+    fontSize: "25px",
     "@media  (min-width: 300px) and (max-width: 450px)": {
       width: "8%",
       height: "40px",
-      fontSize:'20px',
+      fontSize: "20px",
     },
     "@media  (min-width: 451px) and (max-width: 599px)": {
       width: "8%",
       height: "50px",
-      fontSize:'25px',
+      fontSize: "25px",
     },
     "@media  (min-width: 600px) and (max-width: 1024px)": {
       width: "8%",
       height: "50px",
-      fontSize:'25px',
-    }
+      fontSize: "25px",
+    },
   },
-  tableDesign:{
-    width:'100%',
-    height:'88vh',
+  tableDesign: {
+    width: "100%",
+    height: "88vh",
     "@media  (min-width: 300px) and (max-width: 450px)": {
-      
       width: "70%",
       height: "80%",
-     
     },
     "@media  (min-width: 451px) and (max-width: 599px)": {
-      
       width: "70%",
       height: "80%",
-      
     },
     "@media  (min-width: 600px) and (max-width: 1024px)": {
-      
       width: "60%",
       height: "98%",
-      
     },
   },
 });
-const  UserLog = () => {
+const UserLog = () => {
   const router = useRouter();
-  const lang = Cookies.get('name');
-  if(lang){
-    console.log(lang,"if");
-  }else{
-    console.log(lang,"else");
-  }
-  const classes = useStyles();
-  const arrOne = [3,1,2,6,4,5,7,9,8,3,1,4];
-  const arrTwo = [5,1,3,4,8,6,3,2,5,4,2,3];
-  const arrThree = [6,3,4,3,2,1,5,3,2,1,3,2];
- 
-  const nordArray = {"A":0, "Ab":0, "B":0, "Bb":0, "C":0, "D":0, "Db":0, "E":0, "Eb":0, "F":0, "G":0, "Gb":0,"Am":0, "Abm":0, "Bm":0, "Bbm":0, "Cm":0, "Dm":0, "Dbm":0, "Em":0, "Ebm":0, "Fm":0, "Gm":0, "Gbm":0,"AM":0, "AbM":0, "BM":0, "BbM":0, "CM":0, "DM":0, "DbM":0, "EM":0, "EbM":0, "FM":0, "GM":0, "GbM":0};
+  const lang = Cookies.get("name");
   
-   
-  const data = {
+  const classes = useStyles();
+
+  const arrOne = [0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0];
+  const arrTwo = [0, 0, 0, 0, 0, 0, 0, 0,0, 0,0,0];
+  const arrThree = [0, 0, 0, 0, 0, 0, 0, 0,0,0, 0,0];
+  const [nordData, setNordData] = useState([]);
+  const dataArr = {
     c1: ["A", "Ab", "B", "Bb", "C", "D", "Db", "E", "Eb", "F", "G", "Gb"],
     c2: [
       "Am",
@@ -148,62 +136,115 @@ const  UserLog = () => {
       "GbM",
     ],
   };
-  const matchOne = data["c1"].indexOf(`${lang}`)
-  const matchTwo = data["c2"].indexOf(`${lang}`)
-  const matchThree = data["c3"].indexOf(`${lang}`)
-  // console.log(lang,'lang')
-  
-  const newArrOne = arrOne.map((num , ind) => 
-  {
-    
-    if(ind === matchOne)
-    {
-      return (num + 1);
-    }
-    else{
-      return num;
-    }
-  });
-  const newArrTwo = arrTwo.map((num , ind) =>  {
-    
-    if(ind === matchTwo)
-    {
-      return (num + 1);
-    }
-    else{
-      return num;
-    }
-  });
-  const newArrThree = arrThree.map((num , ind) =>  {
-    
-    if(ind === matchThree)
-    {
-      return (num + 1);
-    }
-    else{
-      return num;
-    }
-  });
-
-// console.log(matchOne,'matchOne'); 
-// console.log(matchTwo,'matchTwo');
-// console.log(newArrThree,'bnewArrThreek');
-  
  
-  
+  const matchOne = dataArr["c1"].indexOf(`${lang}`);
+  const matchTwo = dataArr["c2"].indexOf(`${lang}`);
+  const matchThree = dataArr["c3"].indexOf(`${lang}`);
+  // console.log(lang,'lang')
+
+  useEffect(() => {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+    myHeaders.append("Cookie", "PHPSESSID=974ee91d0edad978dc03bfadaa3ff9a6");
+
+    var urlencoded = new URLSearchParams();
+    urlencoded.append("log-report", "1");
+    urlencoded.append("user_id", "10");
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: urlencoded,
+      redirect: "follow",
+    };
+
+    fetch(
+      "https://mylatinhome.com/absolute/appdata/webservice.php",
+      requestOptions
+    )
+      .then((response) =>response.json())
+      .then((responseJson) => {
+        if (responseJson.success === '0') {
+          alert("Not Login");
+        } else {
+          setNordData(responseJson.data)
+          console.log(responseJson.data,'response..........');
+        }
+      });
+  }, [nordData]);
+
+
+
+  let j = 0;
+let lc1 = dataArr["c1"].length;
+let lc2 = dataArr["c2"].length;
+let lc3 = dataArr["c3"].length;
+
+for(j;j<lc1;j++)
+{
+ 
+  nordData.map((val,ind)=>{
+   if( val.nodes==dataArr["c1"][j]){
+    arrOne[j] = val.numberCount
+   }
+   if(val.nodes==dataArr["c2"][j])
+   {
+    arrTwo[j] = val.numberCount
+   }
+   if(val.nodes==dataArr["c3"][j]){
+    arrThree[j] = val.numberCount
+   }
+  })
+}
+for(let j2 = 0 ;j2<lc2;j2++)
+{
+ 
+  nordData.map((val,ind)=>{
+   if( val.nodes==dataArr["c1"][j2]){
+    arrOne[j2] = val.numberCount
+   }
+   if(val.nodes==dataArr["c2"][j2])
+   {
+    arrTwo[j2] = val.numberCount
+   }
+   if(val.nodes==dataArr["c3"][j2]){
+    arrThree[j2] = val.numberCount
+   }
+  })
+}
+for(let j3=0;j3<lc3;j3++)
+{
+ 
+  nordData.map((val,ind)=>{
+   if( val.nodes==dataArr["c1"][j3]){
+    arrOne[j3] = val.numberCount
+   }
+   if(val.nodes==dataArr["c2"][j3])
+   {
+    arrTwo[j3] = val.numberCount
+   }
+   if(val.nodes == dataArr["c3"][j3]){
+    arrThree[j3] = val.numberCount
+   }
+  })
+}
+console.log(lc1,'le.....');
+
   return (
     <div className={classes.root}>
       <div
         className={classes.sectonArea}
         style={{ background: "#fff", alignItems: "center" }}
       >
-        <div className={classes.para}><h3>User Log</h3></div>
+        <div className={classes.para}>
+          <h3>User Log</h3>
+        </div>
         {/* <Link href="/">
                 <a onClick={(e) => router.push("/Library")}>Library</a>
               </Link> */}
         <table className={classes.tableDesign}>
           <tr>
-            {data["c1"].map((val, ind) => (
+            {dataArr["c1"].map((val, ind) => (
               <th key={ind} className={classes.th}>
                 {val}
               </th>
@@ -211,14 +252,16 @@ const  UserLog = () => {
           </tr>
 
           <tr>
-            {newArrOne.map((val, ind) => (
+
+            {arrOne.map((val, ind) => (
               <th key={ind} className={classes.th2}>
-                {val}
+              {val} 
               </th>
             ))}
+            
           </tr>
           <tr>
-            {data["c2"].map((val, ind) => (
+            {dataArr["c2"].map((val, ind) => (
               <th key={ind} className={classes.th}>
                 {val}
               </th>
@@ -226,23 +269,23 @@ const  UserLog = () => {
           </tr>
 
           <tr>
-            {newArrTwo.map((val, ind) => (
+            {arrTwo.map((val, ind) => (
               <th key={ind} className={classes.th2}>
-                {val}
+                {ind > 12 && ind < 24 ? val.numberCount: '0' } 
               </th>
             ))}
           </tr>
           <tr>
-            {data["c3"].map((val, ind) => (
+            {dataArr["c3"].map((val, ind) => (
               <th key={ind} className={classes.th}>
                 {val}
               </th>
             ))}
           </tr>
           <tr>
-            {newArrThree.map((val, ind) => (
+            {arrThree.map((val, ind) => (
               <th key={ind} className={classes.th2}>
-                {val}
+                  {ind > 24 ? val.numberCount: '0' } 
               </th>
             ))}
           </tr>

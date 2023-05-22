@@ -47,7 +47,7 @@ const NewChart = () => {
       ];
       
   return (
-    <div style={{background:'#fff'}}>
+    <div style={{background:'#fff',borderRadius:'10px'}}>
       <ResponsiveContainer width='79%' aspect={3}>
         <LineChart data={data} width={930} height={200} margin={{top:25,right:20,left:20,bottom:20}}>
         <CartesianGrid strokeDasharray="3 3" />

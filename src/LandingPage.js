@@ -113,9 +113,6 @@ function LandingPage() {
   if (!Cookies.get("nordArray")) {
     Cookies.set("nordArray", nordArray);
   }
-// let dataArr = Cookies.get("apiData");
-// console.log(dataArr,'dataArr....');
-  //when new value received
 
 // ***********Handle song start here **************
   function handleSong(songsData, ind) {
@@ -144,7 +141,7 @@ function LandingPage() {
     console.log(allSongsDuration,'allSongsDuration ttt...')
     const getNextSong = document.getElementById("childid").children[ind];
     getNextSong.scrollIntoView();
-
+    GetSongNord(songsData[ind].note_or_cord)
   }
   //****** Handle song End here *************
 
@@ -177,8 +174,30 @@ function LandingPage() {
   }
 
   // *********** TotleTimeAndImage End here **************
-
-  // Cookies.set('name', songNote);
+  function GetSongNord(note_or_cord) {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+    myHeaders.append("Cookie", "PHPSESSID=6f62aaae4d06c1d0536d68ffef95a969");
+    console.log(Cookies.get("userId"),'Cookies.get("userId").......')
+    var urlencoded = new URLSearchParams();
+    urlencoded.append("create-log", "1");
+    urlencoded.append("user_id", Cookies.get("userId"));
+    urlencoded.append("action", note_or_cord);
+    urlencoded.append("log", "music start");
+    
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: urlencoded,
+      redirect: 'follow'
+    };
+    
+    fetch("https://mylatinhome.com/absolute/appdata/webservice.php", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
+  }
+  
   Cookies.set("nordArray", JSON.stringify(nordArray));
 
   useEffect(() => {
@@ -198,40 +217,19 @@ function LandingPage() {
   useEffect(() => {
     setTime(allSongsDuration);
   }, [allSongsDuration]);
-  
-  useEffect(() => {
-    // console.log(time, "time...");
-    // let x = secondsToHms(time);
-    // setAllsongTime(x);
-    // setRemainingTime(x);
-  }, [time]);
 
   useEffect(() => {
     let r = remainingTimes(allSongsDuration, durationLast);
     setRemainingTime(r);
   }, [durationLast]);
 
-  // function secondsToHms(Seconds) {
-  //   let d = Number(Seconds);
-  //   const result = new Date(d * 1000).toISOString().slice(11, 19);
-  //   console.log(result, "result..."); // 👉️ "00:10:00" (hh:mm:ss)
-  //   return result;
-  // }
 
   function remainingTimes(x, y) {
     let d = Number(x) - Number(y);
     const result = new Date(d * 1000).toISOString().slice(11, 19);
-    console.log(result,'result...'); // 👉️ "00:10:00" (hh:mm:ss)
+    // console.log(result,'result...'); // 👉️ "00:10:00" (hh:mm:ss)
     return result;
 
-    // var h = Math.floor(d / 3600);
-    // var m = Math.floor((d % 3600) / 60);
-    // var s = Math.floor((d % 3600) % 60);
-
-    // var hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours, ") : "";
-    // var mDisplay = m > 0 ? m + (m == 1 ? " minute, " : " minutes, ") : "";
-    // var sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
-    // return hDisplay + mDisplay + sDisplay;
   }
 
   const classes = useStyles();

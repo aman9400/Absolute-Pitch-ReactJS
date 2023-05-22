@@ -93,12 +93,14 @@ const useStyles = makeStyles({
   systemBox: {
     width: "100%",
     height: "28vh",
-    // background:'grey',
+    background:'grey',
   },
   systemBox1: {
-    width: "100%",
+    width: "99.5%",
     height: "24vh",
-    // background:'grey',
+    background:'grey',
+    borderRadius:'10px',
+    marginTop:'-15px',
   },
   typo_design: {
     fontFamily: "Nunito Sans",
@@ -129,7 +131,7 @@ const useStyles = makeStyles({
     borderRadius: "5px",
   },
   LocationBox: {
-    height: "150px",
+    height: "200px",
     marginTop: "20px",
     display: "flex",
     alignItems: "center",
@@ -219,9 +221,10 @@ const AdminPanel = () => {
             // border: "2px solid red",
             justifyContent: "center",
             alignItems: "center",
+            
           }}
         >
-         <h1 className={classes.typo_design}>User Log</h1>
+         <h1 className={classes.typo_design} style={{marginLeft:'10%'}}>User Log</h1>
           <Modal
             open={open}
             onClose={handleClose}
@@ -236,7 +239,7 @@ const AdminPanel = () => {
           <Button
           onClick={handleOpen}
             style={{
-              marginLeft: "32%",
+              marginLeft: "42%",
               background: "#fff",
               borderRadius: "10px",
               width: "20%",
@@ -246,13 +249,12 @@ const AdminPanel = () => {
             Click Here
           </Button>
         </div>
-        <div style={{width:'99%',height:'320px',border:'4px solid white',justifyContent:'center',alignItems:'center',textAlign:'center',borderRadius:"20px",marginTop:'0px'}}>
+        <div style={{width:'99%',height:'320px',border:'4px solid white',justifyContent:'center',alignItems:'center',textAlign:'center',borderRadius:"20px",marginTop:'5px'}}>
        
        
         </div>
         <div style={{width:'99%',height:'320px',border:'4px solid white',justifyContent:'center',alignItems:'center',textAlign:'center',borderRadius:"20px",marginTop:'20px'}}>
         <NewChart/>
-       {/* <LineChart/> */}
         </div>
       </Grid>
       <Grid item xs={12} md={3} sm={12} sx={12}>
@@ -281,6 +283,7 @@ const AdminPanel = () => {
                 alt="Picture of the author"
                 width="500"
                 height={290}
+                style={{borderRadius:'10px'}}
               />
             </a>
           </Grid>
@@ -299,6 +302,7 @@ const AdminPanel = () => {
                 alt="Picture of the author"
                 width="500"
                 height={290}
+                style={{borderRadius:'10px'}}
               />
             </a>
           </Grid>
@@ -317,6 +321,7 @@ const AdminPanel = () => {
                 alt="Picture of the author"
                 width="500"
                 height={290}
+                style={{borderRadius:'10px'}}
               />
             </a>
           </Grid>
@@ -339,6 +344,7 @@ const AdminPanel = () => {
                 alt="Picture of the author"
                 width="500"
                 height={290}
+                style={{borderRadius:'10px'}}
               />
             </a>
           </Grid>
