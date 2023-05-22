@@ -739,7 +739,7 @@ function MusicWheel(props) {
 
  
   const handleClick = (e, path) => {
-    router.push("/Library");
+    router.push("/UserLog");
   };
   
   function changeHandler(c, ind, event) {
