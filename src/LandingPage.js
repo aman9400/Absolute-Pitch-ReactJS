@@ -141,7 +141,7 @@ function LandingPage() {
     console.log(allSongsDuration,'allSongsDuration ttt...')
     const getNextSong = document.getElementById("childid").children[ind];
     getNextSong.scrollIntoView();
-    GetSongNord(songsData[ind].note_or_cord)
+    GetSongNord(songsData[ind-1].note_or_cord)
   }
   //****** Handle song End here *************
 

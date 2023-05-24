@@ -218,7 +218,7 @@ const useStyles = makeStyles({
     background: "#fff",
     borderRadius: "50%",
     padding: "10px",
-    cursor:'pointer',
+    cursor: "pointer",
   },
 });
 const Feedback = () => {
@@ -231,6 +231,34 @@ const Feedback = () => {
   const [about, setAbout] = useState("");
   const Data = (e) => {
     alert(classics);
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+    var urlencoded = new URLSearchParams();
+    urlencoded.append("feedback", "1");
+    urlencoded.append("user_id", Cookies.get("userId"));
+    urlencoded.append("classic", classics);
+    urlencoded.append("original", Original);
+    urlencoded.append("button", buttons);
+    urlencoded.append("wheel", wheel);
+    urlencoded.append("anything", about);
+    urlencoded.append("testimonial", testimonial);
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: urlencoded,
+      redirect: "follow",
+    };
+
+    fetch(
+      "https://mylatinhome.com/absolute/appdata/webservice.php",
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
   };
   return (
     <form id="my-form">
@@ -288,10 +316,16 @@ const Feedback = () => {
             <Grid container spacing={1} style={{ height: "100%" }}>
               <Grid item md={6} xs={12} style={{ height: "98%" }}>
                 <div className={classes.IconBox}>
-                <ThumbUpIcon className={classes.iconDesign}  onClick={(e)=>alert('Like clicked')}/>
+                  <ThumbUpIcon
+                    className={classes.iconDesign}
+                    onClick={(e) => alert("Like clicked")}
+                  />
                 </div>
                 <div className={classes.IconBox}>
-                  <ThumbDownIcon className={classes.iconDesign} onClick={(e)=>alert('DisLike clicked')}/>
+                  <ThumbDownIcon
+                    className={classes.iconDesign}
+                    onClick={(e) => alert("DisLike clicked")}
+                  />
                 </div>
                 {/* <Image
               src={Wheel}
@@ -393,7 +427,7 @@ const Feedback = () => {
                   className={classes.inputField}
                   label="Wheel"
                   variant="filled"
-                  onChange={(e) => setName(e.target.value)}
+                  onChange={(e) => setWheel(e.target.value)}
                   name="name"
                   size="small"
                 />

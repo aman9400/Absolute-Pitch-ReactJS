@@ -97,6 +97,7 @@ const useStyles = makeStyles({
 });
 const UserLog = () => {
   const router = useRouter();
+  // Cookies.remove("userId");
   const lang = Cookies.get("name");
   const userId = Cookies.get("userId");
   const classes = useStyles();
@@ -180,54 +181,57 @@ let lc1 = dataArr["c1"].length;
 let lc2 = dataArr["c2"].length;
 let lc3 = dataArr["c3"].length;
 
-for(j;j<lc1;j++)
+for(j=0;j<=lc1;j++)
 {
  
   nordData.map((val,ind)=>{
    if( val.nodes==dataArr["c1"][j]){
     arrOne[j] = val.numberCount
    }
+   console.log(arrOne,'arrOne...')
    if(val.nodes==dataArr["c2"][j])
    {
     arrTwo[j] = val.numberCount
    }
+   console.log(arrTwo,'arrTwo...')
    if(val.nodes==dataArr["c3"][j]){
     arrThree[j] = val.numberCount
    }
+   console.log(arrThree,'arrThree...')
   })
 }
-for(let j2 = 0 ;j2<lc2;j2++)
-{
+// for(let j2 = 0 ;j2<lc2;j2++)
+// {
  
-  nordData.map((val,ind)=>{
-   if( val.nodes==dataArr["c1"][j2]){
-    arrOne[j2] = val.numberCount
-   }
-   if(val.nodes==dataArr["c2"][j2])
-   {
-    arrTwo[j2] = val.numberCount
-   }
-   if(val.nodes==dataArr["c3"][j2]){
-    arrThree[j2] = val.numberCount
-   }
-  })
-}
-for(let j3=0;j3<lc3;j3++)
-{
+//   nordData.map((val,ind)=>{
+//    if( val.nodes==dataArr["c1"][j2]){
+//     arrOne[j2] = val.numberCount
+//    }
+//    if(val.nodes==dataArr["c2"][j2])
+//    {
+//     arrTwo[j2] = val.numberCount
+//    }
+//    if(val.nodes==dataArr["c3"][j2]){
+//     arrThree[j2] = val.numberCount
+//    }
+//   })
+// }
+// for(let j3=0;j3<lc3;j3++)
+// {
  
-  nordData.map((val,ind)=>{
-   if( val.nodes==dataArr["c1"][j3]){
-    arrOne[j3] = val.numberCount
-   }
-   if(val.nodes==dataArr["c2"][j3])
-   {
-    arrTwo[j3] = val.numberCount
-   }
-   if(val.nodes == dataArr["c3"][j3]){
-    arrThree[j3] = val.numberCount
-   }
-  })
-}
+//   nordData.map((val,ind)=>{
+//    if( val.nodes==dataArr["c1"][j3]){
+//     arrOne[j3] = val.numberCount
+//    }
+//    if(val.nodes==dataArr["c2"][j3])
+//    {
+//     arrTwo[j3] = val.numberCount
+//    }
+//    if(val.nodes == dataArr["c3"][j3]){
+//     arrThree[j3] = val.numberCount
+//    }
+//   })
+// }
 console.log(lc1,'le.....');
 
   return (
