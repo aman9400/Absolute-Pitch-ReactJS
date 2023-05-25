@@ -10,13 +10,15 @@ const myLoader = ({ src, width, quality }) => {
 const useStyles = makeStyles({
   root: {
     position: "relative",
-    maxWidth: "100%",
+    maxWidth: "99.8%",
+    border:'none',
+    height: "99vh",
   },
   sectonArea: {
     width: "99%",
     // float: "left",
     height: "98vh",
-    border: "2px solid black",
+    // border: "2px solid black",
   },
   para: {
     justifyContent: "center",
@@ -52,6 +54,15 @@ const useStyles = makeStyles({
       fontSize: "30px",
     },
   },
+  resetTh:{
+    background: "red",
+    color: "white !important",
+    width: "8%",
+    height: "30px",
+    fontSize: "25px",
+    cursor:'pointer',
+  },
+
   th2: {
     top: 0,
     marginTop: "-10px",
@@ -106,6 +117,9 @@ const UserLog = () => {
   const arrTwo = [0, 0, 0, 0, 0, 0, 0, 0,0, 0,0,0];
   const arrThree = [0, 0, 0, 0, 0, 0, 0, 0,0,0, 0,0];
   const [nordData, setNordData] = useState([]);
+  const [reset, setReset] = useState(false);
+  const [miner, setMiner] = useState(false);
+  const [major, setMajor] = useState(false);
   const dataArr = {
     c1: ["A", "Ab", "B", "Bb", "C", "D", "Db", "E", "Eb", "F", "G", "Gb"],
     c2: [
@@ -238,10 +252,10 @@ console.log(lc1,'le.....');
     <div className={classes.root}>
       <div
         className={classes.sectonArea}
-        style={{ background: "#fff", alignItems: "center" }}
+        style={{ background: "#849191", alignItems: "center",marginLeft:'5px' }}
       >
         <div className={classes.para}>
-          <h3>User Log</h3>
+          <h3 style={{color:'#fff'}}>User Log</h3>
         </div>
         {/* <Link href="/">
                 <a onClick={(e) => router.push("/Library")}>Library</a>
@@ -259,10 +273,10 @@ console.log(lc1,'le.....');
 
             {arrOne.map((val, ind) => (
               <th key={ind} className={classes.th2}>
-              {val} 
+             {reset == false ? `${val}` : '0'}
               </th>
             ))}
-            
+            <th className={classes.resetTh} onClick={()=>setReset(true)}>Reset</th>
           </tr>
           <tr>
             {dataArr["c2"].map((val, ind) => (
@@ -275,9 +289,10 @@ console.log(lc1,'le.....');
           <tr>
             {arrTwo.map((val, ind) => (
               <th key={ind} className={classes.th2}>
-                {val} 
+                {miner == false ? `${val}` : '0'}
               </th>
             ))}
+            <th className={classes.resetTh} onClick={()=>setMiner(true)}>Reset</th>
           </tr>
           <tr>
             {dataArr["c3"].map((val, ind) => (
@@ -289,21 +304,14 @@ console.log(lc1,'le.....');
           <tr>
             {arrThree.map((val, ind) => (
               <th key={ind} className={classes.th2}>
-                  {val} 
+                  {major == false ? `${val}` : '0'} 
               </th>
             ))}
+            <th className={classes.resetTh} onClick={()=>setMajor(true)}>Reset</th>
           </tr>
         </table>
       </div>
-      {/* <div className={classes.sectonArea} style={{ background: "#fff" }}>
-        <p className={classes.para}>User Form</p>
-      </div>
-      <div className={classes.sectonArea} style={{ background: "#fff" }}>
-        <p className={classes.para}>User Library</p>
-      </div>
-      <div className={classes.sectonArea} style={{ background: "#fff" }}>
-        <p className={classes.para}>Pitch Test</p>
-      </div> */}
+     
     </div>
   );
 };
