@@ -3,60 +3,82 @@ import {ResponsiveContainer,LineChart,Line,XAxis,YAxis,Tooltip,CartesianGrid,Leg
 const NewChart = () => {
     const data = [
         {
-          name: 'Page A',
-          uv: 400,
-          pv: 240,
-          amt: 240,
+          time: '1',
+          date:'1'
         },
         {
-          name: 'Page B',
-          uv: 400,
-          pv: 138,
-          amt: 210,
+          time: '2',
+          date:'5'
         },
         {
-          name: 'Page C',
-          uv: 200,
-          pv: 980,
-          amt: 220,
+          time: '3',
+          date:'2'
         },
         {
-          name: 'Page D',
-          uv: 270,
-          pv: 398,
-          amt: 200,
+          time: '4',
+          date:'7'
         },
         {
-          name: 'Page E',
-          uv: 180,
-          pv: 480,
-          amt: 211,
+          time: '5',
+          date:'4'
         },
         {
-          name: 'Page F',
-          uv: 230,
-          pv: 380,
-          amt: 250,
+          time: '6',
+          date:'9'
         },
         {
-          name: 'Page G',
-          uv: 340,
-          pv: 430,
-          amt: 210,
+          time: '7',
+          date:'5'
+        },
+        {
+          time: '8',
+          date:'6'
+        },
+        {
+          time: '9',
+          date:'9'
+        },
+        {
+          time: '10',
+          date:'10'
+        },
+        {
+          time: '11',
+          date:'6'
+        },
+        {
+          time: '12',
+          date:'5'
         },
       ];
-      
+      const options = {
+        title: {
+          display: true,
+          text: "Number of downloads of our app"
+        },
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                min: 0,
+                max: 20,
+                stepSize: 3
+              }
+            }
+          ]
+        }
+      };
   return (
     <div style={{background:'#fff',borderRadius:'10px'}}>
       <ResponsiveContainer width='79%' aspect={3}>
         <LineChart data={data} width={930} height={200} margin={{top:25,right:20,left:20,bottom:20}}>
         <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey='name' />
-            <YAxis/>
-            <Tooltip />
+            <XAxis dataKey='time' />
+            <YAxis />
+            <Tooltip style={{width:'100px !important'}}/>
             <Legend />
             {/* <Line dataKey='amt' stroke='red' activeDot={{r:8}} /> */}
-            <Line dataKey='pv' stroke='green' activeDot={{r:8}} />
+            <Line dataKey='date' stroke='green' activeDot={{r:8}} options={options}/>
             
         </LineChart>
       </ResponsiveContainer>

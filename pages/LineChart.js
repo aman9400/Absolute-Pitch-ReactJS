@@ -3,6 +3,7 @@ import { useEffect } from "react"
 import {
     makeStyles,
   } from "@material-ui/core";
+  
 import { Chart } from "chart.js";
 const useStyles = makeStyles({
     root: {
@@ -29,7 +30,16 @@ const LineChart = () => {
         var myChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                labels: ["Week 1",
+                "Week 2",
+                "Week 3",
+                "Week 4",
+                "Week 5",
+                "Week 6",
+                "Week 7",
+                "Week 8",
+                "Week 9",
+                "Week 10"],
                 datasets: [{
                     data: [86, 114, 106, 106, 107, 111, 133],
                     label: "Applied",
@@ -40,17 +50,7 @@ const LineChart = () => {
                     label: "Accepted",
                     borderColor: "rgb(60,186,159)",
                     backgroundColor: "rgb(60,186,159,0.1)",
-                }, {
-                    data: [10, 21, 60, 44, 17, 21, 17],
-                    label: "Pending",
-                    borderColor: "rgb(255,165,0)",
-                    backgroundColor: "rgb(255,165,0,0.1)",
-                }, {
-                    data: [6, 3, 2, 2, 7, 0, 16],
-                    label: "Rejected",
-                    borderColor: "rgb(196,88,80)",
-                    backgroundColor: "rgb(196,88,80,0.1)",
-                }
+                }, 
                 ]
             },
         });

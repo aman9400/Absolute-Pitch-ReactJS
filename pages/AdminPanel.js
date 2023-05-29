@@ -255,6 +255,7 @@ const AdminPanel = () => {
         </div>
         <div style={{width:'99%',height:'320px',border:'4px solid white',justifyContent:'center',alignItems:'center',textAlign:'center',borderRadius:"20px",marginTop:'20px'}}>
         <NewChart/>
+        {/* <LineChart/> */}
         </div>
       </Grid>
       <Grid item xs={12} md={3} sm={12} sx={12}>
