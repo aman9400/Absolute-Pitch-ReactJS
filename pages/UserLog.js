@@ -11,7 +11,7 @@ const useStyles = makeStyles({
   root: {
     position: "relative",
     maxWidth: "99.8%",
-    border:'none',
+    border: "none",
     height: "99vh",
   },
   sectonArea: {
@@ -54,13 +54,13 @@ const useStyles = makeStyles({
       fontSize: "30px",
     },
   },
-  resetTh:{
+  resetTh: {
     background: "red",
     color: "white !important",
     width: "8%",
     height: "30px",
     fontSize: "25px",
-    cursor:'pointer',
+    cursor: "pointer",
   },
 
   th2: {
@@ -113,11 +113,11 @@ const UserLog = () => {
   const userId = Cookies.get("userId");
   const classes = useStyles();
 
-  const arrOne = [0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0];
-  const arrTwo = [0, 0, 0, 0, 0, 0, 0, 0,0, 0,0,0];
-  const arrThree = [0, 0, 0, 0, 0, 0, 0, 0,0,0, 0,0];
+  const arrOne = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  const arrTwo = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  const arrThree = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   const [nordData, setNordData] = useState([]);
-  const [reset, setReset] = useState(false);
+  const [reset, setReset] = useState('');
   const [miner, setMiner] = useState(false);
   const [major, setMajor] = useState(false);
   const dataArr = {
@@ -151,7 +151,7 @@ const UserLog = () => {
       "GbM",
     ],
   };
- 
+
   const matchOne = dataArr["c1"].indexOf(`${lang}`);
   const matchTwo = dataArr["c2"].indexOf(`${lang}`);
   const matchThree = dataArr["c3"].indexOf(`${lang}`);
@@ -164,7 +164,7 @@ const UserLog = () => {
 
     var urlencoded = new URLSearchParams();
     urlencoded.append("log-report", "1");
-    urlencoded.append("user_id",Cookies.get("userId"));
+    urlencoded.append("user_id", Cookies.get("userId"));
 
     var requestOptions = {
       method: "POST",
@@ -177,85 +177,110 @@ const UserLog = () => {
       "https://mylatinhome.com/absolute/appdata/webservice.php",
       requestOptions
     )
-      .then((response) =>response.json())
+      .then((response) => response.json())
       .then((responseJson) => {
-        if (responseJson.success === '0') {
+        if (responseJson.success === "0") {
           alert("Not Login");
         } else {
-          setNordData(responseJson.data)
-          console.log(responseJson.data,'response..........');
+          setNordData(responseJson.data);
+          console.log(responseJson.data, "response..........");
         }
       });
   }, [nordData]);
 
+  const ResetData = (data) => {
+    // alert(data)
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
+    var urlencoded = new URLSearchParams();
+    urlencoded.append("reset-log", "1");
+    urlencoded.append("user_id", Cookies.get("userId"));
+    urlencoded.append("nodes", data);
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: urlencoded,
+      redirect: "follow",
+    };
+
+    fetch(
+      "https://mylatinhome.com/absolute/appdata/webservice.php",
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
+  };
 
   let j = 0;
-let lc1 = dataArr["c1"].length;
-let lc2 = dataArr["c2"].length;
-let lc3 = dataArr["c3"].length;
+  let lc1 = dataArr["c1"].length;
+  let lc2 = dataArr["c2"].length;
+  let lc3 = dataArr["c3"].length;
 
-for(j=0;j<=lc1;j++)
-{
- 
-  nordData.map((val,ind)=>{
-   if( val.nodes==dataArr["c1"][j]){
-    arrOne[j] = val.numberCount
-   }
-   console.log(arrOne,'arrOne...')
-   if(val.nodes==dataArr["c2"][j])
-   {
-    arrTwo[j] = val.numberCount
-   }
-   console.log(arrTwo,'arrTwo...')
-   if(val.nodes==dataArr["c3"][j]){
-    arrThree[j] = val.numberCount
-   }
-   console.log(arrThree,'arrThree...')
-  })
-}
-// for(let j2 = 0 ;j2<lc2;j2++)
-// {
- 
-//   nordData.map((val,ind)=>{
-//    if( val.nodes==dataArr["c1"][j2]){
-//     arrOne[j2] = val.numberCount
-//    }
-//    if(val.nodes==dataArr["c2"][j2])
-//    {
-//     arrTwo[j2] = val.numberCount
-//    }
-//    if(val.nodes==dataArr["c3"][j2]){
-//     arrThree[j2] = val.numberCount
-//    }
-//   })
-// }
-// for(let j3=0;j3<lc3;j3++)
-// {
- 
-//   nordData.map((val,ind)=>{
-//    if( val.nodes==dataArr["c1"][j3]){
-//     arrOne[j3] = val.numberCount
-//    }
-//    if(val.nodes==dataArr["c2"][j3])
-//    {
-//     arrTwo[j3] = val.numberCount
-//    }
-//    if(val.nodes == dataArr["c3"][j3]){
-//     arrThree[j3] = val.numberCount
-//    }
-//   })
-// }
-console.log(lc1,'le.....');
+  for (j = 0; j <= lc1; j++) {
+    nordData.map((val, ind) => {
+      if (val.nodes == dataArr["c1"][j]) {
+        arrOne[j] = val.numberCount;
+      }
+      console.log(arrOne, "arrOne...");
+      if (val.nodes == dataArr["c2"][j]) {
+        arrTwo[j] = val.numberCount;
+      }
+      console.log(arrTwo, "arrTwo...");
+      if (val.nodes == dataArr["c3"][j]) {
+        arrThree[j] = val.numberCount;
+      }
+      console.log(arrThree, "arrThree...");
+    });
+  }
+  // for(let j2 = 0 ;j2<lc2;j2++)
+  // {
+
+  //   nordData.map((val,ind)=>{
+  //    if( val.nodes==dataArr["c1"][j2]){
+  //     arrOne[j2] = val.numberCount
+  //    }
+  //    if(val.nodes==dataArr["c2"][j2])
+  //    {
+  //     arrTwo[j2] = val.numberCount
+  //    }
+  //    if(val.nodes==dataArr["c3"][j2]){
+  //     arrThree[j2] = val.numberCount
+  //    }
+  //   })
+  // }
+  // for(let j3=0;j3<lc3;j3++)
+  // {
+
+  //   nordData.map((val,ind)=>{
+  //    if( val.nodes==dataArr["c1"][j3]){
+  //     arrOne[j3] = val.numberCount
+  //    }
+  //    if(val.nodes==dataArr["c2"][j3])
+  //    {
+  //     arrTwo[j3] = val.numberCount
+  //    }
+  //    if(val.nodes == dataArr["c3"][j3]){
+  //     arrThree[j3] = val.numberCount
+  //    }
+  //   })
+  // }
+  console.log(lc1, "le.....");
 
   return (
     <div className={classes.root}>
       <div
         className={classes.sectonArea}
-        style={{ background: "#849191", alignItems: "center",marginLeft:'5px' }}
+        style={{
+          background: "#849191",
+          alignItems: "center",
+          marginLeft: "5px",
+        }}
       >
         <div className={classes.para}>
-          <h3 style={{color:'#fff'}}>User Log</h3>
+          <h3 style={{ color: "#fff" }}>User Log</h3>
         </div>
         {/* <Link href="/">
                 <a onClick={(e) => router.push("/Library")}>Library</a>
@@ -270,13 +295,14 @@ console.log(lc1,'le.....');
           </tr>
 
           <tr>
-
             {arrOne.map((val, ind) => (
               <th key={ind} className={classes.th2}>
-             {reset == false ? `${val}` : '0'}
+                {reset == false ? `${val}` : "0"}
               </th>
             ))}
-            <th className={classes.resetTh} onClick={()=>setReset(true)}>Reset</th>
+            <th className={classes.resetTh} onClick={() => ResetData('A,Ab,B,Bb,C,D,Db,E,Eb,F,G,Gb')}>
+              Reset
+            </th>
           </tr>
           <tr>
             {dataArr["c2"].map((val, ind) => (
@@ -289,10 +315,12 @@ console.log(lc1,'le.....');
           <tr>
             {arrTwo.map((val, ind) => (
               <th key={ind} className={classes.th2}>
-                {miner == false ? `${val}` : '0'}
+                {miner == false ? `${val}` : "0"}
               </th>
             ))}
-            <th className={classes.resetTh} onClick={()=>setMiner(true)}>Reset</th>
+            <th className={classes.resetTh} onClick={() => ResetData('Am,Abm,Bm,Bbm,Cm,Dm,Dbm,Em,Ebm,Fm,Gm,Gbm')}>
+              Reset
+            </th>
           </tr>
           <tr>
             {dataArr["c3"].map((val, ind) => (
@@ -304,14 +332,15 @@ console.log(lc1,'le.....');
           <tr>
             {arrThree.map((val, ind) => (
               <th key={ind} className={classes.th2}>
-                  {major == false ? `${val}` : '0'} 
+                {major == false ? `${val}` : "0"}
               </th>
             ))}
-            <th className={classes.resetTh} onClick={()=>setMajor(true)}>Reset</th>
+            <th className={classes.resetTh} onClick={() => ResetData('AM,AbM,BM,BbM,CM,DM,DbM,EM,EbM,FM,GM,GbM')}>
+              Reset
+            </th>
           </tr>
         </table>
       </div>
-     
     </div>
   );
 };
