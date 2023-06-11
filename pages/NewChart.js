@@ -33,9 +33,6 @@ const NewChart = () => {
      
     }
   });
-
-  
-
 }, [nordData]);
 let newData = {};
 for(let i=0; i <= nordData.length; i++)
