@@ -99,22 +99,7 @@ const NewChart = () => {
 
   return (
     <div style={{ background: "#fff", borderRadius: "10px" }}>
-      <ResponsiveContainer width="95%" aspect={3}>
-        <LineChart
-          data={nordData}
-          width={930}
-          height={200}
-          margin={{ top: 25, right: 20, left: 20, bottom: 20 }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="date" />
-          <YAxis dataKey="time" />
-          <Tooltip />
-          <Legend />
-          {/* <Line dataKey='amt' stroke='red' activeDot={{r:8}} /> */}
-          <Line dataKey="time" stroke="green" activeDot={{ r: 8 }} />
-        </LineChart>
-      </ResponsiveContainer>
+     <h1>sorry</h1>
     </div>
   );
 };

@@ -235,39 +235,7 @@ function LandingPage() {
   const classes = useStyles();
   return (
     <Grid container spacing={0} className={classes.containerBox}>
-      <Grid item xs={12} md={6} sm={12} sx={12} className={classes.leftSection}>
-        <MusicWheel
-          handleSong={handleSong}
-          musicData={data}
-          musicIndex={index}
-          id="childid"
-          songTitle={songTitle}
-          songName={songName}
-          composer={composer}
-          songNote={songNote}
-          allImageCount={allImageCount}
-          duration={duration}
-          durationLast={currentSongTime}
-          imageCount={imageCount}
-          playSongposition={playSongposition}
-          setAllImageCount={setAllImageCount}
-          setTotalSeconds={setTotalSeconds}
-          remainingTime={remainingTime}
-          tduration={time}
-          setPlaySongposition={setPlaySongposition}
-          allsongTime={allsongTime}
-          timeData={setAllSongsDuration}
-        />
-      </Grid>
-      <Grid item xs={12} md={6} sm={12} className={classes.rightSection}>
-        <VideoPlayer
-          handleSong={handleSong}
-          musicData={data}
-          musicIndex={index}
-          TotleTimeAndImage={TotleTimeAndImage}
-          timeData={setAllSongsDuration}
-        />
-      </Grid>
+      <h1>Sorry men</h1>
     </Grid>
   );
 }
